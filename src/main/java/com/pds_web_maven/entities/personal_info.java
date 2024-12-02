@@ -8,12 +8,15 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 @Entity
 @Table(name="personal_info")
 @NamedQueries({
-    @NamedQuery(name = "personal_info.findAll", query = "SELECT p FROM personal_info p") // Order by p_id
+    @NamedQuery(name = "personal_info.findAll", query = "SELECT p FROM personal_info p"), // Order by p_id
+    @NamedQuery(name = "personal_info.findbyPID", query = "SELECT p FROM personal_info p WHERE p.p_id = :p_id")
 })
 public class personal_info {
     @Id
@@ -220,5 +223,44 @@ public class personal_info {
     @Override
     public String toString() {
         return "com.pds_web.entities.personal_info[ p_id=" + p_id + ", " + l_name + " ]";
+    }
+    
+    public String convertSexId(int sex_id) {
+        String sex = " ";
+        switch(sex_id){
+            case 1:
+                sex = "Male";
+                break;
+            case 2:
+                sex = "Female";
+                break;
+        }
+        return sex;
+    }
+    
+    public String convertCstatId(int cstat_id){
+        String cstat = " ";
+        switch(cstat_id){
+            case 1: 
+                cstat = "Single";
+                break;
+            case 2:
+                cstat = "Married";
+                break;
+            case 3:
+                cstat = "Widowed";
+                break;
+            case 4:
+                cstat = "Seperated";
+                break;
+            case 5:
+                cstat = "Others";
+                break;
+        }
+        return cstat;
+    }
+    
+    public String convertDob(Date dob){
+        return String.valueOf(Period.between(LocalDate.parse(String.valueOf(dob)), LocalDate.now()).getYears());
     }
 }
