@@ -4,7 +4,6 @@ import com.pds_web_maven.entities.personal_info;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import org.hibernate.SessionFactory;
@@ -64,30 +63,68 @@ public class ReadPersonal_Info {
     
     public Map<String, String>[] getData(){
         // ArrayList<HashMap<String, String>> productList;
-        // HashMap<String, HashMap<String, String>> allChanges; 
-        @SuppressWarnings("unchecked")
+        // HashMap<String, HashMap<String, String>> allChanges;
         Map<String, String>[] respondent = new HashMap[60];
         createSession();
-        DateFormat dob;
         try {
             session.beginTransaction();
-            List<personal_info> dbresult = session.createNamedQuery("personal_info.findAll", personal_info.class).getResultList();
+            List<personal_info> dbresult = session.createNamedQuery("personal_info.findAll", personal_info.class)
+                                                  .getResultList();
             int i = 0;
-            LocalDate currDate = LocalDate.now();
             for (personal_info p : dbresult){
                 respondent[i] = new HashMap<>();
                 respondent[i].put("p_id", String.valueOf(p.getp_id()));
+                respondent[i].put("gender", p.convertSexId(p.getSex_id()));
+                respondent[i].put("civilstatus", p.convertCstatId(p.getCstat_id()));
                 respondent[i].put("fullname", p.getl_name() + ", " + p.getf_name() + " " + p.getm_name());
-                respondent[i].put("gender", p.getSex_id() % 2 == 0 ? "Female" : "Male"); // !Others
-                respondent[i].put("age", String.valueOf(Period.between(LocalDate.parse(String.valueOf(p.getDob())), currDate).getYears()));
+                respondent[i].put("age", p.convertDob(p.getDob()));
+                respondent[i].put("birthplace", p.getPob());
+                respondent[i].put("height", String.valueOf(p.getHeight()));
+                respondent[i].put("weight", String.valueOf(p.getWeight()));
+                respondent[i].put("bloodtype", p.getblood_type());
+                respondent[i].put("gsis_no", String.valueOf(p.getgsis_no()));
+                respondent[i].put("pagibig_id", String.valueOf(p.getPagibig_id()));
+                respondent[i].put("philhealth_id", String.valueOf(p.getPhilhealth_Id()));
+                respondent[i].put("sss_no", String.valueOf(p.getSss_no()));
+                respondent[i].put("tin", String.valueOf(p.getTin()));
+                respondent[i].put("agency_empno", String.valueOf(p.getAgency_empno()));
                 ++i;
             }
-            
-//             DEBUGGING 
-             for (int j=0; j<60; ++j){
-                 System.out.println(respondent[j].get("fullname"));
-             }
-
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+        return respondent;
+    }
+    
+    public Map<String, String>[] getData(int p_id){
+        createSession();
+        Map<String, String>[] respondent = new HashMap[60];
+        try {
+            session.beginTransaction();
+            List<personal_info> dbresult = session.createNamedQuery("personal_info.findbyPID", personal_info.class)
+                                                  .setParameter("p_id", p_id)
+                                                  .getResultList();
+            int i = 0;
+            for (personal_info p : dbresult){
+                respondent[i] = new HashMap<>();
+                respondent[i].put("p_id", String.valueOf(p.getp_id()));
+                respondent[i].put("gender", p.convertSexId(p.getSex_id()));
+                respondent[i].put("civilstatus", p.convertCstatId(p.getCstat_id()));
+                respondent[i].put("fullname", p.getl_name() + ", " + p.getf_name() + " " + p.getm_name());
+                respondent[i].put("age", p.convertDob(p.getDob()));
+                respondent[i].put("birthplace", p.getPob());
+                respondent[i].put("height", String.valueOf(p.getHeight()));
+                respondent[i].put("weight", String.valueOf(p.getWeight()));
+                respondent[i].put("bloodtype", p.getblood_type());
+                respondent[i].put("gsis_no", String.valueOf(p.getgsis_no()));
+                respondent[i].put("pagibig_id", String.valueOf(p.getPagibig_id()));
+                respondent[i].put("philhealth_id", String.valueOf(p.getPhilhealth_Id()));
+                respondent[i].put("sss_no", String.valueOf(p.getSss_no()));
+                respondent[i].put("tin", String.valueOf(p.getTin()));
+                respondent[i].put("agency_empno", String.valueOf(p.getAgency_empno()));
+                ++i;
+            }
             session.getTransaction().commit();
         } finally {
             factory.close();
