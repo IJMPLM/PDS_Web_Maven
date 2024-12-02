@@ -10,26 +10,12 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "family_background")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "family_background.findAll", query = "SELECT f FROM family_background f")
-//    @NamedQuery(name = "family_background.findByFamBgId", query = "SELECT f FROM family_background f WHERE f.famBgId = :famBgId"),
-//    @NamedQuery(name = "family_background.findBySpouseLname", query = "SELECT f FROM family_background f WHERE f.spouseLname = :spouseLname"),
-//    @NamedQuery(name = "family_background.findBySpouseFname", query = "SELECT f FROM family_background f WHERE f.spouseFname = :spouseFname"),
-//    @NamedQuery(name = "family_background.findBySpouseMname", query = "SELECT f FROM family_background f WHERE f.spouseMname = :spouseMname"),
-//    @NamedQuery(name = "family_background.findBySpouseOccupation", query = "SELECT f FROM family_background f WHERE f.spouseOccupation = :spouseOccupation"),
-//    @NamedQuery(name = "family_background.findBySpouseEmployer", query = "SELECT f FROM family_background f WHERE f.spouseEmployer = :spouseEmployer"),
-//    @NamedQuery(name = "family_background.findBySpouseEmpAddress", query = "SELECT f FROM family_background f WHERE f.spouseEmpAddress = :spouseEmpAddress"),
-//    @NamedQuery(name = "family_background.findByFatherLname", query = "SELECT f FROM family_background f WHERE f.fatherLname = :fatherLname"),
-//    @NamedQuery(name = "family_background.findByFatherFname", query = "SELECT f FROM family_background f WHERE f.fatherFname = :fatherFname"),
-//    @NamedQuery(name = "family_background.findByFatherMname", query = "SELECT f FROM family_background f WHERE f.fatherMname = :fatherMname"),
-//    @NamedQuery(name = "family_background.findByMotherMnLname", query = "SELECT f FROM family_background f WHERE f.motherMnLname = :motherMnLname"),
-//    @NamedQuery(name = "family_background.findByMotherMnFname", query = "SELECT f FROM family_background f WHERE f.motherMnFname = :motherMnFname"),
-//    @NamedQuery(name = "family_background.findByMotherMnMname", query = "SELECT f FROM family_background f WHERE f.motherMnMname = :motherMnMname")
 })
 public class family_background {
 
@@ -212,10 +198,5 @@ public class family_background {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.pds_web_maven.entities.family_background[ famBgId=" + famBgId + " ]";
     }
 }
