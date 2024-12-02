@@ -219,11 +219,6 @@ public class personal_info {
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "com.pds_web.entities.personal_info[ p_id=" + p_id + ", " + l_name + " ]";
-    }
     
     public String convertSexId(int sex_id) {
         String sex = " ";

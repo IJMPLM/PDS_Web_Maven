@@ -20,55 +20,14 @@ public class ReadPersonal_Info {
         
         this.session = factory.getCurrentSession();
     }
-
-    // test
-    public String readLastName() {
-        createSession();
-        String result = " ";
-        try {
-            session.beginTransaction();
-            String query = "FROM personal_info WHERE p_id = :p_id";
-            personal_info classObj = session.createQuery(query, personal_info.class)
-                                     .setParameter("p_id", 12)
-                                     .getSingleResultOrNull();
-            result = classObj.getl_name();
-            session.getTransaction().commit();
-        } finally {
-            factory.close();
-        }
-        return result;
-    }
-    
-    // test
-    public void getallPIDs(){
-        createSession();
-        try { 
-            session.beginTransaction();
-//            String query = "FROM personal_info WHERE p_id = ?1";
-//            personal_info classObj = session.createQuery(query, personal_info.class)
-//                                     .setParameter(1, 12)
-//                                     .getSingleResultOrNull();
-            List<personal_info> respondents = session.createNamedQuery("personal_info.findAll", personal_info.class).getResultList(); // Error: type List does not take parameters
-            
-            for (personal_info p : respondents){
-                System.out.println(p);
-            }
-            session.getTransaction().commit();
-        } finally {
-            factory.close();
-        }
-    }
     
     public List<Map<String, String>> getData(){
-        // ArrayList<HashMap<String, String>> productList;
-        // HashMap<String, HashMap<String, String>> allChanges;
         List<Map<String, String>> respondent = new ArrayList<>();
         createSession();
         try {
             session.beginTransaction();
             List<personal_info> dbresult = session.createNamedQuery("personal_info.findAll", personal_info.class)
                                                   .getResultList();
-            int i = 0;
             for (personal_info p : dbresult){
                 Map<String, String> data = new HashMap<>();
                 data.put("p_id", String.valueOf(p.getp_id()));
@@ -87,7 +46,6 @@ public class ReadPersonal_Info {
                 data.put("tin", String.valueOf(p.getTin()));
                 data.put("agency_empno", String.valueOf(p.getAgency_empno()));
                 respondent.add(data);
-                ++i;
             }
             session.getTransaction().commit();
         } finally {
@@ -104,7 +62,6 @@ public class ReadPersonal_Info {
             List<personal_info> dbresult = session.createNamedQuery("personal_info.findbyPID", personal_info.class)
                                                   .setParameter("p_id", p_id)
                                                   .getResultList();
-            int i = 0;
             for (personal_info p : dbresult){
                 Map<String, String> data = new HashMap<>();
                 data.put("p_id", String.valueOf(p.getp_id()));
@@ -123,7 +80,6 @@ public class ReadPersonal_Info {
                 data.put("tin", String.valueOf(p.getTin()));
                 data.put("agency_empno", String.valueOf(p.getAgency_empno()));
                 respondent.add(data);
-                ++i;
             }
             session.getTransaction().commit();
         } finally {
