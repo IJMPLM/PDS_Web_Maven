@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 @Table(name="personal_info")
 @NamedQueries({
-    @NamedQuery(name = "personal_info.findAll", query = "SELECT p FROM personal_info p")
+    @NamedQuery(name = "personal_info.findAll", query = "SELECT p FROM personal_info p") // Order by p_id
 })
 public class personal_info {
     @Id
