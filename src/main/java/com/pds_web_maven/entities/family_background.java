@@ -87,9 +87,15 @@ public class family_background {
     public Integer getFamBgId() {
         return famBgId;
     }
-
     public void setFamBgId(Integer famBgId) {
         this.famBgId = famBgId;
+    }
+    
+    public int getP_id() {
+        return p_id;
+    }
+    public void setP_id(int p_id) {
+        this.p_id = p_id;
     }
 
     public String getSpouseLname() {
@@ -212,19 +218,4 @@ public class family_background {
     public String toString() {
         return "com.pds_web_maven.entities.family_background[ famBgId=" + famBgId + " ]";
     }
-
-    /**
-     * @return the p_id
-     */
-    public int getP_id() {
-        return p_id;
-    }
-
-    /**
-     * @param p_id the p_id to set
-     */
-    public void setP_id(int p_id) {
-        this.p_id = p_id;
-    }
-    
 }
