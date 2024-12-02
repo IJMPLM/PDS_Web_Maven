@@ -15,7 +15,8 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @Table(name = "family_background")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "family_background.findAll", query = "SELECT f FROM family_background f")
+    @NamedQuery(name = "family_background.findAll", query = "SELECT f FROM family_background f"),
+    @NamedQuery(name = "family_background.findByPID", query = "SELECT f FROM family_background f WHERE f.p_id = :p_id")
 })
 public class family_background {
 
@@ -198,5 +199,29 @@ public class family_background {
             return false;
         }
         return true;
+    }
+    
+    public String convertSpouseFN(String spouse_lname){
+        return spouse_lname == null ? "N/A" : getSpouseLname() + ", " + getSpouseFname() + " " + getSpouseMname();
+    }
+    
+    public String convertSpouceOccu(String spouse_occu){
+        return spouse_occu == null ? "N/A" : getSpouseOccupation(); 
+    }
+    
+    public String convertEmployer(String spouse_emp){
+        return spouse_emp == null ? "N/A" : getSpouseEmployer();
+    }
+    
+    public String convertEmpAddr(String spouse_empaddr){
+        return spouse_empaddr == null ? "N/A" : getSpouseEmpAddress();
+    }
+
+    public String convertFatherFN(String father_lname){
+        return father_lname == null ? "N/A" : getFatherLname() + ", " + getFatherFname() + " " + getFatherMname();
+    }
+    
+    public String convertMotherFN(String Mother_lname){
+        return Mother_lname == null ? "N/A" : getMotherMnLname() + ", " + getMotherMnFname() + " " + getMotherMnMname();
     }
 }
