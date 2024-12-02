@@ -21,11 +21,17 @@
                 <%
                     Map<String, String>[] data = (Map<String, String>[]) request.getAttribute("data");
                     for (Map<String, String> map : data) {
-                        out.println("<tr>");
-                        out.println("<td>" + map.get("id") + "</td>");
-                        out.println("<td>" + map.get("lastname") +", " + map.get("firstname") + " "+ map.get("middlename") +"</td>");
-                        out.println("<td>" + map.get("gender") + "</td>");
-                        out.println("</tr>");
+                %>
+                        <tr>
+                            <form action="YourServletURL" method="post">
+                                <input type="hidden" name="p_id" value="<%= map.get("id") %>">
+                                <td><button type="submit" class="w-full text-left"><%= map.get("id") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("lastname") %>, <%= map.get("firstname") %> <%= map.get("middlename") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("gender") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("age") %></button></td>
+                            </form>
+                        </tr>
+                <%
                     }
                 %>
             </tbody>
