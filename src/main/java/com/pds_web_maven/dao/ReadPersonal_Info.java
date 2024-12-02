@@ -12,7 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
 
-public class DashboardInfo {
+public class ReadPersonal_Info {
     private SessionFactory factory;
     private Session session;
     public void createSession(){
@@ -62,7 +62,7 @@ public class DashboardInfo {
         }
     }
     
-    public Map<String, String>[] getValues(){
+    public Map<String, String>[] getData(){
         // ArrayList<HashMap<String, String>> productList;
         // HashMap<String, HashMap<String, String>> allChanges; 
         @SuppressWarnings("unchecked")
