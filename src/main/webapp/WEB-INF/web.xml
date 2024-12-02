@@ -23,4 +23,12 @@
         <servlet-name>DashboardInfoServlet</servlet-name>
         <url-pattern>/DashboardInfoServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisplayPersonalInfoServlet</servlet-name>
+        <servlet-class>com.pds_web_maven.servlets.DisplayPersonalInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayPersonalInfoServlet</servlet-name>
+        <url-pattern>/DisplayPersonalInfoServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

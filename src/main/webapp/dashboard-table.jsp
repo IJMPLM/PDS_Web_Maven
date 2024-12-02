@@ -23,10 +23,10 @@
                     for (Map<String, String> map : data) {
                 %>
                         <tr>
-                            <form action="YourServletURL" method="post">
-                                <input type="hidden" name="p_id" value="<%= map.get("id") %>">
-                                <td><button type="submit" class="w-full text-left"><%= map.get("id") %></button></td>
-                                <td><button type="submit" class="w-full text-left"><%= map.get("lastname") %>, <%= map.get("firstname") %> <%= map.get("middlename") %></button></td>
+                            <form action="DisplayPersonalInfoServlet" method="post">
+                                <input type="hidden" name="p_id" value="<%= map.get("p_id") %>">
+                                <td><button type="submit" class="w-full text-left"><%= map.get("p_id") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("fullname") %></button></td>
                                 <td><button type="submit" class="w-full text-left"><%= map.get("gender") %></button></td>
                                 <td><button type="submit" class="w-full text-left"><%= map.get("age") %></button></td>
                             </form>
