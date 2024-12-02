@@ -17,7 +17,6 @@ public class ReadPersonal_Info {
                     .configure("hibernate.cfg.xml")
                     .addAnnotatedClass(personal_info.class)
                     .buildSessionFactory();
-        
         this.session = factory.getCurrentSession();
     }
     
