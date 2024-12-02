@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/tailwind-output.css">
 </head>
 <body>
-    <%@ include file="dashboard-header.jsp" %>
+    <header>
+        <%@ include file="dashboard-header.jsp" %>
+    </header>
+    <main class="m-6">
+        <%@ include file="dashboard-table.jsp" %>
+    </main>
 </body>
 </html>
