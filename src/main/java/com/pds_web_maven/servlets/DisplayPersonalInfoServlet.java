@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,7 +28,7 @@ public class DisplayPersonalInfoServlet extends HttpServlet {
             throws ServletException, IOException {
         int p_id = Integer.parseInt(request.getParameter("p_id"));
         ReadPersonal_Info personalInfo = new ReadPersonal_Info();
-        Map<String, String>[] data = personalInfo.getData(p_id);
+        Map<String, String> data = personalInfo.getData(p_id);
         request.setAttribute("data", data);
         request.getRequestDispatcher("/personal-information.jsp").forward(request, response);
     }

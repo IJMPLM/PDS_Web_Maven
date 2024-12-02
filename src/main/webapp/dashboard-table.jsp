@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +17,10 @@
                     <th>Name</th>
                     <th>Gender</th>
                 </tr>
-            </thead>
+            </thead>    
             <tbody>
                 <%
-                    Map<String, String>[] data = (Map<String, String>[]) request.getAttribute("data");
+                    List<Map<String, String>> data = (List<Map<String, String>>) request.getAttribute("data");
                     for (Map<String, String> map : data) {
                 %>
                         <tr>

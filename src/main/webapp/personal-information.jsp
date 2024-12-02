@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +11,9 @@
 <div class="m-4">
     <div class="grid grid-cols-2 gap-4">
         <%
-            Map<String, String>[] data = (Map<String, String>[]) request.getAttribute("data");
-            if (data != null && data.length > 0) {
-                Map<String, String> respondent = data[0]; // Assuming you want to display the first respondent
+            Map<String, String> data = (Map<String, String>) request.getAttribute("data");
+            if (data != null) {
+                Map<String, String> respondent = data; // Assuming you want to display the first respondent
         %>
                 <div>Name: <%= respondent.get("fullname") %></div>
                 <div>Gender: <%= respondent.get("gender") %></div>
