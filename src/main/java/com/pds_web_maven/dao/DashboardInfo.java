@@ -12,7 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
 
-public class ReadPersonal_info {
+public class DashboardInfo {
     private SessionFactory factory;
     private Session session;
     public void createSession(){
@@ -63,9 +63,9 @@ public class ReadPersonal_info {
     }
     
     public Map<String, String>[] getValues(){
-        // id, name, gender, age
         // ArrayList<HashMap<String, String>> productList;
         // HashMap<String, HashMap<String, String>> allChanges; 
+        @SuppressWarnings("unchecked")
         Map<String, String>[] respondent = new HashMap[60];
         createSession();
         DateFormat dob;
@@ -83,10 +83,10 @@ public class ReadPersonal_info {
                 ++i;
             }
             
-            // DEBUGGING 
-            // for (int j=0; j<60; ++j){
-            //     System.out.println(respondent[j].get("age"));
-            // }
+//             DEBUGGING 
+             for (int j=0; j<60; ++j){
+                 System.out.println(respondent[j].get("fullname"));
+             }
 
             session.getTransaction().commit();
         } finally {
