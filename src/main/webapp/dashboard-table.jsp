@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +17,22 @@
                     <th>Name</th>
                     <th>Gender</th>
                 </tr>
-            </thead>
+            </thead>    
             <tbody>
                 <%
-                    Map<String, String>[] data = (Map<String, String>[]) request.getAttribute("data");
+                    List<Map<String, String>> data = (List<Map<String, String>>) request.getAttribute("data");
                     for (Map<String, String> map : data) {
-                        out.println("<tr>");
-                        out.println("<td>" + map.get("id") + "</td>");
-                        out.println("<td>" + map.get("lastname") +", " + map.get("firstname") + " "+ map.get("middlename") +"</td>");
-                        out.println("<td>" + map.get("gender") + "</td>");
-                        out.println("</tr>");
+                %>
+                        <tr>
+                            <form action="DisplayPersonalInfoServlet" method="post">
+                                <input type="hidden" name="p_id" value="<%= map.get("p_id") %>">
+                                <td><button type="submit" class="w-full text-left"><%= map.get("p_id") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("fullname") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("gender") %></button></td>
+                                <td><button type="submit" class="w-full text-left"><%= map.get("age") %></button></td>
+                            </form>
+                        </tr>
+                <%
                     }
                 %>
             </tbody>
