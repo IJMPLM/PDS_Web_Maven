@@ -1,4 +1,4 @@
-package com.pds_web_maven.servlets;
+package com.pds_web_maven.dao;
 
 import com.pds_web_maven.entities.personal_info;
 import java.util.List;
@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class Rpersonal_info {
+public class ReadPersonal_info {
     private SessionFactory factory;
     private org.hibernate.Session session;
     
@@ -37,6 +37,7 @@ public class Rpersonal_info {
         return result;
     }
     
+    // experiment
     public void getallPIDs(){
         createSession();
         try { 
