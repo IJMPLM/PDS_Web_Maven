@@ -19,7 +19,9 @@
         
         <mapping class="com.pds_web_maven.entities.personal_info"/>
         <mapping class="com.pds_web_maven.entities.family_background"/>
+        <mapping class="com.pds_web_maven.entities.family_children"/>
         <mapping class="com.pds_web_maven.entities.contact_info"/>
+        
     </session-factory>
 </hibernate-configuration>
 
