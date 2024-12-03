@@ -56,4 +56,41 @@ public class ReadContact_info {
         }
         return respondent;
     }
+    
+    public Map<String, String> getData(int p_id) {
+        createSession();
+        Map<String, String> respondent = new HashMap<>();
+        try {
+            session.beginTransaction();
+            List<contact_info> dbresult = session.createNamedQuery("contact_info.findByPID", contact_info.class)
+                                                  .setParameter("p_id", p_id)
+                                                  .getResultList();
+            if (!dbresult.isEmpty()) {
+                contact_info c = dbresult.get(0); 
+                respondent.put("contact_id", String.valueOf(c.getContactId()));
+                respondent.put("p_id", String.valueOf(c.getP_id()));
+                respondent.put("res_house_no", c.getResHouseNo());
+                respondent.put("res_house_street", c.getResHouseStreet());
+                respondent.put("res_village", c.getResVillage());
+                respondent.put("res_bgy", c.getResBgy());
+                respondent.put("res_citymun", c.getResCitymun());
+                respondent.put("res_prov", c.getResProv());
+                respondent.put("res_zipcode", c.getResZipcode());
+                respondent.put("perm_house_no", c.getPermHouseNo());
+                respondent.put("perm_house_street", c.getPermHouseStreet());
+                respondent.put("perm_village", c.getPermVillage());
+                respondent.put("perm_bgy", c.getPermBgy());
+                respondent.put("perm_citymun", c.getPermCitymun());
+                respondent.put("perm_prov", c.getPermProv());
+                respondent.put("perm_zipcode", c.getPermZipcode());
+                respondent.put("tel_no", c.getTelNo());
+                respondent.put("mobile_no", c.getMobileNo());
+                respondent.put("email_addr", c.getEmailAddress());
+            }
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+        return respondent;
+        }
 }

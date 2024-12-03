@@ -10,7 +10,6 @@ public class Main {
         //       HibernateUtil.xml,
         //       YUNG DATABASEE, WALANG COLUMN FOR NAME EXT. RAAAAAH
         //       yung ibang spouses ng resp, di nila kapangalan, tf
-        //       family_ch
         ReadPersonal_Info ePI = new ReadPersonal_Info();
         List<Map<String, String>> abc = ePI.getData();
         
@@ -25,7 +24,7 @@ public class Main {
         
         // DEBUGGER
         for (Map<String, String> map : zx) {
-           System.out.println(map.get("res_house_no"));
+//           System.out.println(map.get("res_house_no"));
         }
     }
 }
