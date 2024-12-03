@@ -2,7 +2,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Table</title>
@@ -15,12 +15,13 @@
 </head>
 <body>
     <div>
-        <table class="table-fixed">
+        <table class="table-fixed w-full">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Gender</th>
+                    <th>Age</th>
                 </tr>
             </thead>    
             <tbody>
@@ -28,20 +29,20 @@
                     List<Map<String, String>> data = (List<Map<String, String>>) request.getAttribute("data");
                     for (Map<String, String> map : data) {
                 %>
-                        <tr class="hoverable-row">
-                            <form action="DisplayFamilyBackgroundServlet" method="post">
-                                <input type="hidden" name="p_id" value="<%= map.get("p_id") %>">
-                                <td><button type="submit" class="w-full text-left"><%= map.get("p_id") %></button></td>
-                                <td><button type="submit" class="w-full text-left"><%= map.get("fullname") %></button></td>
-                                <td><button type="submit" class="w-full text-left"><%= map.get("gender") %></button></td>
-                                <td><button type="submit" class="w-full text-left"><%= map.get("age") %></button></td>
-                            </form>
+                        <tr class="hoverable-row" data-pid="<%= map.get("p_id") %>">
+                            <td><%= map.get("p_id") %></td>
+                            <td><%= map.get("fullname") %></td>
+                            <td><%= map.get("gender") %></td>
+                            <td><%= map.get("age") %></td>
                         </tr>
                 <%
                     }
                 %>
             </tbody>
         </table>
+        <form id="hiddenForm" action="DisplayFamilyBackgroundServlet" method="post">
+            <input type="hidden" name="p_id" id="hiddenPId">
+        </form>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -62,6 +63,15 @@
                     row.classList.remove('highlight');
                     highlightedRow = null;
                     p_id = null;
+                });
+
+                row.addEventListener('click', function() {
+                    document.getElementById('hiddenPId').value = p_id;
+                    document.getElementById('hiddenForm').submit();
+                });
+
+                document.querySelectorAll('.header-pid').forEach(input => {
+                input.value = p_id;
                 });
             });
         });

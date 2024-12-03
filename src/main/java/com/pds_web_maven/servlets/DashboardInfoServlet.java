@@ -25,6 +25,7 @@ public class DashboardInfoServlet extends HttpServlet {
         ReadPersonal_Info dashboardInfo = new ReadPersonal_Info();
         List<Map<String, String>> data = dashboardInfo.getData();
         request.setAttribute("data", data);
+        request.setAttribute("header-active","Dashboard");
         request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
     }
 }

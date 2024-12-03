@@ -5,6 +5,9 @@
 <head>
     <link href="assets/tailwind-output.css" rel="stylesheet">
 </head>
+<header>
+    <%@ include file="dashboard-header.jsp" %>
+</header>
 <body>
     <div class="m-4">
         <div class="grid grid-cols-2 gap-3">

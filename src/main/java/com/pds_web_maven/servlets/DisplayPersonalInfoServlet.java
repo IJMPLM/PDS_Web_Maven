@@ -26,10 +26,28 @@ public class DisplayPersonalInfoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int p_id = Integer.parseInt(request.getParameter("p_id"));
+        String pIdParam = request.getParameter("p_id");
+        int p_id = 0;
+        if (pIdParam != null && !pIdParam.isEmpty()) {
+            try {
+                p_id = Integer.parseInt(pIdParam);
+                request.getSession().setAttribute("p_id", p_id);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid p_id parameter: " + pIdParam);
+            }
+        } else {
+            Object sessionPId = request.getSession().getAttribute("p_id");
+            if (sessionPId != null) {
+                p_id = (int) sessionPId;
+            } else {
+                System.out.println("No p_id provided or stored in the session.");
+            }
+        }
         ReadPersonal_Info personalInfo = new ReadPersonal_Info();
         Map<String, String> data = personalInfo.getData(p_id);
+        request.setAttribute("p_id", p_id);
         request.setAttribute("data", data);
+        request.setAttribute("header-active","Personal-Information");
         request.getRequestDispatcher("/personal-information.jsp").forward(request, response);
     }
 }
