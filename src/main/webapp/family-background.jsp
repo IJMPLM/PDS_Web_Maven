@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +35,28 @@
             <%
                 }
             %>
+        </div>
+        <div class="mt-4">
+            <h2>Children</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <%
+                    List<Map<String, String>> dataChildren = (List<Map<String, String>>) request.getAttribute("data_children");
+                    if (dataChildren != null && !dataChildren.isEmpty()) {
+                        for (Map<String, String> child : dataChildren) {
+                %>
+                            <div>Child Name:</div>
+                            <div><%= child.get("child_fullname") %></div>
+                            <div>Date of Birth:</div>
+                            <div><%= child.get("child_dob") %></div>
+                <%
+                        }
+                    } else {
+                %>
+                        <div>No children data available</div>
+                <%
+                    }
+                %>
+            </div>
         </div>
     </div>
 </body>

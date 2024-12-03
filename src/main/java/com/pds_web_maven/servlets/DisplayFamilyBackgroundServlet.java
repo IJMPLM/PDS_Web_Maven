@@ -5,6 +5,7 @@
 package com.pds_web_maven.servlets;
 
 import com.pds_web_maven.dao.ReadFamily_background;
+import com.pds_web_maven.dao.ReadFamily_children;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -44,8 +45,11 @@ public class DisplayFamilyBackgroundServlet extends HttpServlet {
         }
         ReadFamily_background personalInfo = new ReadFamily_background();
         Map<String, String> data = personalInfo.getData(p_id);
+        ReadFamily_children familyChildren = new ReadFamily_children();
+        List<Map<String, String>> dataChildren = familyChildren.getChildren(p_id);
         request.setAttribute("p_id", p_id);
         request.setAttribute("data", data);
+        request.setAttribute("data_children", dataChildren);
         request.setAttribute("header-active","Family-Background");
         request.getRequestDispatcher("/family-background.jsp").forward(request, response);
     }
