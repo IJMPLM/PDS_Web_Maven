@@ -19,7 +19,6 @@ public class ReadFamily_background {
                     .configure("hibernate.cfg.xml")
                     .addAnnotatedClass(family_background.class)
                     .buildSessionFactory();
-        
         this.session = factory.getCurrentSession();
     }
     

@@ -5,5 +5,6 @@
     <class>com.pds_web_maven.entities.contact_info</class>
     <class>com.pds_web_maven.entities.family_background</class>
     <class>com.pds_web_maven.entities.personal_info</class>
+    <class>com.pds_web_maven.entities.family_children</class>
   </persistence-unit>
 </persistence>
