@@ -5,15 +5,18 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
-        // TODO: gawing dynamic yung size ng map (done),
-        //       continue sa family_bg,
-        //       HibernateUtil.xml
+        // TODO: continue sa family_bg,
+        //       HibernateUtil.xml,
+        //       YUNG DATABASEE, WALANG COLUMN FOR NAME EXT. RAAAAAH
         ReadPersonal_Info ePI = new ReadPersonal_Info();
         List<Map<String, String>> abc = ePI.getData();
         
+        ReadFamily_background eFG = new ReadFamily_background();
+        List<Map<String, String>> def = eFG.getData();
+        
         // DEBUGGER
-        for (Map<String, String> map : abc) {
-            System.out.println(map.get("fullname"));
+        for (Map<String, String> map : def) {
+            System.out.println(map.get("spouse_fullname"));
         }
     }
 }
