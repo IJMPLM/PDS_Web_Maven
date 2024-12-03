@@ -7,6 +7,11 @@
     <meta charset="UTF-8">
     <title>Dashboard Table</title>
     <link rel="stylesheet" type="text/css" href="assets/tailwind-output.css">
+    <style>
+        .highlight {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -23,8 +28,8 @@
                     List<Map<String, String>> data = (List<Map<String, String>>) request.getAttribute("data");
                     for (Map<String, String> map : data) {
                 %>
-                        <tr>
-                            <form action="DisplayPersonalInfoServlet" method="post">
+                        <tr class="hoverable-row">
+                            <form action="DisplayFamilyBackgroundServlet" method="post">
                                 <input type="hidden" name="p_id" value="<%= map.get("p_id") %>">
                                 <td><button type="submit" class="w-full text-left"><%= map.get("p_id") %></button></td>
                                 <td><button type="submit" class="w-full text-left"><%= map.get("fullname") %></button></td>
@@ -38,5 +43,28 @@
             </tbody>
         </table>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let highlightedRow = null;
+            let p_id = null;
+
+            document.querySelectorAll('.hoverable-row').forEach(row => {
+                row.addEventListener('mouseover', function() {
+                    if (highlightedRow) {
+                        highlightedRow.classList.remove('highlight');
+                    }
+                    row.classList.add('highlight');
+                    highlightedRow = row;
+                    p_id = row.getAttribute('data-pid');
+                });
+
+                row.addEventListener('mouseout', function() {
+                    row.classList.remove('highlight');
+                    highlightedRow = null;
+                    p_id = null;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
