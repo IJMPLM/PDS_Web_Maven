@@ -20,9 +20,12 @@ public class Main {
         ReadFamily_children eFC = new ReadFamily_children();
         List<Map<String, String>> hij = eFC.getChildren(1);
         
+        ReadContact_info eCI = new ReadContact_info();
+        List<Map<String, String>> zx = eCI.getData();
+        
         // DEBUGGER
-        for (Map<String, String> map : hij) {
-           System.out.println(map.get("child_fullname"));
+        for (Map<String, String> map : zx) {
+           System.out.println(map.get("res_house_no"));
         }
     }
 }
