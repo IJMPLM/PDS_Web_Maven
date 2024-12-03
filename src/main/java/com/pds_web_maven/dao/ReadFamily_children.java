@@ -43,20 +43,20 @@ public class ReadFamily_children {
         return respondent;
     }
     
-    public Map<String, String> getData(int p_id) {
+    public List<Map<String, String>> getChildren(int p_id){
+        List<Map<String, String>> respondent = new ArrayList<>();
         createSession();
-        Map<String, String> respondent = new HashMap<>();
         try {
             session.beginTransaction();
             List<family_children> dbresult = session.createNamedQuery("family_children.findByPID", family_children.class)
                                                   .setParameter("p_id", p_id)
                                                   .getResultList();
-            if (!dbresult.isEmpty()) {
-                family_children f = dbresult.get(0);
-                respondent.put("fam_bg_id", f.convertFam_ch_id(String.valueOf(f.getFamChId())));
-                respondent.put("p_id", f.convertPid(String.valueOf(f.getP_id())));
-                respondent.put("child_fullname", f.convertChild_fn(f.getChildFullname()));
-                respondent.put("child_dob", f.convertChild_dob(String.valueOf(f.getChildDob())));
+            for (family_children f : dbresult){ 
+                Map<String, String> data = new HashMap<>();
+                data.put("p_id", f.convertPid(String.valueOf(f.getP_id())));
+                data.put("child_fullname", f.convertChild_fn(f.getChildFullname()));
+                data.put("child_dob", f.convertChild_dob(String.valueOf(f.getChildDob())));
+                respondent.add(data);
             }
             session.getTransaction().commit();
         } finally {
