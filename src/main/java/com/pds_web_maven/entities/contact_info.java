@@ -1,54 +1,82 @@
-
 package com.pds_web_maven.entities;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "contact_info")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "contact_info.findAll", query = "SELECT c FROM contact_info c"),
+    @NamedQuery(name = "contact_info.findByPID", query = "SELECT c FROM contact_info c WHERE c.p_id = :p_id")
+})
 public class contact_info {
-
+    
     @Id
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "contact_id")
     private Integer contactId;
+    @Column(name = "p_id")
+    private int p_id;
+    @Size(max = 255)
     @Column(name = "res_house_no")
     private String resHouseNo;
+    @Size(max = 255)
     @Column(name = "res_house_street")
     private String resHouseStreet;
+    @Size(max = 255)
     @Column(name = "res_village")
     private String resVillage;
+    @Size(max = 255)
     @Column(name = "res_bgy")
     private String resBgy;
+    @Size(max = 255)
     @Column(name = "res_citymun")
     private String resCitymun;
+    @Size(max = 255)
     @Column(name = "res_prov")
     private String resProv;
-    @Size(max = 5)
+    @Size(max = 255)
     @Column(name = "res_zipcode")
     private String resZipcode;
+    @Size(max = 255)
     @Column(name = "perm_house_no")
     private String permHouseNo;
+    @Size(max = 255)
     @Column(name = "perm_house_street")
     private String permHouseStreet;
+    @Size(max = 255)
     @Column(name = "perm_village")
     private String permVillage;
+    @Size(max = 255)
     @Column(name = "perm_bgy")
     private String permBgy;
+    @Size(max = 255)
     @Column(name = "perm_citymun")
     private String permCitymun;
+    @Size(max = 255)
     @Column(name = "perm_prov")
     private String permProv;
+    @Size(max = 255)
     @Column(name = "perm_zipcode")
     private String permZipcode;
-    @Size(max = 20)
+    @Size(max = 255)
     @Column(name = "tel_no")
     private String telNo;
-    @Size(max = 20)
+    @Size(max = 255)
     @Column(name = "mobile_no")
     private String mobileNo;
+    @Size(max = 255)
     @Column(name = "email_address")
     private String emailAddress;
 
@@ -65,6 +93,14 @@ public class contact_info {
 
     public void setContactId(Integer contactId) {
         this.contactId = contactId;
+    }
+    
+    public int getP_id() {
+        return p_id;
+    }
+    
+    public void setP_id(int p_id) {
+        this.p_id = p_id;
     }
 
     public String getResHouseNo() {
@@ -222,10 +258,4 @@ public class contact_info {
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "com.pds_web_maven.entities.ContactInfo[ contactId=" + contactId + " ]";
-    }
-    
 }
