@@ -40,5 +40,38 @@
             }
         %>
     </div>
+    <div class="mt-4">
+        <h2>Contact Information</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <%
+                Map<String, String> dataContact = (Map<String, String>) request.getAttribute("data_contact");
+                if (dataContact != null) {
+            %>
+                    <div>Residential House No: <%= dataContact.get("res_house_no") %></div>
+                    <div>Residential Street: <%= dataContact.get("res_house_street") %></div>
+                    <div>Residential Village: <%= dataContact.get("res_village") %></div>
+                    <div>Residential Barangay: <%= dataContact.get("res_bgy") %></div>
+                    <div>Residential City/Municipality: <%= dataContact.get("res_citymun") %></div>
+                    <div>Residential Province: <%= dataContact.get("res_prov") %></div>
+                    <div>Residential Zip Code: <%= dataContact.get("res_zipcode") %></div>
+                    <div>Permanent House No: <%= dataContact.get("perm_house_no") %></div>
+                    <div>Permanent Street: <%= dataContact.get("perm_house_street") %></div>
+                    <div>Permanent Village: <%= dataContact.get("perm_village") %></div>
+                    <div>Permanent Barangay: <%= dataContact.get("perm_bgy") %></div>
+                    <div>Permanent City/Municipality: <%= dataContact.get("perm_citymun") %></div>
+                    <div>Permanent Province: <%= dataContact.get("perm_prov") %></div>
+                    <div>Permanent Zip Code: <%= dataContact.get("perm_zipcode") %></div>
+                    <div>Telephone No: <%= dataContact.get("tel_no") %></div>
+                    <div>Mobile No: <%= dataContact.get("mobile_no") %></div>
+                    <div>Email Address: <%= dataContact.get("email_addr") %></div>
+            <%
+                } else {
+            %>
+                    <div>No contact information available</div>
+            <%
+                }
+            %>
+        </div>
+    </div>
 </div>
 </html>

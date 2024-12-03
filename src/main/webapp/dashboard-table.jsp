@@ -40,7 +40,7 @@
                 %>
             </tbody>
         </table>
-        <form id="hiddenForm" action="DisplayFamilyBackgroundServlet" method="post">
+        <form id="hiddenForm" action="DisplayPersonalInfoServlet" method="post">
             <input type="hidden" name="p_id" id="hiddenPId">
         </form>
     </div>

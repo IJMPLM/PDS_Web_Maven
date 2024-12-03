@@ -5,8 +5,8 @@
 package com.pds_web_maven.servlets;
 
 import com.pds_web_maven.dao.ReadPersonal_Info;
+import com.pds_web_maven.dao.ReadContact_info;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,8 +45,11 @@ public class DisplayPersonalInfoServlet extends HttpServlet {
         }
         ReadPersonal_Info personalInfo = new ReadPersonal_Info();
         Map<String, String> data = personalInfo.getData(p_id);
+        ReadContact_info contactInfo = new ReadContact_info();
+        Map<String, String> data_contact = contactInfo.getData(p_id);
         request.setAttribute("p_id", p_id);
         request.setAttribute("data", data);
+        request.setAttribute("data_contact", data_contact);
         request.setAttribute("header-active","Personal-Information");
         request.getRequestDispatcher("/personal-information.jsp").forward(request, response);
     }
