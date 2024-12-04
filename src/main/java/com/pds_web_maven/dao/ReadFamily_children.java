@@ -7,24 +7,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 public class ReadFamily_children {
-//    private SessionFactory factory;
-//    private Session session;
-//    
-//    public void createSession(){
-//        this.factory = new Configuration()
-//                    .configure("hibernate.cfg.xml")
-//                    .addAnnotatedClass(family_children.class)
-//                    .buildSessionFactory();
-//        this.session = factory.getCurrentSession();
-//    }
+    private HibernateUtil util;
+    private SessionFactory factory;
+    private Session session;
     
-    HibernateUtil util = new HibernateUtil();
-    Session session = util.getSession();
+    public void setSession() {
+        util = new HibernateUtil();
+        factory = util.createFactory(this.getClass());
+        session = util.createSession();
+    }
     
     public List<Map<String, String>> getData(){
-        util.createSession(this.getClass());
+        setSession();
         List<Map<String, String>> respondent = new ArrayList<>();
         try {
             session.beginTransaction();
@@ -45,8 +42,8 @@ public class ReadFamily_children {
     }
     
     public List<Map<String, String>> getChildren(int p_id){
+        setSession();
         List<Map<String, String>> respondent = new ArrayList<>();
-        util.createSession(this.getClass());
         try {
             session.beginTransaction();
             List<family_children> dbresult = session.createNamedQuery("family_children.findByPID", family_children.class)

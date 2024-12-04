@@ -23,10 +23,7 @@ public class Main {
         
         ReadContact_info eCI = new ReadContact_info();
         List<Map<String, String>> zx = eCI.getData();
-        
-        HibernateUtil util = new HibernateUtil();
-        // util.getClassName();
-        
+
         // DEBUGGER
         for (Map<String, String> map : hij) {
            System.out.println(map.get("child_fullname"));
