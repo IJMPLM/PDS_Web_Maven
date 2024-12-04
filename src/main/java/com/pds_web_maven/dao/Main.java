@@ -19,7 +19,7 @@ public class Main {
         List<Map<String, String>> def = eFG.getData();
         
         ReadFamily_children eFC = new ReadFamily_children();
-        List<Map<String, String>> hij = eFC.getChildren(1);
+        List<Map<String, String>> hij = eFC.getData();
         
         ReadContact_info eCI = new ReadContact_info();
         List<Map<String, String>> zx = eCI.getData();
@@ -28,8 +28,8 @@ public class Main {
         // util.getClassName();
         
         // DEBUGGER
-        for (Map<String, String> map : abc) {
-        //   System.out.println(map.get("fullname"));
+        for (Map<String, String> map : hij) {
+           System.out.println(map.get("child_fullname"));
         }
     }
 }

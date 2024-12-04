@@ -8,7 +8,15 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
     
     SessionFactory factory;
-    Session session;
+    private Session session;
+    
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
     
     public void createSession(Class clFile){
         this.factory = new Configuration().configure("hibernate.cfg.xml")
@@ -21,6 +29,8 @@ public class HibernateUtil {
         this.factory.close();
     }
     
+    
+    // -- experiments --
     public Class[] readClass(){
         Class[] a = new Class[12];
         return a;
@@ -29,5 +39,6 @@ public class HibernateUtil {
     public void getClassName(){
         System.out.println("Classname: " + this.getClass());
     }
+
     
 }
