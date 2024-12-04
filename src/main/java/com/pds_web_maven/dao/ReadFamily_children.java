@@ -1,30 +1,28 @@
 package com.pds_web_maven.dao;
 
-import com.pds_web_maven.entities.family_background;
 import com.pds_web_maven.entities.family_children;
+import com.pds_web_maven.tools.HibernateUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 public class ReadFamily_children {
+    private HibernateUtil util;
     private SessionFactory factory;
     private Session session;
     
-    public void createSession(){
-        this.factory = new Configuration()
-                    .configure("hibernate.cfg.xml")
-                    .addAnnotatedClass(family_children.class)
-                    .buildSessionFactory();
-        this.session = factory.getCurrentSession();
+    public void setSession() {
+        util = new HibernateUtil();
+        factory = util.createFactory(this.getClass());
+        session = util.createSession();
     }
     
     public List<Map<String, String>> getData(){
+        setSession();
         List<Map<String, String>> respondent = new ArrayList<>();
-        createSession();
         try {
             session.beginTransaction();
             List<family_children> dbresult = session.createNamedQuery("family_children.findAll", family_children.class).getResultList();
@@ -38,14 +36,14 @@ public class ReadFamily_children {
             }
             session.getTransaction().commit();
         } finally {
-            factory.close();
+            util.closeSession();
         }
         return respondent;
     }
     
     public List<Map<String, String>> getChildren(int p_id){
+        setSession();
         List<Map<String, String>> respondent = new ArrayList<>();
-        createSession();
         try {
             session.beginTransaction();
             List<family_children> dbresult = session.createNamedQuery("family_children.findByPID", family_children.class)
@@ -60,7 +58,7 @@ public class ReadFamily_children {
             }
             session.getTransaction().commit();
         } finally {
-            factory.close();
+            util.closeSession();
         }
         return respondent;
     }

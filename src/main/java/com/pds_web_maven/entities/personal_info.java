@@ -36,6 +36,8 @@ public class personal_info {
     private String f_name;
     @Column(name = "m_name")
     private String m_name;
+    @Column(name = "ext_name")
+    private String ext_name;
     @Column(name = "dob")
     @Temporal(TemporalType.DATE)
     private Date dob;
@@ -122,7 +124,15 @@ public class personal_info {
     public void setm_name(String m_name) {
         this.m_name = m_name;
     }
+    
+    public String getExt_name() {
+        return ext_name;
+    }
 
+    public void setExt_name(String ext_name) {
+        this.ext_name = ext_name;
+    }
+    
     public Date getDob() {
         return dob;
     }
