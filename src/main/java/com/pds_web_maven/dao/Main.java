@@ -1,15 +1,17 @@
 package com.pds_web_maven.dao;
 
-import java.util.HashMap;
+import com.pds_web_maven.tools.HibernateUtil;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
+    
     public static void main(String[] args){
-        // TODO: family_children,
+        // TODO: family_children inserts/fix,
         //       HibernateUtil.xml,
         //       YUNG DATABASEE, WALANG COLUMN FOR NAME EXT. RAAAAAH
         //       yung ibang spouses ng resp, di nila kapangalan, tf
+        //       make CreatePersonal_info, etc. 
         ReadPersonal_Info ePI = new ReadPersonal_Info();
         List<Map<String, String>> abc = ePI.getData();
         
@@ -22,9 +24,12 @@ public class Main {
         ReadContact_info eCI = new ReadContact_info();
         List<Map<String, String>> zx = eCI.getData();
         
+        HibernateUtil util = new HibernateUtil();
+        // util.getClassName();
+        
         // DEBUGGER
-        for (Map<String, String> map : zx) {
-//           System.out.println(map.get("res_house_no"));
+        for (Map<String, String> map : abc) {
+        //   System.out.println(map.get("fullname"));
         }
     }
 }
