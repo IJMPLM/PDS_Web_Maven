@@ -75,13 +75,33 @@ public class Family_childrenDAO {
         }
     }
     
-    public void updateDate(int fam_ch_id, family_children User){
+    public void updateData(int fam_ch_id, family_children User){
         setSession();
         try {
             session.beginTransaction();
-            User = session.get(family_children.class, fam_ch_id);
-            if (User != null)
-                User.setChildFullname("Jonard Delos Reyes");
+            family_children data = session.get(family_children.class, fam_ch_id);
+            if (User != null){
+                data.setP_id(User.getP_id());
+                data.setChildFullname(User.getChildFullname());
+                data.setChildDob(User.getChildDob());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
+
+    public void updateData(String fam_ch_id, family_children User){
+        setSession();
+        try {
+            session.beginTransaction();
+            family_children data = session.get(family_children.class, Integer.parseInt(fam_ch_id));
+            if (User != null){
+                data.setP_id(User.getP_id());
+                data.setChildFullname(User.getChildFullname());
+                data.setChildDob(User.getChildDob());
+            }
             session.getTransaction().commit();
             System.out.println("Data Updated.");
         } finally {

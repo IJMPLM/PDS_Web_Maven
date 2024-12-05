@@ -84,6 +84,62 @@ public class Family_backgroundDAO {
             factory.close();
         }
     }
+    
+    public void updateData(int p_id, family_background User){
+        createSession();
+        try {
+            session.beginTransaction();
+            family_background data = session.get(family_background.class, p_id);
+            if (User != null){
+                data.setSpouseLname(User.getSpouseLname());
+                data.setSpouseFname(User.getSpouseFname());
+                data.setSpouseLname(User.getSpouseMname());
+                data.setSpouseExtname(User.getSpouseExtname());
+                data.setSpouseOccupation(User.getSpouseOccupation());
+                data.setSpouseEmployer(User.getSpouseEmployer());
+                data.setSpouseEmpAddress(User.getSpouseEmpAddress());
+                data.setFatherLname(User.getFatherLname());
+                data.setFatherFname(User.getFatherFname());
+                data.setFatherMname(User.getFatherMname());
+                data.setFatherExtname(User.getFatherExtname());
+                data.setMotherMnLname(User.getMotherMnLname());
+                data.setMotherMnFname(User.getMotherMnFname());
+                data.setMotherMnMname(User.getMotherMnMname());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
+
+    public void updateData(String p_id, family_background User){
+        createSession();
+        try {
+            session.beginTransaction();
+            family_background data = session.get(family_background.class, Integer.parseInt(p_id));
+            if (User != null){
+                data.setSpouseLname(User.getSpouseLname());
+                data.setSpouseFname(User.getSpouseFname());
+                data.setSpouseLname(User.getSpouseMname());
+                data.setSpouseExtname(User.getSpouseExtname());
+                data.setSpouseOccupation(User.getSpouseOccupation());
+                data.setSpouseEmployer(User.getSpouseEmployer());
+                data.setSpouseEmpAddress(User.getSpouseEmpAddress());
+                data.setFatherLname(User.getFatherLname());
+                data.setFatherFname(User.getFatherFname());
+                data.setFatherMname(User.getFatherMname());
+                data.setFatherExtname(User.getFatherExtname());
+                data.setMotherMnLname(User.getMotherMnLname());
+                data.setMotherMnFname(User.getMotherMnFname());
+                data.setMotherMnMname(User.getMotherMnMname());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
 }
 
 

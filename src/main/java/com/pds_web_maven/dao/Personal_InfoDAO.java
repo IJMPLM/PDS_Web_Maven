@@ -98,4 +98,70 @@ public class Personal_InfoDAO {
             factory.close();
         }
     }
+    
+    public void updateData(int p_id, personal_info User){
+        setSession();
+        try {
+            session.beginTransaction();
+            personal_info data = session.get(personal_info.class, p_id);
+            if (User != null){
+               data.setSex_id(User.getSex_id());
+               data.setCstat_id(User.getCstat_id());
+               data.setCit_id(User.getCit_id());
+               data.setCit_acq_id(User.getCit_acq_id());
+               data.setl_name(User.getl_name());
+               data.setf_name(User.getf_name());
+               data.setm_name(User.getm_name());
+               data.setExt_name(User.getExt_name());
+               data.setDob(User.getDob());
+               data.setPob(User.getPob());
+               data.setHeight(User.getHeight());
+               data.setWeight(User.getWeight());
+               data.setblood_type(User.getblood_type());
+               data.setgsis_no(User.getgsis_no());
+               data.setPagibig_id(User.getPagibig_id());
+               data.setPhilhealth_Id(User.getPhilhealth_Id());
+               data.setSss_no(User.getSss_no());
+               data.setTin(User.getTin());
+               data.setAgency_empno(User.getAgency_empno());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
+
+    public void updateData(String p_id, personal_info User){
+        setSession();
+        try {
+            session.beginTransaction();
+            personal_info data = session.get(personal_info.class, Integer.parseInt(p_id));
+            if (User != null){
+               data.setSex_id(User.getSex_id());
+               data.setCstat_id(User.getCstat_id());
+               data.setCit_id(User.getCit_id());
+               data.setCit_acq_id(User.getCit_acq_id());
+               data.setl_name(User.getl_name());
+               data.setf_name(User.getf_name());
+               data.setm_name(User.getm_name());
+               data.setExt_name(User.getExt_name());
+               data.setDob(User.getDob());
+               data.setPob(User.getPob());
+               data.setHeight(User.getHeight());
+               data.setWeight(User.getWeight());
+               data.setblood_type(User.getblood_type());
+               data.setgsis_no(User.getgsis_no());
+               data.setPagibig_id(User.getPagibig_id());
+               data.setPhilhealth_Id(User.getPhilhealth_Id());
+               data.setSss_no(User.getSss_no());
+               data.setTin(User.getTin());
+               data.setAgency_empno(User.getAgency_empno());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
 }

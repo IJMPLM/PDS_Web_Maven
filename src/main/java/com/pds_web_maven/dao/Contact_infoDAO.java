@@ -105,4 +105,66 @@ public class Contact_infoDAO {
             factory.close();
         }
     }
+    
+    public void updateData(int p_id, contact_info User){
+        createSession();
+        try {
+            session.beginTransaction();
+            contact_info data = session.get(contact_info.class, p_id);
+            if (User != null){
+                data.setResHouseNo(User.getResHouseNo());
+                data.setResHouseStreet(User.getResHouseStreet());
+                data.setResVillage(User.getResVillage());
+                data.setResBgy(User.getResBgy());
+                data.setResCitymun(User.getResCitymun());
+                data.setResProv(User.getResProv());
+                data.setResZipcode(User.getResZipcode());
+                data.setPermHouseNo(User.getPermHouseNo());
+                data.setPermHouseStreet(User.getPermHouseStreet());
+                data.setPermVillage(User.getPermVillage());
+                data.setPermBgy(User.getPermBgy());
+                data.setPermCitymun(User.getPermCitymun());
+                data.setPermProv(User.getPermProv());
+                data.setPermZipcode(User.getPermZipcode());
+                data.setTelNo(User.getTelNo());
+                data.setMobileNo(User.getMobileNo());
+                data.setEmailAddress(User.getEmailAddress());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
+    
+    public void updateData(String p_id, contact_info User){
+        createSession();
+        try {
+            session.beginTransaction();
+            contact_info data = session.get(contact_info.class, Integer.parseInt(p_id));
+            if (User != null){
+                data.setResHouseNo(User.getResHouseNo());
+                data.setResHouseStreet(User.getResHouseStreet());
+                data.setResVillage(User.getResVillage());
+                data.setResBgy(User.getResBgy());
+                data.setResCitymun(User.getResCitymun());
+                data.setResProv(User.getResProv());
+                data.setResZipcode(User.getResZipcode());
+                data.setPermHouseNo(User.getPermHouseNo());
+                data.setPermHouseStreet(User.getPermHouseStreet());
+                data.setPermVillage(User.getPermVillage());
+                data.setPermBgy(User.getPermBgy());
+                data.setPermCitymun(User.getPermCitymun());
+                data.setPermProv(User.getPermProv());
+                data.setPermZipcode(User.getPermZipcode());
+                data.setTelNo(User.getTelNo());
+                data.setMobileNo(User.getMobileNo());
+                data.setEmailAddress(User.getEmailAddress());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
 }

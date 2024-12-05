@@ -1,6 +1,6 @@
 package com.pds_web_maven.dao;
 
-import com.pds_web_maven.entities.family_children;
+import com.pds_web_maven.entities.personal_info;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +14,9 @@ public class Main {
         //       NamedQueries
         //       error catching for crud
         //       query for ref values
-        
+        //       null for ext values?
         // reformatted filename entities, C (/) R (/) U D, Added ext_name, constructors
+        // counter columns are not update-able
         
         // call entity class and fill parameters, pass in the class to method
         
@@ -30,12 +31,11 @@ public class Main {
         
         Contact_infoDAO eCI = new Contact_infoDAO();
         List<Map<String, String>> zx = eCI.getData();
-        
-        family_children clFC = new family_children();
+
         
         // DEBUGGER
-        for (Map<String, String> map : abc) {
-//           System.out.println(map.get("fullname"));
+        for (Map<String, String> map : hij) {
+//           System.out.println(map.get("child_fullname"));
         }
     }
 }
