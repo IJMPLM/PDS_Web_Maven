@@ -15,9 +15,7 @@ public class Main {
         //       error catching for crud
         //       query for ref values
         //       null for ext values?
-        //       sql auto_increment does not start at deleted counter but rather continues on
         //       sizes ng attr
-        // reformatted filename entities, C (/) R (/) U D, Added ext_name, constructors
         // counter columns are not update-able
         
         // call entity class and fill parameters, pass in the class to method

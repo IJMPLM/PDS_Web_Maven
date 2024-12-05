@@ -8,6 +8,7 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
@@ -32,35 +33,49 @@ public class personal_info {
     private int cit_id;
     @Column(name = "cit_acq_id")
     private int cit_acq_id;
+    @Size(max = 50)
     @Column(name = "l_name")
     private String l_name;
+    @Size(max = 50)
     @Column(name = "f_name")
     private String f_name;
+    @Size(max = 50)
     @Column(name = "m_name")
     private String m_name;
+    @Size(max = 10)
     @Column(name = "ext_name")
     private String ext_name;
     @Column(name = "dob")
     @Temporal(TemporalType.DATE)
     private Date dob;
+    @Size(max = 50)
     @Column(name = "pob")
     private String pob;
+    @Size(max = 50)
     @Column(name = "height")
     private Integer height;
+    @Size(max = 50)
     @Column(name = "weight")
     private Integer weight;
+    @Size(max = 50)
     @Column(name = "blood_type")
     private String blood_type;
+    @Size(max = 50)
     @Column(name = "gsis_no")
     private String gsis_no;
+    @Size(max = 50)
     @Column(name = "pagibig_id")
     private String pagibig_id;
+    @Size(max = 50)
     @Column(name = "philhealth_id")
     private String philhealth_Id;
+    @Size(max = 50)
     @Column(name = "sss_no")
     private String sss_no;
+    @Size(max = 50)
     @Column(name = "tin")
     private String tin;
+    @Size(max = 50)
     @Column(name = "agency_empno")
     private String agency_empno;
 
