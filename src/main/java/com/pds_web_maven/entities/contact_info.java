@@ -3,6 +3,8 @@ package com.pds_web_maven.entities;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -23,6 +25,7 @@ public class contact_info {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contact_id")
     private Integer contactId;
     @Column(name = "p_id")
@@ -82,6 +85,104 @@ public class contact_info {
     public contact_info() {
     }
 
+    public contact_info(Integer contactId, int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
+                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
+                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
+                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
+        this.contactId = contactId;
+        this.p_id = p_id;
+        this.resHouseNo = resHouseNo;
+        this.resHouseStreet = resHouseStreet;
+        this.resVillage = resVillage;
+        this.resBgy = resBgy;
+        this.resCitymun = resCitymun;
+        this.resProv = resProv;
+        this.resZipcode = resZipcode;
+        this.permHouseNo = permHouseNo;
+        this.permHouseStreet = permHouseStreet;
+        this.permVillage = permVillage;
+        this.permBgy = permBgy;
+        this.permCitymun = permCitymun;
+        this.permProv = permProv;
+        this.permZipcode = permZipcode;
+        this.telNo = telNo;
+        this.mobileNo = mobileNo;
+        this.emailAddress = emailAddress;
+    }
+    
+    public contact_info(int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
+                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
+                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
+                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
+        this.p_id = p_id;
+        this.resHouseNo = resHouseNo;
+        this.resHouseStreet = resHouseStreet;
+        this.resVillage = resVillage;
+        this.resBgy = resBgy;
+        this.resCitymun = resCitymun;
+        this.resProv = resProv;
+        this.resZipcode = resZipcode;
+        this.permHouseNo = permHouseNo;
+        this.permHouseStreet = permHouseStreet;
+        this.permVillage = permVillage;
+        this.permBgy = permBgy;
+        this.permCitymun = permCitymun;
+        this.permProv = permProv;
+        this.permZipcode = permZipcode;
+        this.telNo = telNo;
+        this.mobileNo = mobileNo;
+        this.emailAddress = emailAddress;
+    }
+    
+    public contact_info(String contactId, String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
+                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
+                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
+                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
+        this.contactId = Integer.parseInt(contactId);
+        this.p_id = Integer.parseInt(p_id);
+        this.resHouseNo = resHouseNo;
+        this.resHouseStreet = resHouseStreet;
+        this.resVillage = resVillage;
+        this.resBgy = resBgy;
+        this.resCitymun = resCitymun;
+        this.resProv = resProv;
+        this.resZipcode = resZipcode;
+        this.permHouseNo = permHouseNo;
+        this.permHouseStreet = permHouseStreet;
+        this.permVillage = permVillage;
+        this.permBgy = permBgy;
+        this.permCitymun = permCitymun;
+        this.permProv = permProv;
+        this.permZipcode = permZipcode;
+        this.telNo = telNo;
+        this.mobileNo = mobileNo;
+        this.emailAddress = emailAddress;
+    }
+    
+    public contact_info(String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
+                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
+                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
+                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
+        this.p_id = Integer.parseInt(p_id);
+        this.resHouseNo = resHouseNo;
+        this.resHouseStreet = resHouseStreet;
+        this.resVillage = resVillage;
+        this.resBgy = resBgy;
+        this.resCitymun = resCitymun;
+        this.resProv = resProv;
+        this.resZipcode = resZipcode;
+        this.permHouseNo = permHouseNo;
+        this.permHouseStreet = permHouseStreet;
+        this.permVillage = permVillage;
+        this.permBgy = permBgy;
+        this.permCitymun = permCitymun;
+        this.permProv = permProv;
+        this.permZipcode = permZipcode;
+        this.telNo = telNo;
+        this.mobileNo = mobileNo;
+        this.emailAddress = emailAddress;
+    }
+    
     public contact_info(Integer contactId) {
         this.contactId = contactId;
     }

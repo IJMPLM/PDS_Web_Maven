@@ -36,6 +36,9 @@ public class family_background {
     @Size(max = 50)
     @Column(name = "spouse_mname")
     private String spouseMname;
+    @Size(max = 10)
+    @Column(name = "spouse_extname")
+    private String spouseExtname;
     @Size(max = 50)
     @Column(name = "spouse_occupation")
     private String spouseOccupation;
@@ -54,6 +57,9 @@ public class family_background {
     @Size(max = 50)
     @Column(name = "father_mname")
     private String fatherMname;
+    @Size(max = 10)
+    @Column(name = "father_extname")
+    private String fatherExtname;
     @Size(max = 50)
     @Column(name = "mother_mn_lname")
     private String motherMnLname;
@@ -67,6 +73,92 @@ public class family_background {
     public family_background() {
     }
 
+    public family_background(Integer famBgId, int p_id, String spouseLname, String spouseFname, 
+                             String spouseMname, String spouseExtname, String spouseOccupation, String spouseEmployer, String spouseEmpAddress, 
+                             String fatherLname, String fatherFname, String fatherMname, String fatherExtname, String motherMnLname, 
+                             String motherMnFname, String motherMnMname) {
+        this.famBgId = famBgId;
+        this.p_id = p_id;
+        this.spouseLname = spouseLname;
+        this.spouseFname = spouseFname;
+        this.spouseMname = spouseMname;
+        this.spouseExtname = spouseExtname;
+        this.spouseOccupation = spouseOccupation;
+        this.spouseEmployer = spouseEmployer;
+        this.spouseEmpAddress = spouseEmpAddress;
+        this.fatherLname = fatherLname;
+        this.fatherFname = fatherFname;
+        this.fatherMname = fatherMname;
+        this.fatherExtname = fatherExtname;
+        this.motherMnLname = motherMnLname;
+        this.motherMnFname = motherMnFname;
+        this.motherMnMname = motherMnMname;
+    }
+    
+    public family_background(int p_id, String spouseLname, String spouseFname, 
+                             String spouseMname, String spouseExtname, String spouseOccupation, String spouseEmployer, String spouseEmpAddress, 
+                             String fatherLname, String fatherFname, String fatherMname, String fatherExtname, String motherMnLname, 
+                             String motherMnFname, String motherMnMname) {
+        this.p_id = p_id;
+        this.spouseLname = spouseLname;
+        this.spouseFname = spouseFname;
+        this.spouseMname = spouseMname;
+        this.spouseExtname = spouseExtname;
+        this.spouseOccupation = spouseOccupation;
+        this.spouseEmployer = spouseEmployer;
+        this.spouseEmpAddress = spouseEmpAddress;
+        this.fatherLname = fatherLname;
+        this.fatherFname = fatherFname;
+        this.fatherMname = fatherMname;
+        this.fatherExtname = fatherExtname;
+        this.motherMnLname = motherMnLname;
+        this.motherMnFname = motherMnFname;
+        this.motherMnMname = motherMnMname;
+    }
+
+    public family_background(String famBgId, String p_id, String spouseLname, String spouseFname, 
+                             String spouseMname, String spouseExtname, String spouseOccupation, String spouseEmployer, String spouseEmpAddress, 
+                             String fatherLname, String fatherFname, String fatherMname, String fatherExtname, String motherMnLname, 
+                             String motherMnFname, String motherMnMname) {
+        this.famBgId = Integer.parseInt(famBgId);
+        this.p_id = Integer.parseInt(p_id);
+        this.spouseLname = spouseLname;
+        this.spouseFname = spouseFname;
+        this.spouseMname = spouseMname;
+        this.spouseExtname = spouseExtname;
+        this.spouseOccupation = spouseOccupation;
+        this.spouseEmployer = spouseEmployer;
+        this.spouseEmpAddress = spouseEmpAddress;
+        this.fatherLname = fatherLname;
+        this.fatherFname = fatherFname;
+        this.fatherMname = fatherMname;
+        this.fatherExtname = fatherExtname;
+        this.motherMnLname = motherMnLname;
+        this.motherMnFname = motherMnFname;
+        this.motherMnMname = motherMnMname;
+    }
+
+    public family_background(String p_id, String spouseLname, String spouseFname, 
+                             String spouseMname, String spouseExtname, String spouseOccupation, String spouseEmployer, String spouseEmpAddress, 
+                             String fatherLname, String fatherFname, String fatherMname, String fatherExtname, String motherMnLname, 
+                             String motherMnFname, String motherMnMname) {
+        this.p_id = Integer.parseInt(p_id);
+        this.spouseLname = spouseLname;
+        this.spouseFname = spouseFname;
+        this.spouseMname = spouseMname;
+        this.spouseExtname = spouseExtname;
+        this.spouseOccupation = spouseOccupation;
+        this.spouseEmployer = spouseEmployer;
+        this.spouseEmpAddress = spouseEmpAddress;
+        this.fatherLname = fatherLname;
+        this.fatherFname = fatherFname;
+        this.fatherMname = fatherMname;
+        this.fatherExtname = fatherExtname;
+        this.motherMnLname = motherMnLname;
+        this.motherMnFname = motherMnFname;
+        this.motherMnMname = motherMnMname;
+    }
+    
     public family_background(Integer famBgId) {
         this.famBgId = famBgId;
     }
@@ -107,6 +199,14 @@ public class family_background {
 
     public void setSpouseMname(String spouseMname) {
         this.spouseMname = spouseMname;
+    }
+    
+    public String getSpouseExtname() {
+        return spouseExtname;
+    }
+    
+    public void setSpouseExtname(String spouseExtname) {
+        this.spouseExtname = spouseExtname;
     }
 
     public String getSpouseOccupation() {
@@ -155,6 +255,14 @@ public class family_background {
 
     public void setFatherMname(String fatherMname) {
         this.fatherMname = fatherMname;
+    }
+    
+    public String getFatherExtname() {
+        return fatherExtname;
+    }
+    
+    public void setFatherExtname(String fatherExtname) {
+        this.fatherExtname = fatherExtname;
     }
 
     public String getMotherMnLname() {

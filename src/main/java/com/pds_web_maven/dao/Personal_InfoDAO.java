@@ -1,28 +1,29 @@
 package com.pds_web_maven.dao;
 
 import com.pds_web_maven.entities.personal_info;
+import com.pds_web_maven.tools.HibernateUtil;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Date;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
 
-public class ReadPersonal_Info {
+public class Personal_InfoDAO {
+    private HibernateUtil util;
     private SessionFactory factory;
     private Session session;
-    public void createSession(){
-        this.factory = new Configuration()
-                    .configure("hibernate.cfg.xml")
-                    .addAnnotatedClass(personal_info.class)
-                    .buildSessionFactory();
-        this.session = factory.getCurrentSession();
+    
+    public void setSession() {
+        util = new HibernateUtil();
+        factory = util.createFactory(this.getClass());
+        session = util.createSession();
     }
     
     public List<Map<String, String>> getData(){
         List<Map<String, String>> respondent = new ArrayList<>();
-        createSession();
+        setSession();
         try {
             session.beginTransaction();
             List<personal_info> dbresult = session.createNamedQuery("personal_info.findAll", personal_info.class)
@@ -54,7 +55,7 @@ public class ReadPersonal_Info {
     }
     
     public Map<String, String> getData(int p_id) {
-        createSession();
+        setSession();
         Map<String, String> respondent = new HashMap<>();
         try {
             session.beginTransaction();
@@ -84,5 +85,17 @@ public class ReadPersonal_Info {
             factory.close();
         }
         return respondent;
+    }
+    
+    public void addData(personal_info User){
+        setSession();
+        try {
+            session.beginTransaction();
+            session.save(User);
+            session.getTransaction().commit();
+            System.out.println("Data Insertion Complete.");
+        } finally {
+            factory.close();
+        }
     }
 }

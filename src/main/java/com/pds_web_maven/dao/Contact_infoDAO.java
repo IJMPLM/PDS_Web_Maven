@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class ReadContact_info {
+public class Contact_infoDAO {
     private SessionFactory factory;
     private Session session;
     
@@ -93,4 +93,16 @@ public class ReadContact_info {
         }
         return respondent;
         }
+    
+    public void addData(contact_info User){
+        createSession();
+        try {
+            session.beginTransaction();
+            session.save(User);
+            session.getTransaction().commit();
+            System.out.println("Data Insertion Complete.");
+        } finally {
+            factory.close();
+        }
+    }
 }

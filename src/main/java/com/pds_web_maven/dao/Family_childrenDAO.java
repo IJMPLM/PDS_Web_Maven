@@ -9,7 +9,7 @@ import java.util.Map;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class ReadFamily_children {
+public class Family_childrenDAO {
     private HibernateUtil util;
     private SessionFactory factory;
     private Session session;
@@ -61,5 +61,31 @@ public class ReadFamily_children {
             util.closeSession();
         }
         return respondent;
+    }
+    
+    public void addData(family_children User){
+        setSession();
+        try {
+            session.beginTransaction();
+            session.save(User);
+            session.getTransaction().commit();
+            System.out.println("Data Insertion Complete.");
+        } finally {
+            factory.close();
+        }
+    }
+    
+    public void updateDate(int fam_ch_id, family_children User){
+        setSession();
+        try {
+            session.beginTransaction();
+            User = session.get(family_children.class, fam_ch_id);
+            if (User != null)
+                User.setChildFullname("Jonard Delos Reyes");
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
     }
 }

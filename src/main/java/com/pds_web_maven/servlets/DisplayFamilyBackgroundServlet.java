@@ -4,8 +4,8 @@
  */
 package com.pds_web_maven.servlets;
 
-import com.pds_web_maven.dao.ReadFamily_background;
-import com.pds_web_maven.dao.ReadFamily_children;
+import com.pds_web_maven.dao.Family_backgroundDAO;
+import com.pds_web_maven.dao.Family_childrenDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -43,9 +43,9 @@ public class DisplayFamilyBackgroundServlet extends HttpServlet {
                 System.out.println("No p_id provided or stored in the session.");
             }
         }
-        ReadFamily_background personalInfo = new ReadFamily_background();
+        Family_backgroundDAO personalInfo = new Family_backgroundDAO();
         Map<String, String> data = personalInfo.getData(p_id);
-        ReadFamily_children familyChildren = new ReadFamily_children();
+        Family_childrenDAO familyChildren = new Family_childrenDAO();
         List<Map<String, String>> dataChildren = familyChildren.getChildren(p_id);
         request.setAttribute("p_id", p_id);
         request.setAttribute("data", data);

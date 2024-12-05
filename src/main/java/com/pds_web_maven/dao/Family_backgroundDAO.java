@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class ReadFamily_background {
+public class Family_backgroundDAO {
     private SessionFactory factory;    
     private Session session;    
     
@@ -71,6 +71,18 @@ public class ReadFamily_background {
             factory.close();
         }
         return respondent;
+    }
+    
+    public void addData(family_background User){
+        createSession();
+        try {
+            session.beginTransaction();
+            session.save(User);
+            session.getTransaction().commit();
+            System.out.println("Data Insertion Complete.");
+        } finally {
+            factory.close();
+        }
     }
 }
 
