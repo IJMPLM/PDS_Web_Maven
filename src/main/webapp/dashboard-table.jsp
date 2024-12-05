@@ -33,15 +33,14 @@
     </div>
     <div class="flex flex-row m-14">
         <div class="m-8 flex-3">
-            <table class="table-fixed w-full border border-gray-100 border-separate border-spacing-y-4">
+            <table class="table-fixed w-full border-separate border-spacing-y-4 text-center">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Full Name</th>
-                        <th>Name Extension</th>
-                        <th>Gender</th>
-                        <th>Civil Status</th>
-                        <th>Age</th>
+                    <tr class="">
+                        <th class="w-1/12">ID</th>
+                        <th class="w-4/12">Full Name</th>
+                        <th class="w-2/12">Gender</th>
+                        <th class="w-3/12">Civil Status</th>
+                        <th class="w-2/12">Age</th>
                     </tr>
                 </thead>    
                 <tbody class="min-w-full divide-y divide-gray-200">
@@ -49,11 +48,12 @@
                         List<Map<String, String>> data = (List<Map<String, String>>) request.getAttribute("data");
                         for (Map<String, String> map : data) {
                     %>
-                        <tr class="hoverable-row my-8 bg-white rounded border border-[#e4e4e4]" data-pid="<%= map.get("p_id") %>">
-                            <td><%= map.get("p_id") %></td>
-                            <td class="py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug"><%= map.get("fullname") %></td>
-                            <td class="py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug"><%= map.get("gender") %></td>
-                            <td class="py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug" ><%= map.get("age") %></td>
+                        <tr class="hoverable-row" data-pid="<%= map.get("p_id") %>">
+                            <td class="w-1/12"><%= map.get("p_id") %></td>
+                            <td class="w-4/12 py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug"><%= map.get("fullname") %></td>
+                            <td class="w-2/12 py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug"><%= map.get("gender") %></td>
+                            <td class="w-3/12 py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug"><%= map.get("civilstatus") %></td>
+                            <td class="w-2/12 py-[10.64px] text-[#717171] text-[14.90px] font-normal font-['Inter'] leading-snug" ><%= map.get("age") %></td>
                         </tr>
                     <%
                         }
