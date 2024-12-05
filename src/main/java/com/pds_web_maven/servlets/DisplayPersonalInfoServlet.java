@@ -4,8 +4,8 @@
  */
 package com.pds_web_maven.servlets;
 
-import com.pds_web_maven.dao.ReadPersonal_Info;
-import com.pds_web_maven.dao.ReadContact_info;
+import com.pds_web_maven.dao.Personal_InfoDAO;
+import com.pds_web_maven.dao.Contact_infoDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -43,9 +43,9 @@ public class DisplayPersonalInfoServlet extends HttpServlet {
                 System.out.println("No p_id provided or stored in the session.");
             }
         }
-        ReadPersonal_Info personalInfo = new ReadPersonal_Info();
+        Personal_InfoDAO personalInfo = new Personal_InfoDAO();
         Map<String, String> data = personalInfo.getData(p_id);
-        ReadContact_info contactInfo = new ReadContact_info();
+        Contact_infoDAO contactInfo = new Contact_infoDAO();
         Map<String, String> data_contact = contactInfo.getData(p_id);
         request.setAttribute("p_id", p_id);
         request.setAttribute("data", data);

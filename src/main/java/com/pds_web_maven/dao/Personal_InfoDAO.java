@@ -1,28 +1,29 @@
 package com.pds_web_maven.dao;
 
 import com.pds_web_maven.entities.personal_info;
+import com.pds_web_maven.tools.HibernateUtil;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Date;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
 
-public class ReadPersonal_Info {
+public class Personal_InfoDAO {
+    private HibernateUtil util;
     private SessionFactory factory;
     private Session session;
-    public void createSession(){
-        this.factory = new Configuration()
-                    .configure("hibernate.cfg.xml")
-                    .addAnnotatedClass(personal_info.class)
-                    .buildSessionFactory();
-        this.session = factory.getCurrentSession();
+    
+    public void setSession() {
+        util = new HibernateUtil();
+        factory = util.createFactory(this.getClass());
+        session = util.createSession();
     }
     
     public List<Map<String, String>> getData(){
         List<Map<String, String>> respondent = new ArrayList<>();
-        createSession();
+        setSession();
         try {
             session.beginTransaction();
             List<personal_info> dbresult = session.createNamedQuery("personal_info.findAll", personal_info.class)
@@ -54,7 +55,7 @@ public class ReadPersonal_Info {
     }
     
     public Map<String, String> getData(int p_id) {
-        createSession();
+        setSession();
         Map<String, String> respondent = new HashMap<>();
         try {
             session.beginTransaction();
@@ -84,5 +85,83 @@ public class ReadPersonal_Info {
             factory.close();
         }
         return respondent;
+    }
+    
+    public void addData(personal_info User){
+        setSession();
+        try {
+            session.beginTransaction();
+            session.save(User);
+            session.getTransaction().commit();
+            System.out.println("Data Insertion Complete.");
+        } finally {
+            factory.close();
+        }
+    }
+    
+    public void updateData(int p_id, personal_info User){
+        setSession();
+        try {
+            session.beginTransaction();
+            personal_info data = session.get(personal_info.class, p_id);
+            if (User != null){
+               data.setSex_id(User.getSex_id());
+               data.setCstat_id(User.getCstat_id());
+               data.setCit_id(User.getCit_id());
+               data.setCit_acq_id(User.getCit_acq_id());
+               data.setl_name(User.getl_name());
+               data.setf_name(User.getf_name());
+               data.setm_name(User.getm_name());
+               data.setExt_name(User.getExt_name());
+               data.setDob(User.getDob());
+               data.setPob(User.getPob());
+               data.setHeight(User.getHeight());
+               data.setWeight(User.getWeight());
+               data.setblood_type(User.getblood_type());
+               data.setgsis_no(User.getgsis_no());
+               data.setPagibig_id(User.getPagibig_id());
+               data.setPhilhealth_Id(User.getPhilhealth_Id());
+               data.setSss_no(User.getSss_no());
+               data.setTin(User.getTin());
+               data.setAgency_empno(User.getAgency_empno());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
+    }
+
+    public void updateData(String p_id, personal_info User){
+        setSession();
+        try {
+            session.beginTransaction();
+            personal_info data = session.get(personal_info.class, Integer.parseInt(p_id));
+            if (User != null){
+               data.setSex_id(User.getSex_id());
+               data.setCstat_id(User.getCstat_id());
+               data.setCit_id(User.getCit_id());
+               data.setCit_acq_id(User.getCit_acq_id());
+               data.setl_name(User.getl_name());
+               data.setf_name(User.getf_name());
+               data.setm_name(User.getm_name());
+               data.setExt_name(User.getExt_name());
+               data.setDob(User.getDob());
+               data.setPob(User.getPob());
+               data.setHeight(User.getHeight());
+               data.setWeight(User.getWeight());
+               data.setblood_type(User.getblood_type());
+               data.setgsis_no(User.getgsis_no());
+               data.setPagibig_id(User.getPagibig_id());
+               data.setPhilhealth_Id(User.getPhilhealth_Id());
+               data.setSss_no(User.getSss_no());
+               data.setTin(User.getTin());
+               data.setAgency_empno(User.getAgency_empno());
+            }
+            session.getTransaction().commit();
+            System.out.println("Data Updated.");
+        } finally {
+            factory.close();
+        }
     }
 }

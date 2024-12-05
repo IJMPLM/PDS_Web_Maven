@@ -3,6 +3,8 @@ package com.pds_web_maven.entities;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -12,6 +14,8 @@ import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import java.time.ZoneId;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -26,6 +30,7 @@ public class family_children {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fam_ch_id")
     private Integer famChId;
     @Column(name = "p_id")
@@ -42,6 +47,40 @@ public class family_children {
 
     public family_children(Integer famChId) {
         this.famChId = famChId;
+    }
+
+    public family_children(String famChId) {
+        this.famChId = Integer.parseInt(famChId);
+    }
+
+    public family_children(Integer famChId, int p_id, String childFullname, Date childDob) {
+        this.famChId = famChId;
+        this.p_id = p_id;
+        this.childFullname = childFullname;
+        this.childDob = childDob;
+    }
+    
+    public family_children(int p_id, String childFullname, Date childDob) {
+        this.p_id = p_id;
+        this.childFullname = childFullname;
+        this.childDob = childDob;
+    }
+    
+    public family_children(String famChId, String p_id, String childFullName, String childDob) {
+        this.famChId = Integer.parseInt(famChId);
+        this.p_id = Integer.parseInt(p_id);
+        this.childFullname = childFullName;
+        this.childDob = Date.from((LocalDate.parse(childDob))
+                            .atStartOfDay(ZoneId.systemDefault())
+                            .toInstant());
+    }
+    
+    public family_children(String p_id, String childFullName, String childDob) {
+        this.p_id = Integer.parseInt(p_id);
+        this.childFullname = childFullName;
+        this.childDob = Date.from((LocalDate.parse(childDob))
+                            .atStartOfDay(ZoneId.systemDefault())
+                            .toInstant());
     }
 
     public Integer getFamChId() {
@@ -73,6 +112,12 @@ public class family_children {
 
     public void setChildDob(Date childDob) {
         this.childDob = childDob;
+    }
+    
+    public void setChildDob(String childDob) {
+        this.childDob = Date.from((LocalDate.parse(childDob))
+                            .atStartOfDay(ZoneId.systemDefault())
+                            .toInstant());
     }
 
     @Override
