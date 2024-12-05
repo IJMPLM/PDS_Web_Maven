@@ -84,6 +84,14 @@ public class contact_info {
 
     public contact_info() {
     }
+    
+    public contact_info(Integer contactId) {
+        this.contactId = contactId;
+    }
+
+    public contact_info(String contactId) {
+        this.contactId = Integer.parseInt(contactId);
+    }
 
     public contact_info(Integer contactId, int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
                         String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
@@ -183,10 +191,6 @@ public class contact_info {
         this.emailAddress = emailAddress;
     }
     
-    public contact_info(Integer contactId) {
-        this.contactId = contactId;
-    }
-
     public Integer getContactId() {
         return contactId;
     }

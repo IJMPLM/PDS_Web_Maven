@@ -51,6 +51,7 @@ public class Family_childrenDAO {
                                                   .getResultList();
             for (family_children f : dbresult){ 
                 Map<String, String> data = new HashMap<>();
+                data.put("fam_bg_id", f.convertFam_ch_id(String.valueOf(f.getFamChId())));
                 data.put("p_id", f.convertPid(String.valueOf(f.getP_id())));
                 data.put("child_fullname", f.convertChild_fn(f.getChildFullname()));
                 data.put("child_dob", f.convertChild_dob(String.valueOf(f.getChildDob())));
@@ -74,29 +75,12 @@ public class Family_childrenDAO {
             factory.close();
         }
     }
-    
-    public void updateData(int fam_ch_id, family_children User){
-        setSession();
-        try {
-            session.beginTransaction();
-            family_children data = session.get(family_children.class, fam_ch_id);
-            if (User != null){
-                data.setP_id(User.getP_id());
-                data.setChildFullname(User.getChildFullname());
-                data.setChildDob(User.getChildDob());
-            }
-            session.getTransaction().commit();
-            System.out.println("Data Updated.");
-        } finally {
-            factory.close();
-        }
-    }
 
-    public void updateData(String fam_ch_id, family_children User){
+    public void updateData(family_children User){
         setSession();
         try {
             session.beginTransaction();
-            family_children data = session.get(family_children.class, Integer.parseInt(fam_ch_id));
+            family_children data = session.get(family_children.class, User.getFamChId());
             if (User != null){
                 data.setP_id(User.getP_id());
                 data.setChildFullname(User.getChildFullname());
@@ -104,44 +88,6 @@ public class Family_childrenDAO {
             }
             session.getTransaction().commit();
             System.out.println("Data Updated.");
-        } finally {
-            factory.close();
-        }
-    }
-    
-    public void deleteData(int fam_ch_id, family_children User){
-        setSession();
-        try {
-            session.beginTransaction();
-            family_children data = session.get(family_children.class, fam_ch_id);
-            String query = "DELETE FROM family_children f WHERE e.fam_ch_id = :fam_ch_id";
-            
-            if (data != null){
-                int rows = session.createQuery(query)
-                                  .setParameter("fam_ch_id", fam_ch_id)
-                                  .executeUpdate();
-                System.out.println("User FOUND.");
-            } else 
-                System.out.println("User NOT FOUND");
-            session.flush();
-            session.clear();
-            session.getTransaction().commit();
-        } finally {
-            factory.close();
-        }
-    }
-    
-    public void deleteData(String fam_ch_id, family_children User){
-        setSession();
-        try {
-            session.beginTransaction();
-            family_children data = session.get(family_children.class, Integer.parseInt(fam_ch_id));
-            if (User != null){
-                session.delete(data);
-                System.out.println("User FOUND.");
-            } else 
-                System.out.println("User NOT FOUND");
-            session.getTransaction().commit();
         } finally {
             factory.close();
         }
@@ -152,8 +98,10 @@ public class Family_childrenDAO {
         try {
             session.beginTransaction();
             family_children data = session.get(family_children.class, User.getFamChId());
-            if (User != null){
+            if (data != null){
                 session.delete(data);
+                session.flush();
+                session.clear();
                 System.out.println("User FOUND.");
             } else 
                 System.out.println("User NOT FOUND");

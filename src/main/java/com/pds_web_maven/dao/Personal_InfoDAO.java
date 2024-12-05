@@ -6,11 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Date;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 
-public class Personal_InfoDAO {
+public class Personal_infoDAO {
     private HibernateUtil util;
     private SessionFactory factory;
     private Session session;
@@ -99,12 +98,12 @@ public class Personal_InfoDAO {
         }
     }
     
-    public void updateData(int p_id, personal_info User){
+    public void updateData(personal_info User){
         setSession();
         try {
             session.beginTransaction();
-            personal_info data = session.get(personal_info.class, p_id);
-            if (User != null){
+            personal_info data = session.get(personal_info.class, User.getp_id());
+            if (data != null){
                data.setSex_id(User.getSex_id());
                data.setCstat_id(User.getCstat_id());
                data.setCit_id(User.getCit_id());
@@ -131,35 +130,20 @@ public class Personal_InfoDAO {
             factory.close();
         }
     }
-
-    public void updateData(String p_id, personal_info User){
+    
+    public void deleteData(personal_info User){
         setSession();
         try {
             session.beginTransaction();
-            personal_info data = session.get(personal_info.class, Integer.parseInt(p_id));
-            if (User != null){
-               data.setSex_id(User.getSex_id());
-               data.setCstat_id(User.getCstat_id());
-               data.setCit_id(User.getCit_id());
-               data.setCit_acq_id(User.getCit_acq_id());
-               data.setl_name(User.getl_name());
-               data.setf_name(User.getf_name());
-               data.setm_name(User.getm_name());
-               data.setExt_name(User.getExt_name());
-               data.setDob(User.getDob());
-               data.setPob(User.getPob());
-               data.setHeight(User.getHeight());
-               data.setWeight(User.getWeight());
-               data.setblood_type(User.getblood_type());
-               data.setgsis_no(User.getgsis_no());
-               data.setPagibig_id(User.getPagibig_id());
-               data.setPhilhealth_Id(User.getPhilhealth_Id());
-               data.setSss_no(User.getSss_no());
-               data.setTin(User.getTin());
-               data.setAgency_empno(User.getAgency_empno());
-            }
+            personal_info data = session.get(personal_info.class, User.getp_id());
+            if (data != null){
+                session.delete(data);
+                session.flush();
+                session.clear();
+                System.out.println("User FOUND.");
+            } else 
+                System.out.println("User NOT FOUND");
             session.getTransaction().commit();
-            System.out.println("Data Updated.");
         } finally {
             factory.close();
         }

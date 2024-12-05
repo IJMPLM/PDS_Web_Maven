@@ -66,6 +66,14 @@ public class personal_info {
 
     public personal_info() {
     }
+    
+    public personal_info(Integer p_id) {
+        this.p_id = p_id;
+    }
+    
+    public personal_info(String p_id) {
+        this.p_id = Integer.parseInt(p_id);
+    }
 
     public personal_info(Integer p_id, int sex_id, int cstat_id, int cit_id, int cit_acq_id, 
                          String l_name, String f_name, String m_name, String ext_name, Date dob, 
@@ -119,10 +127,6 @@ public class personal_info {
         this.sss_no = sss_no;
         this.tin = tin;
         this.agency_empno = agency_empno;
-    }
-
-    public personal_info(Integer p_id) {
-        this.p_id = p_id;
     }
 
     public Integer getp_id() {

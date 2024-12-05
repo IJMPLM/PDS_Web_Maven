@@ -1,7 +1,6 @@
 package com.pds_web_maven.dao;
 
 import com.pds_web_maven.entities.family_background;
-import com.pds_web_maven.entities.personal_info;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,12 +84,12 @@ public class Family_backgroundDAO {
         }
     }
     
-    public void updateData(int p_id, family_background User){
+    public void updateData(family_background User){
         createSession();
         try {
             session.beginTransaction();
-            family_background data = session.get(family_background.class, p_id);
-            if (User != null){
+            family_background data = session.get(family_background.class, User.getP_id());
+            if (data != null){
                 data.setSpouseLname(User.getSpouseLname());
                 data.setSpouseFname(User.getSpouseFname());
                 data.setSpouseLname(User.getSpouseMname());
@@ -112,30 +111,20 @@ public class Family_backgroundDAO {
             factory.close();
         }
     }
-
-    public void updateData(String p_id, family_background User){
+    
+    public void deleteData(family_background User){
         createSession();
         try {
             session.beginTransaction();
-            family_background data = session.get(family_background.class, Integer.parseInt(p_id));
-            if (User != null){
-                data.setSpouseLname(User.getSpouseLname());
-                data.setSpouseFname(User.getSpouseFname());
-                data.setSpouseLname(User.getSpouseMname());
-                data.setSpouseExtname(User.getSpouseExtname());
-                data.setSpouseOccupation(User.getSpouseOccupation());
-                data.setSpouseEmployer(User.getSpouseEmployer());
-                data.setSpouseEmpAddress(User.getSpouseEmpAddress());
-                data.setFatherLname(User.getFatherLname());
-                data.setFatherFname(User.getFatherFname());
-                data.setFatherMname(User.getFatherMname());
-                data.setFatherExtname(User.getFatherExtname());
-                data.setMotherMnLname(User.getMotherMnLname());
-                data.setMotherMnFname(User.getMotherMnFname());
-                data.setMotherMnMname(User.getMotherMnMname());
-            }
+            family_background data = session.get(family_background.class, User.getP_id());
+            if (data != null){
+                session.delete(data);
+                session.flush();
+                session.clear();
+                System.out.println("User FOUND.");
+            } else 
+                System.out.println("User NOT FOUND");
             session.getTransaction().commit();
-            System.out.println("Data Updated.");
         } finally {
             factory.close();
         }
