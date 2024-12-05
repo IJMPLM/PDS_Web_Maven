@@ -1,6 +1,6 @@
 package com.pds_web_maven.dao;
 
-import com.pds_web_maven.entities.personal_info;
+import com.pds_web_maven.entities.family_children;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +15,7 @@ public class Main {
         //       error catching for crud
         //       query for ref values
         //       null for ext values?
+        //       sql auto_increment does not start at deleted counter but rather continues on
         // reformatted filename entities, C (/) R (/) U D, Added ext_name, constructors
         // counter columns are not update-able
         
@@ -32,6 +33,8 @@ public class Main {
         Contact_infoDAO eCI = new Contact_infoDAO();
         List<Map<String, String>> zx = eCI.getData();
 
+        family_children clFC = new family_children();
+        eFC.deleteData(51, clFC);
         
         // DEBUGGER
         for (Map<String, String> map : hij) {

@@ -45,6 +45,14 @@ public class family_children {
     public family_children() {
     }
 
+    public family_children(Integer famChId) {
+        this.famChId = famChId;
+    }
+
+    public family_children(String famChId) {
+        this.famChId = Integer.parseInt(famChId);
+    }
+
     public family_children(Integer famChId, int p_id, String childFullname, Date childDob) {
         this.famChId = famChId;
         this.p_id = p_id;
@@ -73,10 +81,6 @@ public class family_children {
         this.childDob = Date.from((LocalDate.parse(childDob))
                             .atStartOfDay(ZoneId.systemDefault())
                             .toInstant());
-    }
-
-    public family_children(Integer famChId) {
-        this.famChId = famChId;
     }
 
     public Integer getFamChId() {

@@ -108,4 +108,58 @@ public class Family_childrenDAO {
             factory.close();
         }
     }
+    
+    public void deleteData(int fam_ch_id, family_children User){
+        setSession();
+        try {
+            session.beginTransaction();
+            family_children data = session.get(family_children.class, fam_ch_id);
+            String query = "DELETE FROM family_children f WHERE e.fam_ch_id = :fam_ch_id";
+            
+            if (data != null){
+                int rows = session.createQuery(query)
+                                  .setParameter("fam_ch_id", fam_ch_id)
+                                  .executeUpdate();
+                System.out.println("User FOUND.");
+            } else 
+                System.out.println("User NOT FOUND");
+            session.flush();
+            session.clear();
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+    }
+    
+    public void deleteData(String fam_ch_id, family_children User){
+        setSession();
+        try {
+            session.beginTransaction();
+            family_children data = session.get(family_children.class, Integer.parseInt(fam_ch_id));
+            if (User != null){
+                session.delete(data);
+                System.out.println("User FOUND.");
+            } else 
+                System.out.println("User NOT FOUND");
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+    }
+    
+    public void deleteData(family_children User){
+        setSession();
+        try {
+            session.beginTransaction();
+            family_children data = session.get(family_children.class, User.getFamChId());
+            if (User != null){
+                session.delete(data);
+                System.out.println("User FOUND.");
+            } else 
+                System.out.println("User NOT FOUND");
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+    }
 }
