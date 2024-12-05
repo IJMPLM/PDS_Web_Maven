@@ -8,17 +8,12 @@ public class Main {
     
     public static void main(String[] args){
         // TODO: HibernateUtil.xml (improv)
-        //       YUNG DATABASEE, WALANG COLUMN FOR NAME EXT. RAAAAAH
         //       bukod sa age, include narin yung birthdate
-        //       create cud
         //       NamedQueries
         //       error catching for crud
         //       query for ref values
         //       null for ext values?
-        //       sizes ng attr
         // counter columns are not update-able
-        
-        // call entity class and fill parameters, pass in the class to method
         
         Personal_infoDAO ePI = new Personal_infoDAO();
         List<Map<String, String>> abc = ePI.getData();
@@ -33,11 +28,11 @@ public class Main {
         List<Map<String, String>> zx = eCI.getData();
 
         family_children clFC = new family_children(54);
-        eFC.deleteData(clFC);
+//        eFC.deleteData(clFC);
         
         // DEBUGGER
         for (Map<String, String> map : hij) {
-//           System.out.println(map.get("child_fullname"));
+           System.out.println(map.get("child_fullname"));
         }
     }
 }
