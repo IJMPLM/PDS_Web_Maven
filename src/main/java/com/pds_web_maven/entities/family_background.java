@@ -72,6 +72,14 @@ public class family_background {
 
     public family_background() {
     }
+    
+    public family_background(Integer famBgId) {
+        this.famBgId = famBgId;
+    }
+    
+    public family_background(String famBgId) {
+        this.famBgId = Integer.parseInt(famBgId);
+    }
 
     public family_background(Integer famBgId, int p_id, String spouseLname, String spouseFname, 
                              String spouseMname, String spouseExtname, String spouseOccupation, String spouseEmployer, String spouseEmpAddress, 
@@ -157,10 +165,6 @@ public class family_background {
         this.motherMnLname = motherMnLname;
         this.motherMnFname = motherMnFname;
         this.motherMnMname = motherMnMname;
-    }
-    
-    public family_background(Integer famBgId) {
-        this.famBgId = famBgId;
     }
 
     public Integer getFamBgId() {

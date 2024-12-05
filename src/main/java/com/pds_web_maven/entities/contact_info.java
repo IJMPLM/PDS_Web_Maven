@@ -30,59 +30,67 @@ public class contact_info {
     private Integer contactId;
     @Column(name = "p_id")
     private int p_id;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "res_house_no")
     private String resHouseNo;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "res_house_street")
     private String resHouseStreet;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "res_village")
     private String resVillage;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "res_bgy")
     private String resBgy;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "res_citymun")
     private String resCitymun;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "res_prov")
     private String resProv;
-    @Size(max = 255)
+    @Size(max = 5)
     @Column(name = "res_zipcode")
     private String resZipcode;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "perm_house_no")
     private String permHouseNo;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "perm_house_street")
     private String permHouseStreet;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "perm_village")
     private String permVillage;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "perm_bgy")
     private String permBgy;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "perm_citymun")
     private String permCitymun;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "perm_prov")
     private String permProv;
-    @Size(max = 255)
+    @Size(max = 5)
     @Column(name = "perm_zipcode")
     private String permZipcode;
-    @Size(max = 255)
+    @Size(max = 20)
     @Column(name = "tel_no")
     private String telNo;
-    @Size(max = 255)
+    @Size(max = 20)
     @Column(name = "mobile_no")
     private String mobileNo;
-    @Size(max = 255)
+    @Size(max = 50)
     @Column(name = "email_address")
     private String emailAddress;
 
     public contact_info() {
+    }
+    
+    public contact_info(Integer contactId) {
+        this.contactId = contactId;
+    }
+
+    public contact_info(String contactId) {
+        this.contactId = Integer.parseInt(contactId);
     }
 
     public contact_info(Integer contactId, int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
@@ -183,10 +191,6 @@ public class contact_info {
         this.emailAddress = emailAddress;
     }
     
-    public contact_info(Integer contactId) {
-        this.contactId = contactId;
-    }
-
     public Integer getContactId() {
         return contactId;
     }

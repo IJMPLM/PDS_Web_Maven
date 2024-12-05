@@ -106,12 +106,12 @@ public class Contact_infoDAO {
         }
     }
     
-    public void updateData(int p_id, contact_info User){
+    public void updateData(contact_info User){
         createSession();
         try {
             session.beginTransaction();
-            contact_info data = session.get(contact_info.class, p_id);
-            if (User != null){
+            contact_info data = session.get(contact_info.class, User.getP_id());
+            if (data != null){
                 data.setResHouseNo(User.getResHouseNo());
                 data.setResHouseStreet(User.getResHouseStreet());
                 data.setResVillage(User.getResVillage());
@@ -137,32 +137,19 @@ public class Contact_infoDAO {
         }
     }
     
-    public void updateData(String p_id, contact_info User){
+    public void deleteData(contact_info User){
         createSession();
         try {
             session.beginTransaction();
-            contact_info data = session.get(contact_info.class, Integer.parseInt(p_id));
-            if (User != null){
-                data.setResHouseNo(User.getResHouseNo());
-                data.setResHouseStreet(User.getResHouseStreet());
-                data.setResVillage(User.getResVillage());
-                data.setResBgy(User.getResBgy());
-                data.setResCitymun(User.getResCitymun());
-                data.setResProv(User.getResProv());
-                data.setResZipcode(User.getResZipcode());
-                data.setPermHouseNo(User.getPermHouseNo());
-                data.setPermHouseStreet(User.getPermHouseStreet());
-                data.setPermVillage(User.getPermVillage());
-                data.setPermBgy(User.getPermBgy());
-                data.setPermCitymun(User.getPermCitymun());
-                data.setPermProv(User.getPermProv());
-                data.setPermZipcode(User.getPermZipcode());
-                data.setTelNo(User.getTelNo());
-                data.setMobileNo(User.getMobileNo());
-                data.setEmailAddress(User.getEmailAddress());
-            }
+            contact_info data = session.get(contact_info.class, User.getP_id());
+            if (data != null){
+                session.delete(data);
+                session.flush();
+                session.clear();
+                System.out.println("User FOUND.");
+            } else 
+                System.out.println("User NOT FOUND");
             session.getTransaction().commit();
-            System.out.println("Data Updated.");
         } finally {
             factory.close();
         }
