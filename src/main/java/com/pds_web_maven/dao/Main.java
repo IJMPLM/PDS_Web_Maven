@@ -13,6 +13,7 @@ public class Main {
         //       error catching for crud
         //       query for ref values
         //       null for ext values?
+        //       lagay ext value sa fam bg
         // counter columns are not update-able
         
         Personal_infoDAO ePI = new Personal_infoDAO();

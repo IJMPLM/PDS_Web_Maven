@@ -32,11 +32,22 @@ public class Family_backgroundDAO {
                 data.put("fam_bg_id", String.valueOf(f.getFamBgId()));
                 data.put("p_id", String.valueOf(f.getP_id()));
                 data.put("spouse_fullname", f.convertSpouseFN(f.getSpouseLname()));
+                data.put("spouse_lname", f.getSpouseLname());   // no null catch
+                data.put("spouse_fname", f.getSpouseFname());
+                data.put("spouse_mname", f.getSpouseMname());
+                data.put("spouse_extname", f.getSpouseExtname());
                 data.put("spouse_occupation", f.convertSpouceOccu(f.getSpouseOccupation()));
                 data.put("spouse_employer", f.convertEmployer(f.getSpouseEmployer()));
                 data.put("spouse_emp_address", f.convertEmpAddr(f.getSpouseEmpAddress()));
                 data.put("father_fullname", f.convertFatherFN(f.getFatherLname()));
+                data.put("father_lname", f.getFatherLname());
+                data.put("father_fname", f.getFatherFname());
+                data.put("father_mname", f.getFatherMname());
+                data.put("father_extname", f.getFatherExtname());
                 data.put("mother_fullname", f.convertMotherFN(f.getMotherMnLname()));
+                data.put("mother_mn_lname", f.getMotherMnLname());
+                data.put("mother_mn_fname", f.getMotherMnFname());
+                data.put("mother_mn_mname", f.getMotherMnMname());
                 respondent.add(data);
             }
             session.getTransaction().commit();
@@ -59,11 +70,22 @@ public class Family_backgroundDAO {
                 respondent.put("fam_bg_id", String.valueOf(f.getFamBgId()));
                 respondent.put("p_id", String.valueOf(f.getP_id()));
                 respondent.put("spouse_fullname", f.convertSpouseFN(f.getSpouseLname()));
+                respondent.put("spouse_lname", f.getSpouseLname());
+                respondent.put("spouse_fname", f.getSpouseFname());
+                respondent.put("spouse_mname", f.getSpouseMname());
+                respondent.put("spouse_extname", f.getSpouseExtname());
                 respondent.put("spouse_occupation", f.getSpouseOccupation());
                 respondent.put("spouse_employer", f.getSpouseEmployer());
                 respondent.put("spouse_emp_address", f.getSpouseEmpAddress());
-                respondent.put("father_fullname", f.getFatherLname() + ", " + f.getFatherFname() + " " + f.getFatherMname());
-                respondent.put("mother_fullname", f.getMotherMnLname() + ", " + f.getMotherMnFname() + " " + f.getMotherMnMname());
+                respondent.put("father_fullname", f.convertFatherFN(f.getFatherLname()));
+                respondent.put("father_lname", f.getFatherLname());
+                respondent.put("father_fname", f.getFatherFname());
+                respondent.put("father_mname", f.getFatherMname());
+                respondent.put("father_extname", f.getFatherExtname());
+                respondent.put("mother_fullname", f.convertMotherFN(f.getMotherMnLname()));
+                respondent.put("mother_mn_lname", f.getMotherMnLname());
+                respondent.put("mother_mn_fname", f.getMotherMnFname());
+                respondent.put("mother_mn_mname", f.getMotherMnMname());
             }
             session.getTransaction().commit();
         } finally {
