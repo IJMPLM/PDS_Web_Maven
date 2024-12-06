@@ -34,6 +34,7 @@ public class Personal_infoDAO {
                 data.put("gender", p.convertSexId(p.getSex_id()));
                 data.put("civilstatus", p.convertCstatId(p.getCstat_id()));
                 data.put("fullname", p.getl_name() + ", " + p.getf_name() + " " + p.getm_name());
+                data.put("extname", p.getExt_name());
                 data.put("age", p.convertDob(p.getDob()));
                 data.put("birthplace", p.getPob());
                 data.put("height", String.valueOf(p.getHeight()));

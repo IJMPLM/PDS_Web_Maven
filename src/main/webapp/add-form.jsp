@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <link href="assets/tailwind-output.css" rel="stylesheet">
-    <title>Add New Record</title>
+    <title>Create Record</title>
 </head>
 <body>
     <header>
@@ -14,8 +14,20 @@
         <form action="CreateRecordServlet" method="post">
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="fullname">Full Name:</label>
-                    <input type="text" id="fullname" name="fullname" class="border p-2 w-full">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="mname">Middle Name:</label>
+                    <input type="text" id="mname" name="mname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="extname">Name Extension:</label>
+                    <input type="text" id="extname" name="extname" class="border p-2 w-full">
                 </div>
                 <div>
                     <label for="gender">Gender:</label>
