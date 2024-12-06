@@ -2,6 +2,7 @@ package com.pds_web_maven.dao;
 
 import com.pds_web_maven.entities.personal_info;
 import com.pds_web_maven.tools.HibernateUtil;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,8 +67,13 @@ public class Personal_infoDAO {
                 respondent.put("p_id", String.valueOf(p.getp_id()));
                 respondent.put("gender", p.convertSexId(p.getSex_id()));
                 respondent.put("civilstatus", p.convertCstatId(p.getCstat_id()));
-                respondent.put("fullname", p.getl_name() + ", " + p.getf_name() + " " + p.getm_name());
+                respondent.put("fullname", p.getl_name() + ", " + p.getf_name() + " " + p.getm_name() + " " + p.getExt_name());
+                respondent.put("lname", p.getl_name());
+                respondent.put("fname", p.getf_name());
+                respondent.put("mname", p.getm_name());
+                respondent.put("extname", p.getExt_name());
                 respondent.put("age", p.convertDob(p.getDob()));
+                respondent.put("birthdate", new SimpleDateFormat("MM-dd-yyyy").format(p.getDob()));
                 respondent.put("birthplace", p.getPob());
                 respondent.put("height", String.valueOf(p.getHeight()));
                 respondent.put("weight", String.valueOf(p.getWeight()));
