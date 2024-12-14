@@ -32,8 +32,8 @@ public class Main {
 //        eFC.deleteData(clFC);
         
         // DEBUGGER
-        for (Map<String, String> map : hij) {
-           System.out.println(map.get("child_fullname"));
+        for (Map<String, String> map : abc) {
+           System.out.println(map.get("fullname"));
         }
     }
 }

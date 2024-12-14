@@ -9,6 +9,18 @@ public class HibernateUtil {
     private SessionFactory factory;
     private Session session;
     
+    public HibernateUtil(){
+        
+    }
+    
+    public SessionFactory getFactory(){
+        return factory;
+    }
+    
+    public Session getSession(){
+        return session;
+    }
+    
     public SessionFactory createFactory(Class clFile) {
         this.factory = new Configuration().configure("hibernate.cfg.xml")
                                           .addAnnotatedClass(clFile)
@@ -24,7 +36,6 @@ public class HibernateUtil {
     public void closeSession(){
         this.factory.close();
     }
-    
     // -- experiments --
     public Class[] readClass(){
         Class[] a = new Class[12];
