@@ -3,15 +3,16 @@
 <html lang="en">
 <head>
     <link href="assets/tailwind-output.css" rel="stylesheet">
-    <title>Create Record</title>
+    <title>Add Record</title>
 </head>
 <body>
     <header>
         <%@ include file="dashboard-header.jsp" %>
     </header>
     <div class="m-4">
-        <h2>Create Personal Information</h2>
+        <h1 class="text-2xl font-bold">Add New Record</h1>
         <form action="CreateRecordServlet" method="post">
+            <h2 class="mt-8">Personal Information</h2>
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="lname">Last Name:</label>
@@ -30,27 +31,43 @@
                     <input type="text" id="extname" name="extname" class="border p-2 w-full">
                 </div>
                 <div>
-                    <label for="gender">Gender:</label>
-                    <input type="text" id="gender" name="gender" class="border p-2 w-full">
+                    <label for="gender">Sex:</label>
+                    <select id="gender" name="gender" class="border p-2 w-full">
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
                 </div>
                 <div>
                     <label for="civilstatus">Civil Status:</label>
-                    <input type="text" id="civilstatus" name="civilstatus" class="border p-2 w-full">
+                    <select id="civilstatus" name="civilstatus" class="border p-2 w-full">
+                        <option value="1">Single</option>
+                        <option value="2">Married</option>
+                        <option value="3">Widowed</option>
+                        <option value="4">Separated</option>
+                        <option value="5">Others</option>
+                    </select>
                 </div>
                 <div>
-                    <label for="age">Age:</label>
-                    <input type="text" id="age" name="age" class="border p-2 w-full">
+                    <label for="citizenship">Citizenship:</label>
+                    <select id="citizenship" name="citizenship" class="border p-2 w-full">
+                        <option value="1">Filipino</option>
+                        <option value="2">Dual Citizenship</option>
+                    </select>
                 </div>
                 <div>
-                    <label for="birthplace">Birthplace:</label>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="birthplace">Place of Birth:</label>
                     <input type="text" id="birthplace" name="birthplace" class="border p-2 w-full">
                 </div>
                 <div>
-                    <label for="height">Height (cm):</label>
+                    <label for="height">Height:</label>
                     <input type="text" id="height" name="height" class="border p-2 w-full">
                 </div>
                 <div>
-                    <label for="weight">Weight (kg):</label>
+                    <label for="weight">Weight:</label>
                     <input type="text" id="weight" name="weight" class="border p-2 w-full">
                 </div>
                 <div>
@@ -82,11 +99,94 @@
                     <input type="text" id="agency_empno" name="agency_empno" class="border p-2 w-full">
                 </div>
             </div>
-            <h2 class="mt-8">Create Family Background</h2>
+            <h2 class="mt-8">Contact Information</h2>
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="spouse_fullname">Spouse Full Name:</label>
-                    <input type="text" id="spouse_fullname" name="spouse_fullname" class="border p-2 w-full">
+                    <label for="res_house_no">Residential House No:</label>
+                    <input type="text" id="res_house_no" name="res_house_no" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="res_house_street">Residential Street:</label>
+                    <input type="text" id="res_house_street" name="res_house_street" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="res_village">Residential Village:</label>
+                    <input type="text" id="res_village" name="res_village" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="res_bgy">Residential Barangay:</label>
+                    <input type="text" id="res_bgy" name="res_bgy" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="res_citymun">Residential City/Municipality:</label>
+                    <input type="text" id="res_citymun" name="res_citymun" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="res_prov">Residential Province:</label>
+                    <input type="text" id="res_prov" name="res_prov" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="res_zipcode">Residential Zip Code:</label>
+                    <input type="text" id="res_zipcode" name="res_zipcode" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_house_no">Permanent House No:</label>
+                    <input type="text" id="perm_house_no" name="perm_house_no" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_house_street">Permanent Street:</label>
+                    <input type="text" id="perm_house_street" name="perm_house_street" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_village">Permanent Village:</label>
+                    <input type="text" id="perm_village" name="perm_village" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_bgy">Permanent Barangay:</label>
+                    <input type="text" id="perm_bgy" name="perm_bgy" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_citymun">Permanent City/Municipality:</label>
+                    <input type="text" id="perm_citymun" name="perm_citymun" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_prov">Permanent Province:</label>
+                    <input type="text" id="perm_prov" name="perm_prov" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="perm_zipcode">Permanent Zip Code:</label>
+                    <input type="text" id="perm_zipcode" name="perm_zipcode" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="tel_no">Telephone No:</label>
+                    <input type="text" id="tel_no" name="tel_no" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="mobile_no">Mobile No:</label>
+                    <input type="text" id="mobile_no" name="mobile_no" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="email_address">Email Address:</label>
+                    <input type="text" id="email_address" name="email_address" class="border p-2 w-full">
+                </div>
+            </div>
+            <h2 class="mt-8">Family Background</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="spouse_lname">Spouse Last Name:</label>
+                    <input type="text" id="spouse_lname" name="spouse_lname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="spouse_fname">Spouse First Name:</label>
+                    <input type="text" id="spouse_fname" name="spouse_fname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="spouse_mname">Spouse Middle Name:</label>
+                    <input type="text" id="spouse_mname" name="spouse_mname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="spouse_extname">Spouse Name Extension:</label>
+                    <input type="text" id="spouse_extname" name="spouse_extname" class="border p-2 w-full">
                 </div>
                 <div>
                     <label for="spouse_occupation">Spouse Occupation:</label>
@@ -101,12 +201,32 @@
                     <input type="text" id="spouse_emp_address" name="spouse_emp_address" class="border p-2 w-full">
                 </div>
                 <div>
-                    <label for="father_fullname">Father's Full Name:</label>
-                    <input type="text" id="father_fullname" name="father_fullname" class="border p-2 w-full">
+                    <label for="father_lname">Father's Last Name:</label>
+                    <input type="text" id="father_lname" name="father_lname" class="border p-2 w-full">
                 </div>
                 <div>
-                    <label for="mother_fullname">Mother's Maiden Name:</label>
-                    <input type="text" id="mother_fullname" name="mother_fullname" class="border p-2 w-full">
+                    <label for="father_fname">Father's First Name:</label>
+                    <input type="text" id="father_fname" name="father_fname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="father_mname">Father's Middle Name:</label>
+                    <input type="text" id="father_mname" name="father_mname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="father_extname">Father's Name Extension:</label>
+                    <input type="text" id="father_extname" name="father_extname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="mother_mn_lname">Mother's Maiden Last Name:</label>
+                    <input type="text" id="mother_mn_lname" name="mother_mn_lname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="mother_mn_fname">Mother's Maiden First Name:</label>
+                    <input type="text" id="mother_mn_fname" name="mother_mn_fname" class="border p-2 w-full">
+                </div>
+                <div>
+                    <label for="mother_mn_mname">Mother's Maiden Middle Name:</label>
+                    <input type="text" id="mother_mn_mname" name="mother_mn_mname" class="border p-2 w-full">
                 </div>
             </div>
             <h2 class="mt-8">Children Information</h2>
