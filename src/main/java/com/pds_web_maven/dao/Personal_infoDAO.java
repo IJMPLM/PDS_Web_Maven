@@ -15,6 +15,24 @@ public class Personal_infoDAO {
     private SessionFactory factory;
     private Session session;
     
+    private int p_id;
+    
+    public int getP_id() {
+        return p_id;
+    }
+
+    public String getP_idtoString() {
+        return String.valueOf(p_id);
+    }
+    
+    public void setP_id(int p_id) {
+        this.p_id = p_id;
+    }
+
+    public void setP_id(String p_id) {
+        this.p_id = Integer.parseInt(p_id);
+    }
+    
     public void setSession() {
         util = new HibernateUtil();
         factory = util.createFactory(this.getClass());
@@ -93,16 +111,22 @@ public class Personal_infoDAO {
         return respondent;
     }
     
-    public void addData(personal_info User){
+    public personal_info addData(personal_info User){
         setSession();
+        personal_info pid;
         try {
             session.beginTransaction();
             session.save(User);
+            
+            personal_info data = session.get(personal_info.class, User.getp_id());
+            pid = new personal_info(data.getp_id());
+            
             session.getTransaction().commit();
             System.out.println("Data Insertion Complete.");
         } finally {
             factory.close();
         }
+        return pid;
     }
     
     public void updateData(personal_info User){

@@ -2,6 +2,8 @@ package com.pds_web_maven.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -24,6 +26,7 @@ public class personal_info {
     
     @Id
     @Column(name = "p_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer p_id; // Integer or int?
     @Column(name = "sex_id")
     private int sex_id;
@@ -199,8 +202,17 @@ public class personal_info {
     public Integer getp_id() {
         return p_id;
     }
+    
+    public String getp_idtoString() {
+        return String.valueOf(p_id);
+    }
+    
     public void setp_id(Integer p_id) {
         this.p_id = p_id;
+    }
+    
+    public void setp_id(String p_id) {
+        this.p_id = Integer.parseInt(p_id);
     }
 
     public int getSex_id() {
