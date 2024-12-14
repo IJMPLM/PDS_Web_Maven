@@ -115,12 +115,64 @@ public class personal_info {
         this.tin = tin;
         this.agency_empno = agency_empno;
     }
+
+    public personal_info(int sex_id, int cstat_id, int cit_id, int cit_acq_id, 
+                         String l_name, String f_name, String m_name, String ext_name, Date dob, 
+                         String pob, Integer height, Integer weight, String blood_type, String gsis_no, 
+                         String pagibig_id, String philhealth_Id, String sss_no, String tin, String agency_empno) {
+        this.sex_id = sex_id;
+        this.cstat_id = cstat_id;
+        this.cit_id = cit_id;
+        this.cit_acq_id = cit_acq_id;
+        this.l_name = l_name;
+        this.f_name = f_name;
+        this.m_name = m_name;
+        this.ext_name = ext_name;
+        this.dob = dob;
+        this.pob = pob;
+        this.height = height;
+        this.weight = weight;
+        this.blood_type = blood_type;
+        this.gsis_no = gsis_no;
+        this.pagibig_id = pagibig_id;
+        this.philhealth_Id = philhealth_Id;
+        this.sss_no = sss_no;
+        this.tin = tin;
+        this.agency_empno = agency_empno;
+    }
     
     public personal_info(String p_id, String sex_id, String cstat_id, String cit_id, String cit_acq_id, 
                          String l_name, String f_name, String m_name, String ext_name, String dob, 
                          String pob, String height, String  weight, String blood_type, String gsis_no, 
                          String pagibig_id, String philhealth_Id, String sss_no, String tin, String agency_empno) {
         this.p_id = Integer.parseInt(p_id);
+        this.sex_id = Integer.parseInt(sex_id);
+        this.cstat_id = Integer.parseInt(cstat_id);
+        this.cit_id = Integer.parseInt(cit_id);
+        this.cit_acq_id = Integer.parseInt(cit_acq_id);
+        this.l_name = l_name;
+        this.f_name = f_name;
+        this.m_name = m_name;
+        this.ext_name = ext_name;
+        this.dob = Date.from((LocalDate.parse(dob))
+                            .atStartOfDay(ZoneId.systemDefault())
+                            .toInstant());
+        this.pob = pob;
+        this.height = Integer.parseInt(height);
+        this.weight = Integer.parseInt(weight);
+        this.blood_type = blood_type;
+        this.gsis_no = gsis_no;
+        this.pagibig_id = pagibig_id;
+        this.philhealth_Id = philhealth_Id;
+        this.sss_no = sss_no;
+        this.tin = tin;
+        this.agency_empno = agency_empno;
+    }
+    
+    public personal_info(String sex_id, String cstat_id, String cit_id, String cit_acq_id, 
+                         String l_name, String f_name, String m_name, String ext_name, String dob, 
+                         String pob, String height, String  weight, String blood_type, String gsis_no, 
+                         String pagibig_id, String philhealth_Id, String sss_no, String tin, String agency_empno) {
         this.sex_id = Integer.parseInt(sex_id);
         this.cstat_id = Integer.parseInt(cstat_id);
         this.cit_id = Integer.parseInt(cit_id);
