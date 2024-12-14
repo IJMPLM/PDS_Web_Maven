@@ -402,4 +402,8 @@ public class personal_info {
     public String convertDob(Date dob){
         return String.valueOf(Period.between(LocalDate.parse(String.valueOf(dob)), LocalDate.now()).getYears());
     }
+
+    public void setDob(LocalDate parse) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
