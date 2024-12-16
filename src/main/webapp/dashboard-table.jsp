@@ -46,7 +46,7 @@
     </div>
     <div class="flex flex-row m-14">
         <div class="m-8 flex-3">
-            <table class="table-fixed w-full border-separate border-spacing-y-4 text-center">
+            <table class="table-fixed w-full border-separate border-spacing-y-4 text-center min-h-[500px]">
                 <thead>
                     <tr class="">
                         <th class="w-1/12">ID</th>
@@ -109,6 +109,7 @@
             const rows = Array.from(document.querySelectorAll('.hoverable-row'));
             const rowsPerPage = 7;
             let currentPage = 1;
+            const totalApplications = rows.length;
 
             function renderTable(rows) {
                 const tableBody = document.getElementById('tableBody');
@@ -141,7 +142,7 @@
             }
 
             function updateTotalApplications(totalRows) {
-                document.getElementById('totalApplications').textContent = totalRows;
+                document.getElementById('totalApplications').textContent = totalApplications;
             }
 
             function filterRows() {
