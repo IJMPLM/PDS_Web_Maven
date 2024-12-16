@@ -636,11 +636,6 @@ video {
   margin: 2rem;
 }
 
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .mx-64 {
   margin-left: 16rem;
   margin-right: 16rem;
@@ -659,10 +654,6 @@ video {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .ml-10 {
@@ -728,16 +719,16 @@ video {
   height: 2rem;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
 .h-12 {
   height: 3rem;
 }
 
 .h-16 {
   height: 4rem;
+}
+
+.h-5 {
+  height: 1.25rem;
 }
 
 .h-8 {
@@ -750,6 +741,10 @@ video {
 
 .h-\[155px\] {
   height: 155px;
+}
+
+.h-\[18\.59px\] {
+  height: 18.59px;
 }
 
 .h-\[19px\] {
@@ -814,6 +809,10 @@ video {
 
 .w-\[159px\] {
   width: 159px;
+}
+
+.w-\[18\.59px\] {
+  width: 18.59px;
 }
 
 .w-\[205px\] {
@@ -905,6 +904,10 @@ video {
   justify-content: flex-start;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -931,6 +934,10 @@ video {
 
 .gap-\[10\.79px\] {
   gap: 10.79px;
+}
+
+.gap-\[11\.15px\] {
+  gap: 11.15px;
 }
 
 .gap-\[21\.67px\] {
@@ -1011,11 +1018,6 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
-}
-
 .border-gray-700 {
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
@@ -1031,9 +1033,9 @@ video {
   background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-100 {
+.bg-gray-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-800 {
@@ -1083,6 +1085,10 @@ video {
   padding: 0.5rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .p-\[7\.20px\] {
   padding: 7.20px;
 }
@@ -1120,11 +1126,6 @@ video {
 .px-\[14\.45px\] {
   padding-left: 14.45px;
   padding-right: 14.45px;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 
 .py-2 {
@@ -1173,10 +1174,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.font-\[\"Inter\"\] {
-  font-family: "Inter";
 }
 
 .font-\[\'Inter\'\] {
@@ -1285,11 +1282,6 @@ video {
 .text-\[\#85878d\] {
   --tw-text-opacity: 1;
   color: rgb(133 135 141 / var(--tw-text-opacity, 1));
-}
-
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-300 {
