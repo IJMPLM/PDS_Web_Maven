@@ -24,26 +24,26 @@ public class Main {
         List<Map<String, String>> def = eFG.getData();
         
         Family_childrenDAO eFC = new Family_childrenDAO();
-        List<Map<String, String>> hij = eFC.getData();
+        List<Map<String, String>> hij = eFC.getChildren(62);
         
         Contact_infoDAO eCI = new Contact_infoDAO();
         List<Map<String, String>> zx = eCI.getData();
 
-        family_children clFC = new family_children(54);
-//        eFC.deleteData(clFC);
-
+        family_children clFC = new family_children();
+//        eFC.deleteChildrenCascade(62);
+//        eCI.deleteContactCascade(61);
+//        eFG.deleteCascadeFamBg(61);
+        ePI.deleteEverything(61);
+          
         personal_info clPI = new personal_info("1", "1", "1", "1", 
                 "Mentos", "Morales", "Peter", "Jr.", "2000-12-12", "Bulacan", 
                 "69", "69", "A+", "123", "123", "123", "123", "123", "123");
-        personal_info newUser = ePI.addData(clPI);
-        
-        System.out.println(newUser.getp_idtoString());
-        
+//        personal_info newUser = ePI.addData(clPI);
         
         
         // DEBUGGER
-        for (Map<String, String> map : abc) {
-//           System.out.println(map.get("fullname"));
+        for (Map<String, String> map : hij) {
+//           System.out.println(map.get("child_fullname"));
         }
     }
 }

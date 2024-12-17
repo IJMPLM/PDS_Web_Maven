@@ -1,5 +1,8 @@
 package com.pds_web_maven.dao;
 
+import com.pds_web_maven.entities.contact_info;
+import com.pds_web_maven.entities.family_background;
+import com.pds_web_maven.entities.family_children;
 import com.pds_web_maven.entities.personal_info;
 import com.pds_web_maven.tools.HibernateUtil;
 import java.text.SimpleDateFormat;
@@ -9,6 +12,7 @@ import java.util.Map;
 import java.util.ArrayList;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
 
 public class Personal_infoDAO {
     private HibernateUtil util;
@@ -175,11 +179,9 @@ public class Personal_infoDAO {
         }
     }
     
-    public void deleteData(personal_info User){
-        setSession();
+    public void deleteData(Session session, int p_id){
         try {
-            session.beginTransaction();
-            personal_info data = session.get(personal_info.class, User.getp_id());
+            personal_info data = session.get(personal_info.class, p_id);
             if (data != null){
                 session.delete(data);
                 session.flush();
@@ -187,6 +189,28 @@ public class Personal_infoDAO {
                 System.out.println("User FOUND.");
             } else 
                 System.out.println("User NOT FOUND");
+        } catch (Exception e)  {
+            System.out.println("User does not exist");
+        }
+    }
+    
+    public void deleteEverything(int p_id){
+        factory = new Configuration().configure("hibernate.cfg.xml")
+                                  .addAnnotatedClass(family_children.class)
+                                  .addAnnotatedClass(family_background.class)
+                                  .addAnnotatedClass(contact_info.class)
+                                  .addAnnotatedClass(this.getClass())
+                                  .buildSessionFactory();
+        session = factory.getCurrentSession();
+        Family_childrenDAO clFC = new Family_childrenDAO();
+        Family_backgroundDAO clFB = new Family_backgroundDAO();
+        Contact_infoDAO clCI = new Contact_infoDAO();
+        try {
+            session.beginTransaction();
+            clFC.deleteChildrenCascade(session, p_id);
+            clFB.deleteCascadeFamBg(session, p_id);
+            clCI.deleteContactCascade(session, p_id);
+            deleteData(session, p_id);
             session.getTransaction().commit();
         } finally {
             factory.close();
