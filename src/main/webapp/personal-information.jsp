@@ -51,11 +51,13 @@
                 <div class="section-header text-center my-8 font-[Inter] text-4xl">PERSONAL INFORMATION</div>    
                 <%
                     Map<String, String> data = (Map<String, String>) request.getAttribute("data");
-                    String civilstatusid = "", citizenshipid = "";
+                    String civilstatusid = "", citizenshipid = "", sexid = "", p_id = "";
                     if (data != null) {
                         Map<String, String> respondent = data;
                         civilstatusid = respondent.get("civilstatus_id");
                         citizenshipid = respondent.get("cit_id");
+                        sexid = respondent.get("sex");
+                        p_id = respondent.get("p_id");
                 %>
                 <div class="flex justify-end p-4">
                     <button id="editButton" type="button" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
@@ -75,6 +77,9 @@
                 <%
                     }
                 %>
+            </form>
+            <form action="DeleteRecordServlet" method="post" id="deleteForm">
+                <input type="hidden" name="p_id" value="<%= p_id %>">
             </form>
         </div>
     </div>
@@ -102,6 +107,12 @@
             var citizenshipDropdown = document.getElementById('citizenship'); 
             if (citizenshipDropdown) { 
                 citizenshipDropdown.value = citizenship; 
+            }
+
+            var sex = '<%= sexid %>'; 
+            var sexDropdown = document.getElementById('gender'); 
+            if (sexDropdown) { 
+                sexDropdown.value = sex; 
             }
 
             editButton.addEventListener('click', function() {
@@ -149,7 +160,7 @@
             });
 
             deleteButton.addEventListener('click', function() {
-                // Add your delete logic here
+                document.getElementById('deleteForm').submit();
             });
         });
     </script>

@@ -54,6 +54,7 @@ public class Personal_infoDAO {
                 Map<String, String> data = new HashMap<>();
                 data.put("p_id", String.valueOf(p.getp_id()));
                 data.put("gender", p.convertSexId(p.getSex_id()));
+                data.put("sex", Integer.toString(p.getSex_id()));
                 data.put("civilstatus", p.convertCstatId(p.getCstat_id()));
                 data.put("civilstatus_id", Integer.toString(p.getCstat_id()));
                 data.put("fullname", 
@@ -95,6 +96,7 @@ public class Personal_infoDAO {
                 personal_info p = dbresult.get(0); // Assuming you want to return the first result
                 respondent.put("p_id", String.valueOf(p.getp_id()));
                 respondent.put("gender", p.convertSexId(p.getSex_id()));
+                respondent.put("sex", Integer.toString(p.getSex_id()));
                 respondent.put("civilstatus", p.convertCstatId(p.getCstat_id()));
                 respondent.put("civilstatus_id", Integer.toString(p.getCstat_id()));
                 respondent.put("fullname", 
@@ -106,10 +108,10 @@ public class Personal_infoDAO {
                 respondent.put("cit_id", Integer.toString(p.getCit_id()));
                 respondent.put("lname", p.getl_name());
                 respondent.put("fname", p.getf_name());
-                respondent.put("mname", p.getm_name());
+                respondent.put("mname", p.getm_name()); 
                 respondent.put("extname", p.getExt_name());
                 respondent.put("age", p.convertDob(p.getDob()));
-                respondent.put("birthdate", new SimpleDateFormat("MM-dd-yyyy").format(p.getDob()));
+                respondent.put("birthdate", String.valueOf(p.getDob()));
                 respondent.put("birthplace", p.getPob());
                 respondent.put("height", String.valueOf(p.getHeight()));
                 respondent.put("weight", String.valueOf(p.getWeight()));

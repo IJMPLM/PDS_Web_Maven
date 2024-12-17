@@ -19,9 +19,9 @@
     <div class="input-container col-span-2">
         <input type="text" class="readonly-input" id="height" name="height" value="<%= respondent.get("height") %>" readonly>
     </div>
-    <label for="age" class="flex justify-between items-center"><div class="flex">Date of Birth</div><div class="flex">:</div></label>
+    <label for="dob" class="flex justify-between items-center"><div class="flex">Date of Birth</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
-        <input type="text" class="readonly-input" id="age" name="age" value="<%= respondent.get("age") %>" readonly>
+        <input type="date" class="readonly-input" id="dob" name="dob" value="<%= respondent.get("birthdate") %>" readonly>
     </div>
     <label for="weight" class="flex justify-between items-center"><div class="flex">Weight (kg)</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
@@ -37,7 +37,10 @@
     </div>
     <label for="gender" class="flex justify-between items-center"><div class="flex">Sex</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
-        <input type="text" class="readonly-input" id="gender" name="gender" value="<%= respondent.get("gender") %>" readonly>
+        <select id="gender" class=".input-container-2 readonly-input" name="gender">
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+        </select>
     </div>              
     <label for="citizenship" class="flex justify-between items-center"><div class="flex">Citizenship</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">

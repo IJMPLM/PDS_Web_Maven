@@ -82,6 +82,14 @@ public class family_children {
                             .atStartOfDay(ZoneId.systemDefault())
                             .toInstant());
     }
+    
+    public family_children(int p_id, String childFullName, String childDob) {
+        this.p_id = p_id;
+        this.childFullname = childFullName;
+        this.childDob = Date.from((LocalDate.parse(childDob))
+                            .atStartOfDay(ZoneId.systemDefault())
+                            .toInstant());
+    }
 
     public Integer getFamChId() {
         return famChId;

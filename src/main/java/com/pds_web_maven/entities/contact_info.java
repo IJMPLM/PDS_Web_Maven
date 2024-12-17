@@ -93,30 +93,30 @@ public class contact_info {
         this.contactId = Integer.parseInt(contactId);
     }
 
-    public contact_info(Integer contactId, int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
-                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
-                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
-                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
-        this.contactId = contactId;
-        this.p_id = p_id;
-        this.resHouseNo = resHouseNo;
-        this.resHouseStreet = resHouseStreet;
-        this.resVillage = resVillage;
-        this.resBgy = resBgy;
-        this.resCitymun = resCitymun;
-        this.resProv = resProv;
-        this.resZipcode = resZipcode;
-        this.permHouseNo = permHouseNo;
-        this.permHouseStreet = permHouseStreet;
-        this.permVillage = permVillage;
-        this.permBgy = permBgy;
-        this.permCitymun = permCitymun;
-        this.permProv = permProv;
-        this.permZipcode = permZipcode;
-        this.telNo = telNo;
-        this.mobileNo = mobileNo;
-        this.emailAddress = emailAddress;
-    }
+//    public contact_info(Integer contactId, int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
+//                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
+//                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
+//                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
+//        this.contactId = contactId;
+//        this.p_id = p_id;
+//        this.resHouseNo = resHouseNo;
+//        this.resHouseStreet = resHouseStreet;
+//        this.resVillage = resVillage;
+//        this.resBgy = resBgy;
+//        this.resCitymun = resCitymun;
+//        this.resProv = resProv;
+//        this.resZipcode = resZipcode;
+//        this.permHouseNo = permHouseNo;
+//        this.permHouseStreet = permHouseStreet;
+//        this.permVillage = permVillage;
+//        this.permBgy = permBgy;
+//        this.permCitymun = permCitymun;
+//        this.permProv = permProv;
+//        this.permZipcode = permZipcode;
+//        this.telNo = telNo;
+//        this.mobileNo = mobileNo;
+//        this.emailAddress = emailAddress;
+//    }
     
     public contact_info(int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
                         String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
@@ -142,30 +142,30 @@ public class contact_info {
         this.emailAddress = emailAddress;
     }
     
-    public contact_info(String contactId, String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
-                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
-                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
-                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
-        this.contactId = Integer.parseInt(contactId);
-        this.p_id = Integer.parseInt(p_id);
-        this.resHouseNo = resHouseNo;
-        this.resHouseStreet = resHouseStreet;
-        this.resVillage = resVillage;
-        this.resBgy = resBgy;
-        this.resCitymun = resCitymun;
-        this.resProv = resProv;
-        this.resZipcode = resZipcode;
-        this.permHouseNo = permHouseNo;
-        this.permHouseStreet = permHouseStreet;
-        this.permVillage = permVillage;
-        this.permBgy = permBgy;
-        this.permCitymun = permCitymun;
-        this.permProv = permProv;
-        this.permZipcode = permZipcode;
-        this.telNo = telNo;
-        this.mobileNo = mobileNo;
-        this.emailAddress = emailAddress;
-    }
+//    public contact_info(String contactId, String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
+//                        String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
+//                        String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
+//                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
+//        this.contactId = Integer.parseInt(contactId);
+//        this.p_id = Integer.parseInt(p_id);
+//        this.resHouseNo = resHouseNo;
+//        this.resHouseStreet = resHouseStreet;
+//        this.resVillage = resVillage;
+//        this.resBgy = resBgy;
+//        this.resCitymun = resCitymun;
+//        this.resProv = resProv;
+//        this.resZipcode = resZipcode;
+//        this.permHouseNo = permHouseNo;
+//        this.permHouseStreet = permHouseStreet;
+//        this.permVillage = permVillage;
+//        this.permBgy = permBgy;
+//        this.permCitymun = permCitymun;
+//        this.permProv = permProv;
+//        this.permZipcode = permZipcode;
+//        this.telNo = telNo;
+//        this.mobileNo = mobileNo;
+//        this.emailAddress = emailAddress;
+//    }
     
     public contact_info(String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
                         String resBgy, String resCitymun, String resProv, String resZipcode, String permHouseNo, 
