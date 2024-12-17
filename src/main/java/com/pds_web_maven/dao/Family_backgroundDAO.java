@@ -151,6 +151,28 @@ public class Family_backgroundDAO {
             factory.close();
         }
     }
+    
+    public void deleteCascadeFamBg(Session session, int p_id){
+        Map<String, String> respondent = new HashMap<>();
+        List<family_background> dbresult = session.createNamedQuery("family_background.findByPID", family_background.class)
+                                              .setParameter("p_id", p_id)
+                                              .getResultList();
+        if (!dbresult.isEmpty()) {
+            family_background f = dbresult.get(0); 
+            respondent.put("fam_bg_id", String.valueOf(f.getFamBgId()));
+            respondent.put("p_id", String.valueOf(f.getP_id()));
+
+            family_background data = session.get(family_background.class, respondent.get("fam_bg_id"));
+            if (data != null){
+                session.delete(data);
+                session.flush();
+                session.clear();
+                System.out.println("Family FOUND.");
+            } else 
+                System.out.println("Family NOT FOUND");
+        }
+
+    }
 }
 
 

@@ -154,4 +154,24 @@ public class Contact_infoDAO {
             factory.close();
         }
     }
+    
+    public void deleteContactCascade(Session session, int p_id) {
+        Map<String, String> respondent = new HashMap<>();
+        List<contact_info> dbresult = session.createNamedQuery("contact_info.findByPID", contact_info.class)
+                                              .setParameter("p_id", p_id)
+                                              .getResultList();
+        if (!dbresult.isEmpty()) {
+            contact_info c = dbresult.get(0); 
+            respondent.put("contact_id", String.valueOf(c.getContactId()));
+
+            contact_info data = session.get(contact_info.class, respondent.get("contact_id"));
+            if (data != null){
+                session.delete(data);
+                session.flush();
+                session.clear();
+                System.out.println("Contact FOUND.");
+            } else 
+                System.out.println("Contact NOT FOUND");
+        }
+    }
 }

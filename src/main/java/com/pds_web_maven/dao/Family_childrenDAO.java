@@ -110,4 +110,24 @@ public class Family_childrenDAO {
             factory.close();
         }
     }
+    
+    public void deleteChildrenCascade(Session session, int p_id){
+        List<Map<String, String>> respondent = new ArrayList<>();
+        List<family_children> dbresult = session.createNamedQuery("family_children.findByPID", family_children.class)
+                                              .setParameter("p_id", p_id)
+                                              .getResultList();
+        for (family_children f : dbresult){ 
+            Map<String, String> data = new HashMap<>();
+            data.put("fam_bg_id", f.convertFam_ch_id(String.valueOf(f.getFamChId())));
+            data.put("p_id", f.convertPid(String.valueOf(f.getP_id())));
+            respondent.add(data);
+        }
+        for (Map<String, String> f : respondent){
+            family_children data = session.get(family_children.class, f.get("fam_bg_id"));
+            session.delete(data);
+            System.out.println("Children FOUND.");
+        }
+        session.flush();
+        session.clear();
+    }
 }
