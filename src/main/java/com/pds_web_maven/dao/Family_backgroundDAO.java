@@ -1,6 +1,7 @@
 package com.pds_web_maven.dao;
 
 import com.pds_web_maven.entities.family_background;
+import com.pds_web_maven.entities.family_children;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -106,10 +107,8 @@ public class Family_backgroundDAO {
         }
     }
     
-    public void updateData(family_background User){
-        createSession();
+    public void updateData(Session session, family_background User){
         try {
-            session.beginTransaction();
             family_background data = session.get(family_background.class, User.getP_id());
             if (data != null){
                 data.setSpouseLname(User.getSpouseLname());
@@ -126,9 +125,25 @@ public class Family_backgroundDAO {
                 data.setMotherMnLname(User.getMotherMnLname());
                 data.setMotherMnFname(User.getMotherMnFname());
                 data.setMotherMnMname(User.getMotherMnMname());
+                System.out.println("Data Updated.");
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateFamilyBackground(family_background UserFB, family_children UserFC){
+        factory = new Configuration().configure("hibernate.cfg.xml")
+                                  .addAnnotatedClass(this.getClass())
+                                  .addAnnotatedClass(family_children.class)
+                                  .buildSessionFactory();
+        session = factory.getCurrentSession();
+        Family_childrenDAO clFC = new Family_childrenDAO();
+        try {
+            session.beginTransaction();
+            updateData(session, UserFB);
+            clFC.updateChildren(session, UserFC);
             session.getTransaction().commit();
-            System.out.println("Data Updated.");
         } finally {
             factory.close();
         }

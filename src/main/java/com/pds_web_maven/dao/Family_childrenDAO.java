@@ -76,20 +76,17 @@ public class Family_childrenDAO {
         }
     }
 
-    public void updateData(family_children User){
-        setSession();
+    public void updateChildren(Session session, family_children User){
         try {
-            session.beginTransaction();
             family_children data = session.get(family_children.class, User.getFamChId());
             if (User != null){
                 data.setP_id(User.getP_id());
                 data.setChildFullname(User.getChildFullname());
                 data.setChildDob(User.getChildDob());
+                System.out.println("Data Updated.");
             }
-            session.getTransaction().commit();
-            System.out.println("Data Updated.");
-        } finally {
-            factory.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     
