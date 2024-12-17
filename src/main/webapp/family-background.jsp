@@ -63,31 +63,60 @@
             <div id="family_info" class="grid grid-cols-6 gap-x-8 gap-y-2 font-[Inter] text-xl">
                 <label for="spouse_name" class="label-text flex justify-between items-center"><div class="flex">Spouse's Name</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
-                    <input type="text" class="readonly-input" id="spouse_name" name="spouse_name" value="<%= respondent.get("spouse_name") %>" readonly>
+                    <input type="text" class="readonly-input" id="spouse_name" name="spouse_name" value="<%= respondent.get("spouse_lname") + ", " + respondent.get("spouse_fname") + " " + respondent.get("spouse_mname") + " " + (respondent.get("spouse_extname") != null ? respondent.get("spouse_extname") : " ") %>" readonly>
                 </div>
-                <div id="spouse_name-edit" class="input-container col-span-2 hidden">
-                    <input type="text" id="spouse_name_edit" name="spouse_name_edit" value="<%= respondent.get("spouse_name") %>">
+                <div id="spouse_name-edit" class="grid grid-cols-3 gap-y-2 gap-x-8 hidden col-span-6">
+                    <label for="spouse_lname" class="flex justify-between items-center"><div class="flex">Last Name</div><div class="flex">:</div></label>
+                    <input type="text" id="spouse_lname" class="input-container-2 col-span-2" name="spouse_lname" value="<%= respondent.get("spouse_lname") %>">
+                    <label for="spouse_fname" class="flex justify-between items-center"><div class="flex">First Name</div><div class="flex">:</div></label>
+                    <input type="text" id="spouse_fname" class="input-container-2 col-span-2" name="spouse_fname" value="<%= respondent.get("spouse_fname") %>">
+                    <label for="spouse_mname" class="flex justify-between items-center"><div class="flex">Middle Name</div><div class="flex">:</div></label>
+                    <input type="text" id="spouse_mname" class="input-container-2 col-span-2" name="spouse_mname" value="<%= respondent.get("spouse_mname") %>">
+                </div>
+                <label for="spouse_occupation" class="label-text flex justify-between items-center"><div class="flex">Spouse's Occupation</div><div class="flex">:</div></label>
+                <div class="input-container col-span-2">
+                    <input type="text" class="readonly-input" id="spouse_occupation" name="spouse_occupation" value="<%= respondent.get("spouse_occupation") %>" readonly>
+                </div>
+                <div id="spouse_occupation-edit" class="input-container col-span-2 hidden">
+                    <input type="text" id="spouse_occupation_edit" name="spouse_occupation_edit" value="<%= respondent.get("spouse_occupation") %>">
+                </div>
+                <label for="spouse_employer" class="label-text flex justify-between items-center"><div class="flex">Spouse's Employer</div><div class="flex">:</div></label>
+                <div class="input-container col-span-2">
+                    <input type="text" class="readonly-input" id="spouse_employer" name="spouse_employer" value="<%= respondent.get("spouse_employer") %>" readonly>
+                </div>
+                <div id="spouse_employer-edit" class="input-container col-span-2 hidden">
+                    <input type="text" id="spouse_employer_edit" name="spouse_employer_edit" value="<%= respondent.get("spouse_employer") %>">
+                </div>
+                <label for="spouse_employer_address" class="label-text flex justify-between items-center"><div class="flex">Spouse's Employer Address</div><div class="flex">:</div></label>
+                <div class="input-container col-span-2">
+                    <input type="text" class="readonly-input" id="spouse_employer_address" name="spouse_employer_address" value="<%= respondent.get("spouse_employer_address") %>" readonly>
+                </div>
+                <div id="spouse_employer_address-edit" class="input-container col-span-2 hidden">
+                    <input type="text" id="spouse_employer_address_edit" name="spouse_employer_address_edit" value="<%= respondent.get("spouse_employer_address") %>">
                 </div>
                 <label for="father_name" class="label-text flex justify-between items-center"><div class="flex">Father's Name</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
                     <input type="text" class="readonly-input" id="father_name" name="father_name" value="<%= respondent.get("father_name") %>" readonly>
                 </div>
-                <div id="father_name-edit" class="input-container col-span-2 hidden">
-                    <input type="text" id="father_name_edit" name="father_name_edit" value="<%= respondent.get("father_name") %>">
+                <div id="father_name-edit" class="grid grid-cols-3 gap-y-2 gap-x-8 hidden col-span-6">
+                    <label for="father_lname" class="flex justify-between items-center"><div class="flex">Last Name</div><div class="flex">:</div></label>
+                    <input type="text" id="father_lname" class="input-container-2 col-span-2" name="father_lname" value="<%= respondent.get("father_lname") %>">
+                    <label for="father_fname" class="flex justify-between items-center"><div class="flex">First Name</div><div class="flex">:</div></label>
+                    <input type="text" id="father_fname" class="input-container-2 col-span-2" name="father_fname" value="<%= respondent.get("father_fname") %>">
+                    <label for="father_mname" class="flex justify-between items-center"><div class="flex">Middle Name</div><div class="flex">:</div></label>
+                    <input type="text" id="father_mname" class="input-container-2 col-span-2" name="father_mname" value="<%= respondent.get("father_mname") %>">
                 </div>
                 <label for="mother_name" class="label-text flex justify-between items-center"><div class="flex">Mother's Name</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
                     <input type="text" class="readonly-input" id="mother_name" name="mother_name" value="<%= respondent.get("mother_name") %>" readonly>
                 </div>
-                <div id="mother_name-edit" class="input-container col-span-2 hidden">
-                    <input type="text" id="mother_name_edit" name="mother_name_edit" value="<%= respondent.get("mother_name") %>">
-                </div>
-                <label for="children" class="label-text flex justify-between items-center"><div class="flex">Children</div><div class="flex">:</div></label>
-                <div class="input-container col-span-2">
-                    <textarea class="readonly-input text-wrap p-2" id="children" name="children" readonly style="resize: none; width: 100%; overflow:hidden"><%= respondent.get("children") %></textarea>
-                </div>
-                <div id="children-edit" class="input-container col-span-2 hidden">
-                    <textarea id="children_edit" name="children_edit" style="resize: none; width: 100%; overflow:hidden"><%= respondent.get("children") %></textarea>
+                <div id="mother_name-edit" class="grid grid-cols-3 gap-y-2 gap-x-8 hidden col-span-6">
+                    <label for="mother_lname" class="flex justify-between items-center"><div class="flex">Last Name</div><div class="flex">:</div></label>
+                    <input type="text" id="mother_lname" class="input-container-2 col-span-2" name="mother_lname" value="<%= respondent.get("mother_lname") %>">
+                    <label for="mother_fname" class="flex justify-between items-center"><div class="flex">First Name</div><div class="flex">:</div></label>
+                    <input type="text" id="mother_fname" class="input-container-2 col-span-2" name="mother_fname" value="<%= respondent.get("mother_fname") %>">
+                    <label for="mother_mname" class="flex justify-between items-center"><div class="flex">Middle Name</div><div class="flex">:</div></label>
+                    <input type="text" id="mother_mname" class="input-container-2 col-span-2" name="mother_mname" value="<%= respondent.get("mother_mname") %>">
                 </div>
             </div>
             <div class="mt-4">
@@ -149,7 +178,7 @@
             const children = document.getElementById('children');
             const childrenEdit = document.getElementById('children-edit');
             const labelText = document.getElementsByClassName('label-text');
-
+    
             editButton.addEventListener('click', function() {
                 inputs.forEach(input => {
                     input.removeAttribute('readonly');
@@ -166,13 +195,13 @@
                 childrenEdit.classList.remove('hidden');
                 updateButton.classList.remove('hidden');
                 deleteButton.classList.add('hidden');
-                discardButton.classList.remove('hidden');
+                discardButton.classList.rem ove('hidden');
                 editButton.classList.add('hidden');
                 Array.from(labelText).forEach(label => {
                     label.classList.add('hidden');
                 });
             });
-
+    
             discardButton.addEventListener('click', function() {
                 inputs.forEach(input => {
                     input.setAttribute('readonly', true);
@@ -197,11 +226,11 @@
                 // Optionally, reset the input values to their original state if needed
                 // document.getElementById('yourFormId').reset();
             });
-
+    
             deleteButton.addEventListener('click', function() {
                 // Add your delete logic here
             });
-
+    
             // Handle edit, delete, update, and discard for children
             document.querySelectorAll('.edit-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
@@ -215,7 +244,7 @@
                     document.querySelector(`.cancel-icon[data-field="${field}"]`).classList.remove('hidden');
                 });
             });
-
+    
             document.querySelectorAll('.cancel-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
                     const field = this.getAttribute('data-field');
@@ -230,7 +259,7 @@
                     // document.getElementById('yourFormId').reset();
                 });
             });
-
+    
             document.querySelectorAll('.check-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
                     const field = this.getAttribute('data-field');
@@ -244,7 +273,7 @@
                     // Add your update logic here
                 });
             });
-
+    
             document.querySelectorAll('.delete-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
                     const field = this.getAttribute('data-field');
