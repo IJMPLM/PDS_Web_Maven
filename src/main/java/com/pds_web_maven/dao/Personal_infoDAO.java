@@ -178,11 +178,9 @@ public class Personal_infoDAO {
         }
     }
     
-    public void deleteData(personal_info User){
-        setSession();
+    public void deleteData(Session session, int p_id){
         try {
-            session.beginTransaction();
-            personal_info data = session.get(personal_info.class, User.getp_id());
+            personal_info data = session.get(personal_info.class, p_id);
             if (data != null){
                 session.delete(data);
                 session.flush();
@@ -190,9 +188,8 @@ public class Personal_infoDAO {
                 System.out.println("User FOUND.");
             } else 
                 System.out.println("User NOT FOUND");
-            session.getTransaction().commit();
-        } finally {
-            factory.close();
+        } catch (Exception e)  {
+            System.out.println("User does not exist");
         }
     }
     
@@ -212,6 +209,7 @@ public class Personal_infoDAO {
             clFC.deleteChildrenCascade(session, p_id);
             clFB.deleteCascadeFamBg(session, p_id);
             clCI.deleteContactCascade(session, p_id);
+            deleteData(session, p_id);
             session.getTransaction().commit();
         } finally {
             factory.close();
