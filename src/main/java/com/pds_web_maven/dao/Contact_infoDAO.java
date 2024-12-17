@@ -106,11 +106,17 @@ public class Contact_infoDAO {
         }
     }
     
-    public void updateData(contact_info User){
-        createSession();
-        try {
-            session.beginTransaction();
-            contact_info data = session.get(contact_info.class, User.getP_id());
+    public void updateContactInfo(Session session, contact_info User){
+        Map<String, String> respondent = new HashMap<>();
+        List<contact_info> dbresult = session.createNamedQuery("contact_info.findByPID", contact_info.class)
+                                  .setParameter("p_id", User.getP_id())
+                                  .getResultList();
+        if (!dbresult.isEmpty()) {
+            contact_info c = dbresult.get(0); 
+            respondent.put("contact_id", String.valueOf(c.getContactId()));
+            respondent.put("p_id", String.valueOf(c.getP_id()));
+
+            contact_info data = session.get(contact_info.class, respondent.get("contact_id")); // fix?
             if (data != null){
                 data.setResHouseNo(User.getResHouseNo());
                 data.setResHouseStreet(User.getResHouseStreet());
@@ -130,10 +136,7 @@ public class Contact_infoDAO {
                 data.setMobileNo(User.getMobileNo());
                 data.setEmailAddress(User.getEmailAddress());
             }
-            session.getTransaction().commit();
-            System.out.println("Data Updated.");
-        } finally {
-            factory.close();
+            System.out.println("Contact Data Updated.");
         }
     }
     

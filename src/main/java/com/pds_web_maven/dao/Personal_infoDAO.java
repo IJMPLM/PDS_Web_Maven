@@ -146,10 +146,8 @@ public class Personal_infoDAO {
         return pid;
     }
     
-    public void updateData(personal_info User){
-        setSession();
+    public void updateData(Session session, personal_info User){
         try {
-            session.beginTransaction();
             personal_info data = session.get(personal_info.class, User.getp_id());
             if (data != null){
                data.setSex_id(User.getSex_id());
@@ -171,9 +169,27 @@ public class Personal_infoDAO {
                data.setSss_no(User.getSss_no());
                data.setTin(User.getTin());
                data.setAgency_empno(User.getAgency_empno());
+               System.out.println("Personal Data Updated.");
             }
+        } catch (Exception e) {
+            System.out.println("ERROR: user not found or an error occurred.");
+            e.printStackTrace();
+        }
+    }
+    
+    // with contact info
+    public void updatePersonalInfo(personal_info UserPI, contact_info UserCI){
+        factory = new Configuration().configure("hibernate.cfg.xml")
+                                  .addAnnotatedClass(this.getClass())
+                                  .addAnnotatedClass(contact_info.class)
+                                  .buildSessionFactory();
+        session = factory.getCurrentSession();
+        Contact_infoDAO clCI = new Contact_infoDAO();
+        try {
+            session.beginTransaction();
+            updateData(session, UserPI);
+            clCI.updateContactInfo(session, UserCI);
             session.getTransaction().commit();
-            System.out.println("Data Updated.");
         } finally {
             factory.close();
         }
