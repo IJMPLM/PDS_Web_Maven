@@ -51,6 +51,6 @@ public class DisplayPersonalInfoServlet extends HttpServlet {
         request.setAttribute("data", data);
         request.setAttribute("data_contact", data_contact);
         request.setAttribute("header-active","Personal-Information");
-        request.getRequestDispatcher("/personal-information.jsp").forward(request, response);
+        request.getRequestDispatcher("/test-submit.jsp").forward(request, response);
     }
 }

@@ -64,40 +64,7 @@
                 <%@ include file="family-background-spouse.jsp" %>
                 <%@ include file="family-background-parents.jsp" %>
             </div>
-            <div class="mt-4">
-                <h2>Children</h2>
-                <div class="grid grid-cols-2 gap-4">
-                    <%
-                        List<Map<String, String>> dataChildren = (List<Map<String, String>>) request.getAttribute("data_children");
-                        if (dataChildren != null && !dataChildren.isEmpty()) {
-                            for (Map<String, String> child : dataChildren) {
-                    %>
-                                <div class="input-container">
-                                    <label for="child_fullname_<%= child.get("child_id") %>">Child Name:</label>
-                                    <input type="text" id="child_fullname_<%= child.get("child_id") %>" name="child_fullname_<%= child.get("child_id") %>" value="<%= child.get("child_fullname") %>" readonly>
-                                    <span class="icon edit-icon" data-field="child_fullname_<%= child.get("child_id") %>">&#9998;</span>
-                                    <span class="icon delete-icon" data-field="child_fullname_<%= child.get("child_id") %>">&#128465;</span>
-                                    <span class="icon check-icon hidden" data-field="child_fullname_<%= child.get("child_id") %>">&#10003;</span>
-                                    <span class="icon cancel-icon hidden" data-field="child_fullname_<%= child.get("child_id") %>">&#10060;</span>
-                                </div>
-                                <div class="input-container">
-                                    <label for="child_dob_<%= child.get("child_id") %>">Child Date of Birth:</label>
-                                    <input type="text" id="child_dob_<%= child.get("child_id") %>" name="child_dob_<%= child.get("child_id") %>" value="<%= child.get("child_dob") %>" readonly>
-                                    <span class="icon edit-icon" data-field="child_dob_<%= child.get("child_id") %>">&#9998;</span>
-                                    <span class="icon delete-icon" data-field="child_dob_<%= child.get("child_id") %>">&#128465;</span>
-                                    <span class="icon check-icon hidden" data-field="child_dob_<%= child.get("child_id") %>">&#10003;</span>
-                                    <span class="icon cancel-icon hidden" data-field="child_dob_<%= child.get("child_id") %>">&#10060;</span>
-                                </div>
-                    <%
-                            }
-                        } else {
-                    %>
-                            <div>No children data available</div>
-                    <%
-                        }
-                    %>
-                </div>
-            </div>
+            <%@ include file="family-background-children.jsp" %>
             <%
                 } else {
             %>
@@ -120,10 +87,10 @@
             const fatherNameEdit = document.getElementById('father_name-edit');
             const motherName = document.getElementById('mother_name');
             const motherNameEdit = document.getElementById('mother_name-edit');
-            const children = document.getElementById('children');
-            const childrenEdit = document.getElementById('children-edit');
             const labelText = document.getElementsByClassName('label-text');
-    
+            const childName = document.getElementsByClassName('child_fullname');
+            const childDob = document.getElementsByClassName('child_dob');
+
             editButton.addEventListener('click', function() {
                 inputs.forEach(input => {
                     input.removeAttribute('readonly');
@@ -143,8 +110,16 @@
                 Array.from(labelText).forEach(label => {
                     label.classList.add('hidden');
                 });
+                Array.from(childName).forEach(child => {
+                    child.classList.remove('readonly-input');
+                    child.classList.add('input-container-2');
+                });
+                Array.from(childDob).forEach(child => {
+                    child.classList.remove('readonly-input');
+                    child.classList.add('input-container-2');
+                });
             });
-    
+
             discardButton.addEventListener('click', function() {
                 inputs.forEach(input => {
                     input.setAttribute('readonly', true);
@@ -167,11 +142,11 @@
                 // Optionally, reset the input values to their original state if needed
                 // document.getElementById('yourFormId').reset();
             });
-    
+
             deleteButton.addEventListener('click', function() {
                 // Add your delete logic here
             });
-    
+
             // Handle edit, delete, update, and discard for children
             document.querySelectorAll('.edit-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
@@ -185,7 +160,7 @@
                     document.querySelector(`.cancel-icon[data-field="${field}"]`).classList.remove('hidden');
                 });
             });
-    
+
             document.querySelectorAll('.cancel-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
                     const field = this.getAttribute('data-field');
@@ -200,7 +175,7 @@
                     // document.getElementById('yourFormId').reset();
                 });
             });
-    
+
             document.querySelectorAll('.check-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
                     const field = this.getAttribute('data-field');
@@ -214,7 +189,7 @@
                     // Add your update logic here
                 });
             });
-    
+
             document.querySelectorAll('.delete-icon').forEach(icon => {
                 icon.addEventListener('click', function() {
                     const field = this.getAttribute('data-field');

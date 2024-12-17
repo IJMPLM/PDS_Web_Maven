@@ -4,6 +4,10 @@
         <servlet-name>CreateRecordServlet</servlet-name>
         <servlet-class>com.pds_web_maven.servlets.CreateRecordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdatePersonalInfoServlet</servlet-name>
+        <servlet-class>com.pds_web_maven.servlets.UpdatePersonalInfoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DisplayAddFormServlet</servlet-name>
         <url-pattern>/DisplayAddFormServlet</url-pattern>
@@ -11,6 +15,10 @@
     <servlet-mapping>
         <servlet-name>CreateRecordServlet</servlet-name>
         <url-pattern>/CreateRecordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdatePersonalInfoServlet</servlet-name>
+        <url-pattern>/UpdatePersonalInfoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

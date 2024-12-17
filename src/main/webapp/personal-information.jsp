@@ -47,26 +47,27 @@
     </header>
     <div class="m-4">
         <div id="main" class="m-10">
-            <div class="section-header text-center my-8 font-[Inter] text-4xl">PERSONAL INFORMATION</div>    
-            <%
-                Map<String, String> data = (Map<String, String>) request.getAttribute("data");
-                String civilstatusid = "", citizenshipid = "";
-                if (data != null) {
-                    Map<String, String> respondent = data;
-                    civilstatusid = respondent.get("civilstatus_id");
-                    citizenshipid = respondent.get("cit_id");
-            %>
-            <div class="flex justify-end p-4">
-                <button id="editButton" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
-                <button id="deleteButton" class="bg-gray-500 text-white px-4 py-2 rounded">Delete</button>
-                <button id="discardButton" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Discard Changes</button>
-                <button id="updateButton" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Update</button>
-            </div>
-            <%@ include file="personal-information-1.jsp" %>
-            <div class="section-header my-12 text-gray-600">CONTACT INFORMATION</div>
-            <%@ include file="personal-information-2.jsp" %>
-            <div class="section-header my-12 text-gray-600">GOVERNMENT AND SOCIAL SERVICE IDENTIFICATIONS</div>
-            <%@ include file="personal-information-3.jsp" %>
+            <form action="UpdatePersonalInfoServlet" method="post">
+                <div class="section-header text-center my-8 font-[Inter] text-4xl">PERSONAL INFORMATION</div>    
+                <%
+                    Map<String, String> data = (Map<String, String>) request.getAttribute("data");
+                    String civilstatusid = "", citizenshipid = "";
+                    if (data != null) {
+                        Map<String, String> respondent = data;
+                        civilstatusid = respondent.get("civilstatus_id");
+                        citizenshipid = respondent.get("cit_id");
+                %>
+                <div class="flex justify-end p-4">
+                    <button id="editButton" type="button" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
+                    <button id="deleteButton" type="button" class="bg-gray-500 text-white px-4 py-2 rounded">Delete</button>
+                    <button id="discardButton" type="button" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Discard Changes</button>
+                    <button id="updateButton" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Update</button>
+                </div>
+                <%@ include file="personal-information-1.jsp" %>
+                <div class="section-header my-12 text-gray-600">CONTACT INFORMATION</div>
+                <%@ include file="personal-information-2.jsp" %>
+                <div class="section-header my-12 text-gray-600">GOVERNMENT AND SOCIAL SERVICE IDENTIFICATIONS</div>
+                <%@ include file="personal-information-3.jsp" %>
                 <%
                     } else {
                 %>
@@ -74,6 +75,7 @@
                 <%
                     }
                 %>
+            </form>
         </div>
     </div>
     <script>
