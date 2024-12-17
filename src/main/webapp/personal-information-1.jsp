@@ -47,12 +47,14 @@
         </div>              
         <label for="citizenship" class="flex justify-between items-center"><div class="flex">Citizenship</div><div class="flex">:</div></label>
         <div class="input-container col-span-2">
-            <input type="text" class="readonly-input" id="citizenship" name="citizenship" value="Insert citizenship here" readonly>
+            <select id="citizenship" class=".input-container-2 readonly-input" name="citizenship">
+                <option value="1">Filipino</option>
+                <option value="2">Dual Citizenship</option>
+            </select>
         </div>                
         <label for="civilstatus" class="flex justify-between items-center"><div class="flex">Civil Status</div><div class="flex">:</div></label>
         <div class="input-container col-span-2">
-            <input type="text" class="readonly-input" id="civilstatus" name="civilstatus" value="<%= respondent.get("civilstatus") %>" readonly>
-            <select id="civil-status" name="civil-status">
+            <select id="civil-status" class=".input-container-2 readonly-input" name="civil-status">
                 <option value="1">Single</option>
                 <option value="2">Married</option>
                 <option value="3">Widowed</option>

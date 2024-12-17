@@ -51,7 +51,7 @@ public class Personal_infoDAO {
                 data.put("p_id", String.valueOf(p.getp_id()));
                 data.put("gender", p.convertSexId(p.getSex_id()));
                 data.put("civilstatus", p.convertCstatId(p.getCstat_id()));
-                data.put("civilstatusid", Integer.toString(p.getCstat_id()));
+                data.put("civilstatus_id", Integer.toString(p.getCstat_id()));
                 data.put("fullname", 
                     (p.getl_name() != null ? p.getl_name(): "") + 
                     (p.getf_name() != null ? (p.getl_name() != null ? ", " : "") + p.getf_name() : "") + 
@@ -92,13 +92,14 @@ public class Personal_infoDAO {
                 respondent.put("p_id", String.valueOf(p.getp_id()));
                 respondent.put("gender", p.convertSexId(p.getSex_id()));
                 respondent.put("civilstatus", p.convertCstatId(p.getCstat_id()));
-                respondent.put("civilstatusid", Integer.toString(p.getCstat_id()));
+                respondent.put("civilstatus_id", Integer.toString(p.getCstat_id()));
                 respondent.put("fullname", 
                     (p.getl_name() != null ? p.getl_name(): "") + 
                     (p.getf_name() != null ? (p.getl_name() != null ? ", " : "") + p.getf_name() : "") + 
                     (p.getm_name() != null ? " " + p.getm_name() : "") + 
                     (p.getExt_name() != null ? " " + p.getExt_name() : "")
                 );
+                respondent.put("cit_id", Integer.toString(p.getCit_id()));
                 respondent.put("lname", p.getl_name());
                 respondent.put("fname", p.getf_name());
                 respondent.put("mname", p.getm_name());
