@@ -50,8 +50,11 @@
             <div class="section-header text-center my-8 font-[Inter] text-4xl">PERSONAL INFORMATION</div>    
             <%
                 Map<String, String> data = (Map<String, String>) request.getAttribute("data");
+                String civilstatusid = "", citizenshipid = "";
                 if (data != null) {
                     Map<String, String> respondent = data;
+                    civilstatusid = respondent.get("civilstatus_id");
+                    citizenshipid = respondent.get("cit_id");
             %>
             <div class="flex justify-end p-4">
                 <button id="editButton" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
@@ -86,6 +89,18 @@
             const permAddress = document.getElementById('perm_address');
             const permAddressEdit = document.getElementById('perm_address-edit');
             const labelText = document.getElementsByClassName('label-text');
+
+            var civilStatus = '<%= civilstatusid %>'; 
+            var civilStatusDropdown = document.getElementById('civil-status'); 
+            if (civilStatusDropdown) { 
+                civilStatusDropdown.value = civilStatus; 
+            }
+
+            var citizenship = '<%= citizenshipid %>'; 
+            var citizenshipDropdown = document.getElementById('citizenship'); 
+            if (citizenshipDropdown) { 
+                citizenshipDropdown.value = citizenship; 
+            }
 
             editButton.addEventListener('click', function() {
                 inputs.forEach(input => {
