@@ -77,6 +77,7 @@
                 <%
                     }
                 %>
+                <input type="hidden" name="p_id" value="<%= p_id %>">
             </form>
             <form action="DeleteRecordServlet" method="post" id="deleteForm">
                 <input type="hidden" name="p_id" value="<%= p_id %>">

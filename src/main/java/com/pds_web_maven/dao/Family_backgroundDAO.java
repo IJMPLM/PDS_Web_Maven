@@ -113,7 +113,7 @@ public class Family_backgroundDAO {
             if (data != null){
                 data.setSpouseLname(User.getSpouseLname());
                 data.setSpouseFname(User.getSpouseFname());
-                data.setSpouseLname(User.getSpouseMname());
+                data.setSpouseMname(User.getSpouseMname());
                 data.setSpouseExtname(User.getSpouseExtname());
                 data.setSpouseOccupation(User.getSpouseOccupation());
                 data.setSpouseEmployer(User.getSpouseEmployer());

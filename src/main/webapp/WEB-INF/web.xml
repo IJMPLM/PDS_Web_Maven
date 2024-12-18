@@ -12,6 +12,10 @@
         <servlet-name>DeleteRecordServlet</servlet-name>
         <servlet-class>com.pds_web_maven.servlets.DeleteRecordServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateFamilyBackgroundServlet</servlet-name>
+        <servlet-class>com.pds_web_maven.servlets.UpdateFamilyBackgroundServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DisplayAddFormServlet</servlet-name>
         <url-pattern>/DisplayAddFormServlet</url-pattern>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>DeleteRecordServlet</servlet-name>
         <url-pattern>/DeleteRecordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateFamilyBackgroundServlet</servlet-name>
+        <url-pattern>/UpdateFamilyBackgroundServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

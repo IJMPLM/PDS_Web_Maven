@@ -68,7 +68,7 @@
                 </div>
                 <label for="dob" class="flex justify-between items-center"><div class="flex">Date of Birth</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
-                    <input type="date" id="dob" name="dob" value="">
+                    <input type="date" id="dob" name="dob" value="" required>
                 </div>
                 <label for="weight" class="flex justify-between items-center"><div class="flex">Weight (kg)</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
@@ -106,6 +106,13 @@
                         <option value="5">Others</option>
                     </select>
                 </div>
+                <label for="ccit_acq_id" class="flex justify-between items-center"><div class="flex">Citizenship Acquired by</div><div class="flex">:</div></label>
+                <div class="input-container col-span-2">
+                    <select id="cit_acq_id" name="cit_acq_id">
+                        <option value="1">Birth</option>
+                        <option value="2">Naturalization</option>
+                    </select>
+                </div>   
             </div>
 
             <h2 class="section-header my-12 text-gray-600">Contact Information</h2>
@@ -222,7 +229,7 @@
                 </div>
                 <label for="spouse_employer_address" class="flex justify-between items-center col-span-1"><div class="flex">Spouse's Employer Address</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
-                    <input type="text" id="spouse_employer_address" name="spouse_employer_address" value="">
+                    <input type="text" id="spouse_emp_address" name="spouse_emp_address" value="">
                 </div>
             </div>
             <div class="grid grid-cols-6 gap-x-8 gap-y-2 font-[Inter] text-xl">
@@ -256,7 +263,7 @@
                             <label for="child_fullname" class="flex justify-between items-center"><div class="flex">Child Full Name</div><div class="flex">:</div></label>
                             <input type="text" id="child_fullname" class="input-container-2 col-span-2" name="child_fullname" value="">
                             <label for="child_dob" class="flex justify-between items-center"><div class="flex">Child Date of Birth</div><div class="flex">:</div></label>
-                            <input type="date" id="child_dob" class="input-container-2 col-span-2" name="child_dob" value="">
+                            <input type="date" id="child_dob" class="input-container-2 col-span-2" name="child_dob" value="" required>
                         </div>
                     </div>
                 </div>

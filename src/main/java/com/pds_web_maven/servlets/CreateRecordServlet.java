@@ -22,10 +22,10 @@ public class CreateRecordServlet extends HttpServlet {
             throws ServletException, IOException {
         personal_info personal_info = new personal_info(
                 req.getParameter("gender"),  req.getParameter("civil-status"), req.getParameter("citizenship")
-                ,   "1", req.getParameter("lname"), req.getParameter("fname")
+                ,   req.getParameter("cit_acq_id"), req.getParameter("lname"), req.getParameter("fname")
                 ,   req.getParameter("mname"), req.getParameter("extname"), req.getParameter("dob")
                 ,   req.getParameter("birthplace"), req.getParameter("height"), req.getParameter("weight")
-                ,   req.getParameter("bloodtype"), req.getParameter("gsis_no"), req.getParameter("pagibit_id")
+                ,   req.getParameter("bloodtype"), req.getParameter("gsis_no"), req.getParameter("pagibig_id")
                 ,   req.getParameter("philhealth_id"), req.getParameter("sss_no"), req.getParameter("tin"), req.getParameter("agency_empno")
             );
         Personal_infoDAO personal_infoDAO = new Personal_infoDAO();
@@ -45,7 +45,7 @@ public class CreateRecordServlet extends HttpServlet {
         family_background family_background = new family_background(
                 personal_info.getp_id(), req.getParameter("spouse_lname"), req.getParameter("spouse_fname")
                 ,   req.getParameter("spouse_mname"), req.getParameter("spouse_extname"), req.getParameter("spouse_occupation")
-                ,   req.getParameter("spouse_employer"), req.getParameter("spouse_employed_address")
+                ,   req.getParameter("spouse_employer"), req.getParameter("spouse_emp_address")
                 ,   req.getParameter("father_lname"), req.getParameter("father_fname"), req.getParameter("father_mname"), "Insert name ext"
                 ,   req.getParameter("mother_lname"), req.getParameter("mother_fname"), req.getParameter("mother_mname")
             );
