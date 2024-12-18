@@ -44,8 +44,8 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-row m-14">
-        <div class="m-8 flex-3">
+    <div class="flex flex-row my-4 mx-16">
+        <div class="m-4 flex-3">
             <table class="table-fixed w-full border-separate border-spacing-y-4 text-center min-h-[500px]">
                 <thead>
                     <tr class="">
@@ -78,30 +78,24 @@
                 <input type="hidden" name="p_id" id="hiddenPId">
             </form>
         </div>
-        <div class="flex flex-col 1">
-          <div class="w-[205px] h-[155px] px-1 py-4 bg-white rounded-lg shadow border border-[#e4e4e4] flex flex-col justify-center items-center gap-2">
-            <div class="w-[159px] h-[129px] flex flex-col justify-start items-start gap-2.5">
-              <div class="w-[139px] text-[#1c1d1d] text-sm font-medium font-['Inter']">TOTAL NUMBER OF APPLICATIONS</div>
-              <div class="w-[159px] h-[85px] flex justify-start items-start gap-[21.67px]">
-                <div class="flex justify-start items-start gap-[21.67px]">
-                  <div class="w-[157px] h-[79px] px-[14.45px] pt-[18.06px] pb-[21.67px] bg-white rounded-lg border border-gray-200"></div>
+        <div class="flex flex-col gap-8">
+            <div class="flex flex-col">
+                <div class="w-64 h-56 bg-white rounded-lg shadow border border-[#e4e4e4] flex flex-col justify-center items-center gap-2">
+                    <div class="text-[#1c1d1d] text-m font-medium font-['Inter'] text-left px-8">TOTAL NUMBER OF APPLICATIONS</div>
+                    <div class="w-48 h-28 bg-white rounded-lg border border-gray-200">
+                        <div class="text-center py-6 text-[#717171] text-6xl font-normal font-['Inter']" id="totalApplications">0</div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="w-[54.84px] h-[47.55px] px-[12.77px] py-[10.64px] flex justify-center items-center">
-              <div class="w-[91px] h-12 text-center text-[#717171] text-3xl font-normal font-['Inter'] leading-[45px]" id="totalApplications">21</div>
+            <div>   
+                <form action="DisplayAddFormServlet" method="get">
+                    <button type="submit" class="w-full">
+                        <div class="w-full h-8 p-[7.20px] bg-[#56788f] rounded justify-between items-center inline-flex">
+                            <div class="w-full text-center text-white text-xs font-medium font-['Inter']">ADD NEW RECORD</div>
+                        </div>
+                    </button>
+                </form>    
             </div>
-          </div>     
-          
-          <form action="DisplayAddFormServlet" method="get">
-            <button type="submit">
-              <div class="w-[141px] h-8 p-[7.20px] bg-[#56788f] rounded justify-between items-center inline-flex">
-                <div class="h-[19px] justify-start items-center gap-[10.79px] flex">
-                  <div class="w-[134px] text-center text-white text-xs font-medium font-['Inter'] leading-[18.89px]">ADD</div>
-                </div>
-              </div>
-            </button>
-        </form>     
         </div>
     </div>
     <script>
