@@ -47,7 +47,7 @@
     </header>
     <div class="m-4">
         <div id="main" class="m-10">
-            <form action="UpdatePersonalInfoServlet" method="post">
+            <form action="UpdatePersonalInfoServlet" method="get">
                 <div class="section-header text-center my-8 font-[Inter] text-4xl">PERSONAL INFORMATION</div>    
                 <%
                     Map<String, String> data = (Map<String, String>) request.getAttribute("data");
