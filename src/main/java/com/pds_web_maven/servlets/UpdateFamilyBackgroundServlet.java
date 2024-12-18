@@ -25,13 +25,13 @@ public class UpdateFamilyBackgroundServlet extends HttpServlet {
         family_background family_background = new family_background(
                 req.getParameter("p_id"), req.getParameter("spouse_lname"), req.getParameter("spouse_fname")
                 ,   req.getParameter("spouse_mname"), req.getParameter("spouse_extname"), req.getParameter("spouse_occupation")
-                ,   req.getParameter("spouse_employer"), req.getParameter("spouse_employed_address")
-                ,   req.getParameter("father_lname"), req.getParameter("father_fname"), req.getParameter("father_mname"), "Insert name ext"
+                ,   req.getParameter("spouse_employer"), req.getParameter("spouse_emp_address")
+                ,   req.getParameter("father_lname"), req.getParameter("father_fname"), req.getParameter("father_mname"), req.getParameter("father_extname")
                 ,   req.getParameter("mother_lname"), req.getParameter("mother_fname"), req.getParameter("mother_mname")
             );
         
         family_children family_children = new family_children(
-                req.getParameter("p_id"), req.getParameter("child_fullname"), req.getParameter("child_dob")
+                req.getParameter("fam_bg_id"), req.getParameter("p_id"), req.getParameter("child_fullname"), req.getParameter("child_dob")
             );
         
         Family_backgroundDAO family_backgroundDAO = new Family_backgroundDAO();

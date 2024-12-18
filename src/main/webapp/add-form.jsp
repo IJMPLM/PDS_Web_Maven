@@ -229,7 +229,7 @@
                 </div>
                 <label for="spouse_employer_address" class="flex justify-between items-center col-span-1"><div class="flex">Spouse's Employer Address</div><div class="flex">:</div></label>
                 <div class="input-container col-span-2">
-                    <input type="text" id="spouse_employer_address" name="spouse_employer_address" value="">
+                    <input type="text" id="spouse_emp_address" name="spouse_emp_address" value="">
                 </div>
             </div>
             <div class="grid grid-cols-6 gap-x-8 gap-y-2 font-[Inter] text-xl">

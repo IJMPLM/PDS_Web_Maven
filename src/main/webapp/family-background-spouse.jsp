@@ -25,6 +25,6 @@
     </div>
     <label for="spouse_employer_address" class="flex justify-between items-center col-span-1"><div class="flex">Spouse's Employer Address</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
-        <input type="text" class="readonly-input" id="spouse_employer_address" name="spouse_employer_address" value="<%= respondent.get("spouse_employer_address") %>" readonly>
+        <input type="text" class="readonly-input" id="spouse_emp_address" name="spouse_emp_address" value="<%= respondent.get("spouse_emp_address") %>" readonly>
     </div>
 </div>

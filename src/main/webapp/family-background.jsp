@@ -49,7 +49,7 @@
     <div class="m-4">
         <div id="main" class="m-10">
             <div class="section-header text-center my-8 font-[Inter] text-4xl">FAMILY BACKGROUND</div>
-            <form action="UpdatePersonalInfoServlet" method="get">
+            <form action="UpdateFamilyBackgroundServlet" method="get">
                 <%
                 String p_id = "";
                 Map<String, String> data = (Map<String, String>) request.getAttribute("data");
