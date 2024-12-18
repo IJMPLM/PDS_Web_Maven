@@ -33,25 +33,27 @@ public class Main {
         Contact_infoDAO eCI = new Contact_infoDAO();
         List<Map<String, String>> zx = eCI.getData();
         
-        personal_info clPI = new personal_info("1", "1", "2", "1", 
-                "Cruz", "JANSEN", "Miguel", null, "1997-05-15", "Cebu", 
+        personal_info clPI = new personal_info("69", "1", "1", "2", "1", 
+                "CruzZZ", "JANSSEN", "Miguel", null, "1997-05-15", "Cebu", 
                 "175", "68", "O+", "100000060", "10000060", 
                 "100060", "160", "060", "10060");
-        contact_info clCI = new contact_info("66", "160", "BeachesS St", "Sunset Shores",
-                "Brgy. Cebu", "Cebu City", "Cebu", "6000", "160", 
+        contact_info clCI = new contact_info("69", "160", "BeachesS St", "Sunset Shores",
+                "Brgy. Cebu", "CebuU City", "Cebu", "6000", "160", 
                 "Beach St", "Sunset Shoes", "Brgy. Cebu", "Cebu City", "Cebu", 
                 "6000", "(02) 123-45660", "0917-123-4560", "jon.cruz@email.com");
-        family_background clFB = new family_background("66", 
-                null, null, null, null, null, null, null, 
+        family_background clFB = new family_background("69", 
+                "Iwag", "John", "Ibo", "Jr.", null, null, null, 
                 "Cruz", "Ramon", "Lois", null, "Miguel", "Gloria", "Bautista");
-        family_children clFC = new family_children("66", "QUAck", "2022-03-20");
+        family_children clFC = new family_children("72", "69", "zzzz", "2029-03-20");
         
 //        ePI.addData(clPI);
 //        eCI.addData(clCI);
 //        eFB.addData(clFB);
 //        eFC.addData(clFC);
-//        ePI.deleteEverything(66);
-        
+//        ePI.deleteEverything(68);
+//        ePI.updatePersonalInfo(clPI, clCI);
+        eFB.updateFamilyBackground(clFB, clFC);
+//        System.out.println(clFC.getChildFullname());
         
         // DEBUGGER
         for (Map<String, String> map : hij) {

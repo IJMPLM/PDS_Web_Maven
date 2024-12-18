@@ -53,23 +53,23 @@ public class family_children {
         this.famChId = Integer.parseInt(famChId);
     }
 
-    public family_children(Integer famChId, int p_id, String childFullname, Date childDob) {
+    public family_children(Integer famChId, int p_id, String childFullName, Date childDob) {
         this.famChId = famChId;
         this.p_id = p_id;
-        this.childFullname = convertStrNull(childFullname);
+        this.childFullname = convertStrNull(childFullName);
         this.childDob = childDob;
     }
     
-    public family_children(int p_id, String childFullname, Date childDob) {
+    public family_children(int p_id, String childFullName, Date childDob) {
         this.p_id = p_id;
-        this.childFullname = convertStrNull(childFullname);
+        this.childFullname = convertStrNull(childFullName);
         this.childDob = childDob;
     }
     
     public family_children(String famChId, String p_id, String childFullName, String childDob) {
         this.famChId = Integer.parseInt(famChId);
         this.p_id = Integer.parseInt(p_id);
-        this.childFullname = convertStrNull(childFullname);
+        this.childFullname = convertStrNull(childFullName);
         this.childDob = Date.from((LocalDate.parse(childDob))
                             .atStartOfDay(ZoneId.systemDefault())
                             .toInstant());
@@ -77,7 +77,7 @@ public class family_children {
     
     public family_children(String p_id, String childFullName, String childDob) {
         this.p_id = Integer.parseInt(p_id);
-        this.childFullname = convertStrNull(childFullname);
+        this.childFullname = convertStrNull(childFullName);
         this.childDob = Date.from((LocalDate.parse(childDob))
                             .atStartOfDay(ZoneId.systemDefault())
                             .toInstant());
@@ -85,7 +85,7 @@ public class family_children {
     
     public family_children(int p_id, String childFullName, String childDob) {
         this.p_id = p_id;
-        this.childFullname = convertStrNull(childFullname);
+        this.childFullname = convertStrNull(childFullName);
         this.childDob = Date.from((LocalDate.parse(childDob))
                             .atStartOfDay(ZoneId.systemDefault())
                             .toInstant());
