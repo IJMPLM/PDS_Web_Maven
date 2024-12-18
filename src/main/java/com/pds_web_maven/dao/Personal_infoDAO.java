@@ -63,6 +63,8 @@ public class Personal_infoDAO {
                     (p.getm_name() != null ? " " + p.getm_name() : "") + 
                     (p.getExt_name() != null ? " " + p.getExt_name() : "")
                 );
+                data.put("cit_id", Integer.toString(p.getCit_id()));
+                data.put("cit_acq_id", Integer.toString(p.getCit_acq_id()));
                 data.put("extname", p.getExt_name());
                 data.put("age", p.convertDob(p.getDob()));
                 data.put("birthplace", p.getPob());
@@ -106,6 +108,7 @@ public class Personal_infoDAO {
                     (p.getExt_name() != null ? " " + p.getExt_name() : "")
                 );
                 respondent.put("cit_id", Integer.toString(p.getCit_id()));
+                respondent.put("cit_acq_id", Integer.toString(p.getCit_acq_id()));
                 respondent.put("lname", p.getl_name());
                 respondent.put("fname", p.getf_name());
                 respondent.put("mname", p.getm_name()); 

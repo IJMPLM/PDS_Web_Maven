@@ -50,9 +50,11 @@
         <div id="main" class="m-10">
             <div class="section-header text-center my-8 font-[Inter] text-4xl">FAMILY BACKGROUND</div>    
             <%
+                String p_id = "";
                 Map<String, String> data = (Map<String, String>) request.getAttribute("data");
                 if (data != null) {
                     Map<String, String> respondent = data;
+                    p_id = respondent.get("p_id");
             %>
             <div class="flex justify-end p-4">
                 <button id="editButton" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
@@ -73,6 +75,9 @@
                 }
             %>
         </div>
+        <form action="DeleteRecordServlet" method="post" id="deleteForm">
+            <input type="hidden" name="p_id" value="<%= p_id %>">
+        </form>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -195,6 +200,10 @@
                     const field = this.getAttribute('data-field');
                     // Add your delete logic here
                 });
+            });
+
+            deleteButton.addEventListener('click', function() {
+                document.getElementById('deleteForm').submit();
             });
         });
     </script>

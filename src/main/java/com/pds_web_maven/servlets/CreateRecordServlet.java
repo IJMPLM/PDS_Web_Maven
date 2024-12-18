@@ -22,10 +22,10 @@ public class CreateRecordServlet extends HttpServlet {
             throws ServletException, IOException {
         personal_info personal_info = new personal_info(
                 req.getParameter("gender"),  req.getParameter("civil-status"), req.getParameter("citizenship")
-                ,   "1", req.getParameter("lname"), req.getParameter("fname")
+                ,   req.getParameter("cit_acq_id"), req.getParameter("lname"), req.getParameter("fname")
                 ,   req.getParameter("mname"), req.getParameter("extname"), req.getParameter("dob")
                 ,   req.getParameter("birthplace"), req.getParameter("height"), req.getParameter("weight")
-                ,   req.getParameter("bloodtype"), req.getParameter("gsis_no"), req.getParameter("pagibit_id")
+                ,   req.getParameter("bloodtype"), req.getParameter("gsis_no"), req.getParameter("pagibig_id")
                 ,   req.getParameter("philhealth_id"), req.getParameter("sss_no"), req.getParameter("tin"), req.getParameter("agency_empno")
             );
         Personal_infoDAO personal_infoDAO = new Personal_infoDAO();

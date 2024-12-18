@@ -2,7 +2,7 @@
     <div id="fullname-edit" class="col-span-3 hidden">
         <div class="grid grid-cols-3 gap-y-2 gap-x-8 " >
             <label for="lname" class="flex justify-between items-center"><div class="flex">Last Name</div><div class="flex">:</div></label>
-            <input type="text" id="lname" class="input-container-2 col-span-2" name="lastname" value="<%= respondent.get("lname") %>">
+            <input type="text" id="lname" class="input-container-2 col-span-2" name="lname" value="<%= respondent.get("lname") %>">
             <label for="fname" class="flex justify-between items-center"><div class="flex">First Name</div><div class="flex">:</div></label>
             <input type="text" id="fname" class="input-container-2 col-span-2" name="fname" value="<%= respondent.get("fname") %>">
             <label for="mname" class="flex justify-between items-center"><div class="flex">Middle Name</div><div class="flex">:</div></label>
@@ -44,19 +44,26 @@
     </div>              
     <label for="citizenship" class="flex justify-between items-center"><div class="flex">Citizenship</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
-        <select id="citizenship" class=".input-container-2 readonly-input" name="citizenship">
+        <select id="citizenship" class="input-container-2 readonly-input" name="citizenship">
             <option value="1">Filipino</option>
             <option value="2">Dual Citizenship</option>
         </select>
     </div>                
     <label for="civilstatus" class="flex justify-between items-center"><div class="flex">Civil Status</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
-        <select id="civil-status" class=".input-container-2 readonly-input" name="civil-status">
+        <select id="civil-status" class="input-container-2 readonly-input" name="civil-status">
             <option value="1">Single</option>
             <option value="2">Married</option>
             <option value="3">Widowed</option>
             <option value="4">Separated</option>
             <option value="5">Others</option>
         </select>
-    </div>
+    </div>                
+    <label for="ccit_acq_id" class="flex justify-between items-center"><div class="flex">Citizenship Acquired by</div><div class="flex">:</div></label>
+    <div class="input-container col-span-2">
+        <select id="cit_acq_id" class="input-container-2 readonly-input" name="cit_acq_id">
+            <option value="1">Birth</option>
+            <option value="2">Naturalization</option>
+        </select>
+    </div>    
 </div>
