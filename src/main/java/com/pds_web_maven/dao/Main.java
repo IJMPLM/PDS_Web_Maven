@@ -44,7 +44,7 @@ public class Main {
         family_background clFB = new family_background("69", 
                 "Iwag", "John", "Ibo", "Jr.", null, null, null, 
                 "Cruz", "Ramon", "Lois", null, "Miguel", "Gloria", "Bautista");
-        family_children clFC = new family_children("69", "zzzz", "2029-03-20");
+        family_children clFC = new family_children("72", "69", "zzzz", "2029-03-20");
         
 //        ePI.addData(clPI);
 //        eCI.addData(clCI);
@@ -52,8 +52,8 @@ public class Main {
 //        eFC.addData(clFC);
 //        ePI.deleteEverything(68);
 //        ePI.updatePersonalInfo(clPI, clCI);
-//        eFB.updateFamilyBackground(clFB, clFC);
-        System.out.println(clFC.getChildFullname());
+        eFB.updateFamilyBackground(clFB, clFC);
+//        System.out.println(clFC.getChildFullname());
         
         // DEBUGGER
         for (Map<String, String> map : hij) {
