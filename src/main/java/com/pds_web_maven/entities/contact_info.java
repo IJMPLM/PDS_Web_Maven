@@ -99,23 +99,23 @@ public class contact_info {
 //                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
 //        this.contactId = contactId;
 //        this.p_id = p_id;
-//        this.resHouseNo = resHouseNo;
-//        this.resHouseStreet = resHouseStreet;
-//        this.resVillage = resVillage;
-//        this.resBgy = resBgy;
-//        this.resCitymun = resCitymun;
-//        this.resProv = resProv;
-//        this.resZipcode = resZipcode;
-//        this.permHouseNo = permHouseNo;
-//        this.permHouseStreet = permHouseStreet;
-//        this.permVillage = permVillage;
-//        this.permBgy = permBgy;
-//        this.permCitymun = permCitymun;
-//        this.permProv = permProv;
-//        this.permZipcode = permZipcode;
-//        this.telNo = telNo;
-//        this.mobileNo = mobileNo;
-//        this.emailAddress = emailAddress;
+//        this.resHouseNo = convertStrNull(resHouseNo);
+//        this.resHouseStreet = convertStrNull(resHouseStreet);
+//        this.resVillage = convertStrNull(resVillage);
+//        this.resBgy = convertStrNull(resBgy);
+//        this.resCitymun = convertStrNull(resCitymun);
+//        this.resProv = convertStrNull(resProv);
+//        this.resZipcode = convertStrNull(resZipcode);
+//        this.permHouseNo = convertStrNull(permHouseNo);
+//        this.permHouseStreet = convertStrNull(permHouseStreet);
+//        this.permVillage = convertStrNull(permVillage);
+//        this.permBgy = convertStrNull(permBgy);
+//        this.permCitymun = convertStrNull(permCitymun);
+//        this.permProv = convertStrNull(permProv);
+//        this.permZipcode = convertStrNull(permZipcode);
+//        this.telNo = convertStrNull(telNo);
+//        this.mobileNo = convertStrNull(mobileNo);
+//        this.emailAddress = convertStrNull(emailAddress);
 //    }
     
     public contact_info(int p_id, String resHouseNo, String resHouseStreet, String resVillage, 
@@ -123,23 +123,23 @@ public class contact_info {
                         String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
                         String permZipcode, String telNo, String mobileNo, String emailAddress) {
         this.p_id = p_id;
-        this.resHouseNo = resHouseNo;
-        this.resHouseStreet = resHouseStreet;
-        this.resVillage = resVillage;
-        this.resBgy = resBgy;
-        this.resCitymun = resCitymun;
-        this.resProv = resProv;
-        this.resZipcode = resZipcode;
-        this.permHouseNo = permHouseNo;
-        this.permHouseStreet = permHouseStreet;
-        this.permVillage = permVillage;
-        this.permBgy = permBgy;
-        this.permCitymun = permCitymun;
-        this.permProv = permProv;
-        this.permZipcode = permZipcode;
-        this.telNo = telNo;
-        this.mobileNo = mobileNo;
-        this.emailAddress = emailAddress;
+        this.resHouseNo = convertStrNull(resHouseNo);
+        this.resHouseStreet = convertStrNull(resHouseStreet);
+        this.resVillage = convertStrNull(resVillage);
+        this.resBgy = convertStrNull(resBgy);
+        this.resCitymun = convertStrNull(resCitymun);
+        this.resProv = convertStrNull(resProv);
+        this.resZipcode = convertStrNull(resZipcode);
+        this.permHouseNo = convertStrNull(permHouseNo);
+        this.permHouseStreet = convertStrNull(permHouseStreet);
+        this.permVillage = convertStrNull(permVillage);
+        this.permBgy = convertStrNull(permBgy);
+        this.permCitymun = convertStrNull(permCitymun);
+        this.permProv = convertStrNull(permProv);
+        this.permZipcode = convertStrNull(permZipcode);
+        this.telNo = convertStrNull(telNo);
+        this.mobileNo = convertStrNull(mobileNo);
+        this.emailAddress = convertStrNull(emailAddress);
     }
     
 //    public contact_info(String contactId, String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
@@ -148,23 +148,23 @@ public class contact_info {
 //                        String permZipcode, String telNo, String mobileNo, String emailAddress) {
 //        this.contactId = Integer.parseInt(contactId);
 //        this.p_id = Integer.parseInt(p_id);
-//        this.resHouseNo = resHouseNo;
-//        this.resHouseStreet = resHouseStreet;
-//        this.resVillage = resVillage;
-//        this.resBgy = resBgy;
-//        this.resCitymun = resCitymun;
-//        this.resProv = resProv;
-//        this.resZipcode = resZipcode;
-//        this.permHouseNo = permHouseNo;
-//        this.permHouseStreet = permHouseStreet;
-//        this.permVillage = permVillage;
-//        this.permBgy = permBgy;
-//        this.permCitymun = permCitymun;
-//        this.permProv = permProv;
-//        this.permZipcode = permZipcode;
-//        this.telNo = telNo;
-//        this.mobileNo = mobileNo;
-//        this.emailAddress = emailAddress;
+//        this.resHouseNo = convertStrNull(resHouseNo);
+//        this.resHouseStreet = convertStrNull(resHouseStreet);
+//        this.resVillage = convertStrNull(resVillage);
+//        this.resBgy = convertStrNull(resBgy);
+//        this.resCitymun = convertStrNull(resCitymun);
+//        this.resProv = convertStrNull(resProv);
+//        this.resZipcode = convertStrNull(resZipcode);
+//        this.permHouseNo = convertStrNull(permHouseNo);
+//        this.permHouseStreet = convertStrNull(permHouseStreet);
+//        this.permVillage = convertStrNull(permVillage);
+//        this.permBgy = convertStrNull(permBgy);
+//        this.permCitymun = convertStrNull(permCitymun);
+//        this.permProv = convertStrNull(permProv);
+//        this.permZipcode = convertStrNull(permZipcode);
+//        this.telNo = convertStrNull(telNo);
+//        this.mobileNo = convertStrNull(mobileNo);
+//        this.emailAddress = convertStrNull(emailAddress);
 //    }
     
     public contact_info(String p_id, String resHouseNo, String resHouseStreet, String resVillage, 
@@ -172,23 +172,23 @@ public class contact_info {
                         String permHouseStreet, String permVillage, String permBgy, String permCitymun, String permProv, 
                         String permZipcode, String telNo, String mobileNo, String emailAddress) {
         this.p_id = Integer.parseInt(p_id);
-        this.resHouseNo = resHouseNo;
-        this.resHouseStreet = resHouseStreet;
-        this.resVillage = resVillage;
-        this.resBgy = resBgy;
-        this.resCitymun = resCitymun;
-        this.resProv = resProv;
-        this.resZipcode = resZipcode;
-        this.permHouseNo = permHouseNo;
-        this.permHouseStreet = permHouseStreet;
-        this.permVillage = permVillage;
-        this.permBgy = permBgy;
-        this.permCitymun = permCitymun;
-        this.permProv = permProv;
-        this.permZipcode = permZipcode;
-        this.telNo = telNo;
-        this.mobileNo = mobileNo;
-        this.emailAddress = emailAddress;
+        this.resHouseNo = convertStrNull(resHouseNo);
+        this.resHouseStreet = convertStrNull(resHouseStreet);
+        this.resVillage = convertStrNull(resVillage);
+        this.resBgy = convertStrNull(resBgy);
+        this.resCitymun = convertStrNull(resCitymun);
+        this.resProv = convertStrNull(resProv);
+        this.resZipcode = convertStrNull(resZipcode);
+        this.permHouseNo = convertStrNull(permHouseNo);
+        this.permHouseStreet = convertStrNull(permHouseStreet);
+        this.permVillage = convertStrNull(permVillage);
+        this.permBgy = convertStrNull(permBgy);
+        this.permCitymun = convertStrNull(permCitymun);
+        this.permProv = convertStrNull(permProv);
+        this.permZipcode = convertStrNull(permZipcode);
+        this.telNo = convertStrNull(telNo);
+        this.mobileNo = convertStrNull(mobileNo);
+        this.emailAddress = convertStrNull(emailAddress);
     }
     
     public Integer getContactId() {
@@ -341,6 +341,10 @@ public class contact_info {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+    
+    public String convertStrNull(String attr){
+        return attr == "null" | attr == "N/A" ? null : attr;
     }
 
     @Override

@@ -90,20 +90,20 @@ public class family_background {
                              String motherMnFname, String motherMnMname) {
         this.famBgId = famBgId;
         this.p_id = p_id;
-        this.spouseLname = spouseLname;
-        this.spouseFname = spouseFname;
-        this.spouseMname = spouseMname;
-        this.spouseExtname = spouseExtname;
-        this.spouseOccupation = spouseOccupation;
-        this.spouseEmployer = spouseEmployer;
-        this.spouseEmpAddress = spouseEmpAddress;
-        this.fatherLname = fatherLname;
-        this.fatherFname = fatherFname;
-        this.fatherMname = fatherMname;
-        this.fatherExtname = fatherExtname;
-        this.motherMnLname = motherMnLname;
-        this.motherMnFname = motherMnFname;
-        this.motherMnMname = motherMnMname;
+        this.spouseLname = convertStrNull(spouseLname);
+        this.spouseFname = convertStrNull(spouseFname);
+        this.spouseMname = convertStrNull(spouseMname);
+        this.spouseExtname = convertStrNull(spouseExtname);
+        this.spouseOccupation = convertStrNull(spouseOccupation);
+        this.spouseEmployer = convertStrNull(spouseEmployer);
+        this.spouseEmpAddress = convertStrNull(spouseEmpAddress);
+        this.fatherLname = convertStrNull(fatherLname);
+        this.fatherFname = convertStrNull(fatherFname);
+        this.fatherMname = convertStrNull(fatherMname);
+        this.fatherExtname = convertStrNull(fatherExtname);
+        this.motherMnLname = convertStrNull(motherMnLname);
+        this.motherMnFname = convertStrNull(motherMnFname);
+        this.motherMnMname = convertStrNull(motherMnMname);
     }
     
     public family_background(int p_id, String spouseLname, String spouseFname, 
@@ -111,20 +111,20 @@ public class family_background {
                              String fatherLname, String fatherFname, String fatherMname, String fatherExtname, String motherMnLname, 
                              String motherMnFname, String motherMnMname) {
         this.p_id = p_id;
-        this.spouseLname = spouseLname;
-        this.spouseFname = spouseFname;
-        this.spouseMname = spouseMname;
-        this.spouseExtname = spouseExtname;
-        this.spouseOccupation = spouseOccupation;
-        this.spouseEmployer = spouseEmployer;
-        this.spouseEmpAddress = spouseEmpAddress;
-        this.fatherLname = fatherLname;
-        this.fatherFname = fatherFname;
-        this.fatherMname = fatherMname;
-        this.fatherExtname = fatherExtname;
-        this.motherMnLname = motherMnLname;
-        this.motherMnFname = motherMnFname;
-        this.motherMnMname = motherMnMname;
+        this.spouseLname = convertStrNull(spouseLname);
+        this.spouseFname = convertStrNull(spouseFname);
+        this.spouseMname = convertStrNull(spouseMname);
+        this.spouseExtname = convertStrNull(spouseExtname);
+        this.spouseOccupation = convertStrNull(spouseOccupation);
+        this.spouseEmployer = convertStrNull(spouseEmployer);
+        this.spouseEmpAddress = convertStrNull(spouseEmpAddress);
+        this.fatherLname = convertStrNull(fatherLname);
+        this.fatherFname = convertStrNull(fatherFname);
+        this.fatherMname = convertStrNull(fatherMname);
+        this.fatherExtname = convertStrNull(fatherExtname);
+        this.motherMnLname = convertStrNull(motherMnLname);
+        this.motherMnFname = convertStrNull(motherMnFname);
+        this.motherMnMname = convertStrNull(motherMnMname);
     }
 
     public family_background(String famBgId, String p_id, String spouseLname, String spouseFname, 
@@ -133,20 +133,20 @@ public class family_background {
                              String motherMnFname, String motherMnMname) {
         this.famBgId = Integer.parseInt(famBgId);
         this.p_id = Integer.parseInt(p_id);
-        this.spouseLname = spouseLname;
-        this.spouseFname = spouseFname;
-        this.spouseMname = spouseMname;
-        this.spouseExtname = spouseExtname;
-        this.spouseOccupation = spouseOccupation;
-        this.spouseEmployer = spouseEmployer;
-        this.spouseEmpAddress = spouseEmpAddress;
-        this.fatherLname = fatherLname;
-        this.fatherFname = fatherFname;
-        this.fatherMname = fatherMname;
-        this.fatherExtname = fatherExtname;
-        this.motherMnLname = motherMnLname;
-        this.motherMnFname = motherMnFname;
-        this.motherMnMname = motherMnMname;
+        this.spouseLname = convertStrNull(spouseLname);
+        this.spouseFname = convertStrNull(spouseFname);
+        this.spouseMname = convertStrNull(spouseMname);
+        this.spouseExtname = convertStrNull(spouseExtname);
+        this.spouseOccupation = convertStrNull(spouseOccupation);
+        this.spouseEmployer = convertStrNull(spouseEmployer);
+        this.spouseEmpAddress = convertStrNull(spouseEmpAddress);
+        this.fatherLname = convertStrNull(fatherLname);
+        this.fatherFname = convertStrNull(fatherFname);
+        this.fatherMname = convertStrNull(fatherMname);
+        this.fatherExtname = convertStrNull(fatherExtname);
+        this.motherMnLname = convertStrNull(motherMnLname);
+        this.motherMnFname = convertStrNull(motherMnFname);
+        this.motherMnMname = convertStrNull(motherMnMname);
     }
 
     public family_background(String p_id, String spouseLname, String spouseFname, 
@@ -154,20 +154,20 @@ public class family_background {
                              String fatherLname, String fatherFname, String fatherMname, String fatherExtname, String motherMnLname, 
                              String motherMnFname, String motherMnMname) {
         this.p_id = Integer.parseInt(p_id);
-        this.spouseLname = spouseLname;
-        this.spouseFname = spouseFname;
-        this.spouseMname = spouseMname;
-        this.spouseExtname = spouseExtname;
-        this.spouseOccupation = spouseOccupation;
-        this.spouseEmployer = spouseEmployer;
-        this.spouseEmpAddress = spouseEmpAddress;
-        this.fatherLname = fatherLname;
-        this.fatherFname = fatherFname;
-        this.fatherMname = fatherMname;
-        this.fatherExtname = fatherExtname;
-        this.motherMnLname = motherMnLname;
-        this.motherMnFname = motherMnFname;
-        this.motherMnMname = motherMnMname;
+        this.spouseLname = convertStrNull(spouseLname);
+        this.spouseFname = convertStrNull(spouseFname);
+        this.spouseMname = convertStrNull(spouseMname);
+        this.spouseExtname = convertStrNull(spouseExtname);
+        this.spouseOccupation = convertStrNull(spouseOccupation);
+        this.spouseEmployer = convertStrNull(spouseEmployer);
+        this.spouseEmpAddress = convertStrNull(spouseEmpAddress);
+        this.fatherLname = convertStrNull(fatherLname);
+        this.fatherFname = convertStrNull(fatherFname);
+        this.fatherMname = convertStrNull(fatherMname);
+        this.fatherExtname = convertStrNull(fatherExtname);
+        this.motherMnLname = convertStrNull(motherMnLname);
+        this.motherMnFname = convertStrNull(motherMnFname);
+        this.motherMnMname = convertStrNull(motherMnMname);
     }
 
     public Integer getFamBgId() {
@@ -338,5 +338,9 @@ public class family_background {
     
     public String convertMotherFN(String Mother_lname){
         return Mother_lname == null ? "N/A" : getMotherMnLname() + ", " + getMotherMnFname() + " " + getMotherMnMname();
+    }
+    
+    public String convertStrNull(String attr){
+        return attr == "null" | attr == "N/A" ? null : attr;
     }
 }
