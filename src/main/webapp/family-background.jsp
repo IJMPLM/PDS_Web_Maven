@@ -48,33 +48,36 @@
     </header>
     <div class="m-4">
         <div id="main" class="m-10">
-            <div class="section-header text-center my-8 font-[Inter] text-4xl">FAMILY BACKGROUND</div>    
-            <%
+            <div class="section-header text-center my-8 font-[Inter] text-4xl">FAMILY BACKGROUND</div>
+            <form action="UpdatePersonalInfoServlet" method="get">
+                <%
                 String p_id = "";
                 Map<String, String> data = (Map<String, String>) request.getAttribute("data");
                 if (data != null) {
                     Map<String, String> respondent = data;
                     p_id = respondent.get("p_id");
-            %>
-            <div class="flex justify-end p-4">
-                <button id="editButton" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
-                <button id="deleteButton" class="bg-gray-500 text-white px-4 py-2 rounded">Delete</button>
-                <button id="discardButton" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Discard Changes</button>
-                <button id="updateButton" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Update</button>
-            </div>
-            <div id="family_info" class="grid grid-cols-6 gap-x-8 gap-y-2 font-[Inter] text-xl">
-                <%@ include file="family-background-spouse.jsp" %>
-                <%@ include file="family-background-parents.jsp" %>
-            </div>
-            <%@ include file="family-background-children.jsp" %>
-            <%
-                } else {
-            %>
-                <div>No data available</div>
-            <%
-                }
-            %>
-        </div>
+                %>
+                <div class="flex justify-end p-4">
+                    <button id="editButton" type="button" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
+                    <button id="deleteButton" type="button" class="bg-gray-500 text-white px-4 py-2 rounded">Delete</button>
+                    <button id="discardButton" type="button" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Discard Changes</button>
+                    <button id="updateButton" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Update</button>
+                </div>
+                <div id="family_info" class="grid grid-cols-6 gap-x-8 gap-y-2 font-[Inter] text-xl">
+                    <%@ include file="family-background-spouse.jsp" %>
+                    <%@ include file="family-background-parents.jsp" %>
+                </div>
+                <%@ include file="family-background-children.jsp" %>
+                <%
+                    } else {
+                %>
+                    <div>No data available</div>
+                <%
+                    }
+                %>
+                </div>
+                <input type="hidden" name="p_id" value="<%= p_id %>">
+            </form>    
         <form action="DeleteRecordServlet" method="post" id="deleteForm">
             <input type="hidden" name="p_id" value="<%= p_id %>">
         </form>

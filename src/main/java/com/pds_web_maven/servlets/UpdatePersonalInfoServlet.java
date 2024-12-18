@@ -5,7 +5,6 @@
 package com.pds_web_maven.servlets;
 
 import java.io.IOException;
-import java.util.Enumeration;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
