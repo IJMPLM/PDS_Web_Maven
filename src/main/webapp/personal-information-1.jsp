@@ -15,7 +15,7 @@
     <div class="input-container label-text  col-span-2">
         <input type="text" class="readonly-input" id="fullname" name="fullname" value="<%= respondent.get("fullname") %>" readonly>
     </div>
-    <label for="height" class="flex justify-between items-center"><div class="flex">Height (m)</div><div class="flex">:</div></label>
+    <label for="height" class="flex justify-between items-center"><div class="flex">Height (cm)</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
         <input type="text" class="readonly-input" id="height" name="height" value="<%= respondent.get("height") %>" readonly>
     </div>
