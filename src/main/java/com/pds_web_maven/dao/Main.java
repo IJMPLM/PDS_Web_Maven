@@ -41,10 +41,10 @@ public class Main {
                 "Brgy. Cebu", "CebuU City", "Cebu", "6000", "160", 
                 "Beach St", "Sunset Shoes", "Brgy. Cebu", "Cebu City", "Cebu", 
                 "6000", "(02) 123-45660", "0917-123-4560", "jon.cruz@email.com");
-        family_background clFB = new family_background("69", 
-                "Iwag", "John", "Ibo", "Jr.", null, null, null, 
+        family_background clFB = new family_background("65", "69", 
+                "TEST", "TEST", "Ibo", "Jr.", null, null, null, 
                 "Cruz", "Ramon", "Lois", null, "Miguel", "Gloria", "Bautista");
-        family_children clFC = new family_children("72", "69", "zzzz", "2029-03-20");
+        family_children clFC = new family_children("72", "69", "TEST", "2029-03-20");
         
 //        ePI.addData(clPI);
 //        eCI.addData(clCI);
@@ -53,11 +53,11 @@ public class Main {
 //        ePI.deleteEverything(68);
 //        ePI.updatePersonalInfo(clPI, clCI);
         eFB.updateFamilyBackground(clFB, clFC);
-//        System.out.println(clFC.getChildFullname());
+//        System.out.println(clFB.getSpouseLname());
         
         // DEBUGGER
-        for (Map<String, String> map : hij) {
-//           System.out.println(map.get("child_fullname"));
+        for (Map<String, String> map : def) {
+//           System.out.println(map.get("spouse_lname"));
         }
     }
 }

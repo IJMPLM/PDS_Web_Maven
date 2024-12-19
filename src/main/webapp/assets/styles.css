@@ -620,6 +620,10 @@ video {
   margin-bottom: 2rem;
 }
 
+.mb-48 {
+  margin-bottom: 12rem;
+}
+
 .mt-16 {
   margin-top: 4rem;
 }
@@ -690,6 +694,10 @@ video {
 
 .w-3\/12 {
   width: 25%;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-4\/12 {
@@ -787,6 +795,10 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-8 {

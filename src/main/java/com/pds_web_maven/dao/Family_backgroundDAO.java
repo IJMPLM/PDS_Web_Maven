@@ -109,7 +109,7 @@ public class Family_backgroundDAO {
     
     public void updateData(Session session, family_background User){
         try {
-            family_background data = session.get(family_background.class, User.getP_id());
+            family_background data = session.get(family_background.class, User.getFamBgId());
             if (data != null){
                 data.setSpouseLname(User.getSpouseLname());
                 data.setSpouseFname(User.getSpouseFname());
@@ -125,7 +125,6 @@ public class Family_backgroundDAO {
                 data.setMotherMnLname(User.getMotherMnLname());
                 data.setMotherMnFname(User.getMotherMnFname());
                 data.setMotherMnMname(User.getMotherMnMname());
-                System.out.println("Data Updated.");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -134,7 +133,7 @@ public class Family_backgroundDAO {
     
     public void updateFamilyBackground(family_background UserFB, family_children UserFC){
         factory = new Configuration().configure("hibernate.cfg.xml")
-                                  .addAnnotatedClass(this.getClass())
+                                  .addAnnotatedClass(family_background.class) // changed
                                   .addAnnotatedClass(family_children.class)
                                   .buildSessionFactory();
         session = factory.getCurrentSession();
