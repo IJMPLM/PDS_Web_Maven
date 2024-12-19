@@ -23,7 +23,7 @@ public class UpdateFamilyBackgroundServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         family_background family_background = new family_background(
-                req.getParameter("p_id"), req.getParameter("spouse_lname"), req.getParameter("spouse_fname")
+                req.getParameter("fam_bg_id") ,req.getParameter("p_id"), req.getParameter("spouse_lname"), req.getParameter("spouse_fname")
                 ,   req.getParameter("spouse_mname"), req.getParameter("spouse_extname"), req.getParameter("spouse_occupation")
                 ,   req.getParameter("spouse_employer"), req.getParameter("spouse_emp_address")
                 ,   req.getParameter("father_lname"), req.getParameter("father_fname"), req.getParameter("father_mname"), req.getParameter("father_extname")

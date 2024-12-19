@@ -51,11 +51,12 @@
             <div class="section-header text-center my-8 font-[Inter] text-4xl">FAMILY BACKGROUND</div>
             <form action="UpdateFamilyBackgroundServlet" method="get">
                 <%
-                String p_id = "";
+                String p_id = "", fam_bg_id="";
                 Map<String, String> data = (Map<String, String>) request.getAttribute("data");
                 if (data != null) {
                     Map<String, String> respondent = data;
                     p_id = respondent.get("p_id");
+                    fam_bg_id = respondent.get("fam_bg_id");
                 %>
                 <div class="flex justify-end p-4 gap-4">
                     <button id="editButton" type="button" class="w-32 text-center bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
