@@ -32,7 +32,7 @@
             <input type="text" id="father_fname" class="input-container-2 col-span-2" name="father_fname" value="">
             <label for="father_mname" class="flex justify-between items-center"><div class="flex">Father's Middle Name</div><div class="flex">:</div></label>
             <input type="text" id="father_mname" class="input-container-2 col-span-2" name="father_mname" value="">
-            <label for="father_mname" class="flex justify-between items-center"><div class="flex">Father's Name Extension</div><div class="flex">:</div></label>
+            <label for="father_extname" class="flex justify-between items-center"><div class="flex">Father's Name Extension</div><div class="flex">:</div></label>
             <input type="text" id="father_extname" class="input-container-2 col-span-2" name="father_extname" value="">
         </div>
     </div>

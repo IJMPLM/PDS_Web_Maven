@@ -47,7 +47,7 @@
         <%@ include file="dashboard-header.jsp" %>
     </header>
     <div class="m-4">
-        <div id="main" class="m-10">
+        <div id="main" class="m-10 mb-48">
             <div class="section-header text-center my-8 font-[Inter] text-4xl">FAMILY BACKGROUND</div>
             <form action="UpdateFamilyBackgroundServlet" method="get">
                 <%
@@ -57,11 +57,11 @@
                     Map<String, String> respondent = data;
                     p_id = respondent.get("p_id");
                 %>
-                <div class="flex justify-end p-4">
-                    <button id="editButton" type="button" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
-                    <button id="deleteButton" type="button" class="bg-gray-500 text-white px-4 py-2 rounded">Delete</button>
-                    <button id="discardButton" type="button" class="bg-gray-500 text-white px-4 py-2 rounded hidden">Discard Changes</button>
-                    <button id="updateButton" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hidden">Update</button>
+                <div class="flex justify-end p-4 gap-4">
+                    <button id="editButton" type="button" class="w-32 text-center bg-blue-500 text-white px-4 py-2 rounded">Edit</button>
+                    <button id="deleteButton" type="button" class="w-32 text-center bg-gray-500 text-white px-4 py-2 rounded">Delete</button>
+                    <button id="discardButton" type="button" class="w-32 text-center bg-gray-500 text-white px-4 py-2 rounded hidden">Discard Changes</button>
+                    <button id="updateButton" type="submit" class="w-32 text-center bg-blue-500 text-white px-4 py-2 rounded hidden">Update</button>
                 </div>
                 <div id="family_info" class="grid grid-cols-6 gap-x-8 gap-y-2 font-[Inter] text-xl">
                     <%@ include file="family-background-spouse.jsp" %>

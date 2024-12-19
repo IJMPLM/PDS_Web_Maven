@@ -36,7 +36,7 @@ public class CreateRecordServlet extends HttpServlet {
                 ,   req.getParameter("res_village"), req.getParameter("res_bgy"), req.getParameter("res_citymun")
                 ,   req.getParameter("res_prov"), req.getParameter("res_zipcode"), req.getParameter("perm_house_no")
                 ,   req.getParameter("perm_house_street"), req.getParameter("perm_village"), req.getParameter("perm_bgy")
-                ,   req.getParameter("citymun"), req.getParameter("perm_prov"), req.getParameter("perm_zipcode")
+                ,   req.getParameter("perm_citymun"), req.getParameter("perm_prov"), req.getParameter("perm_zipcode")
                 ,   req.getParameter("tel_no"), req.getParameter("mobile_no"), req.getParameter("email_addr")
             );
         Contact_infoDAO contact_infoDAO = new Contact_infoDAO();

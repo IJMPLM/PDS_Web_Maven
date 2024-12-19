@@ -37,7 +37,7 @@
     </div>
     <label for="gender" class="flex justify-between items-center"><div class="flex">Sex</div><div class="flex">:</div></label>
     <div class="input-container col-span-2">
-        <select id="gender" class=".input-container-2 readonly-input" name="gender">
+        <select id="gender" class="input-container-2 readonly-input" name="gender">
             <option value="1">Male</option>
             <option value="2">Female</option>
         </select>
