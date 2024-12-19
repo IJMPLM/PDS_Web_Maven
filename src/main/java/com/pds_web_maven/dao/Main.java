@@ -42,7 +42,7 @@ public class Main {
                 "Beach St", "Sunset Shoes", "Brgy. Cebu", "Cebu City", "Cebu", 
                 "6000", "(02) 123-45660", "0917-123-4560", "jon.cruz@email.com");
         family_background clFB = new family_background("65", "69", 
-                "TEST", "TEST", "Ibo", "Jr.", null, null, null, 
+                "TESTTT", "TEST", "Ibo", "Jr.", null, null, null, 
                 "Cruz", "Ramon", "Lois", null, "Miguel", "Gloria", "Bautista");
         family_children clFC = new family_children("72", "69", "TEST", "2029-03-20");
         
